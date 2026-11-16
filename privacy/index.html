@@ -1,0 +1,1412 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>プライバシーポリシー｜株式会社ハローニューミー</title>
+<meta name="description" content="">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
+<link rel="preload" href="../assets/fonts/MomoTrustDisplay-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<style>@font-face{font-family:"Momo Trust Display";src:url(../assets/fonts/MomoTrustDisplay-Regular.ttf) format("truetype");font-display:swap}</style>
+<script>document.documentElement.classList.add("js")</script>
+<style>/* 株式会社ハローニューミー 会社サイト 静的版。数値の正本は ../設計書.md の5章 */
+:root{
+  --blue:#164FB8;--pale:#E7F3FF;--pink:#EF839B;--pinkd:#C2365D;--pinkp:#FCCFD9;--pinkpp:#FDEEF2;--green:#10B985;--greenp:#A7F3D2;
+  --ink:#1A1A1A;--sub:#616161;--line:#E1E1E1;
+  --fs14:.875rem;--fs16:1rem;--fs20:1.25rem;--fs28:clamp(1.375rem,2.4vw,1.75rem);--fs44:clamp(1.75rem,4vw,2.75rem);
+  --en:clamp(4rem,9.2vw,8.5rem);--en2:clamp(2.75rem,6vw,5rem);
+  --s-静:clamp(58px,8vw,96px);--s-中:clamp(96px,13vw,160px);--s-強:clamp(144px,19vw,240px);
+  --wrap:1120px;--col:640px;--r:24px;
+  --ease:cubic-bezier(.33,1,.68,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);background:#fff;font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;font-size:var(--fs16);line-height:1.9;font-feature-settings:"palt"}
+img{max-width:100%}
+a{color:inherit}
+h1,h2,h3,p,dl,dd,ul{margin:0;padding:0}
+ul{list-style:none}
+h1,h2,h3{line-height:1.5;letter-spacing:.04em;word-break:auto-phrase;text-wrap:balance}
+p{max-width:var(--col)}
+.en{font-family:"Syne","Avenir Next","Helvetica Neue",sans-serif;font-weight:600;letter-spacing:-.02em;line-height:1}
+.script{font-family:"Snell Roundhand","Savoye LET","Apple Chancery",cursive;font-weight:700;line-height:1;white-space:nowrap}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.kari{font-size:.6875rem;font-weight:400;border:1px solid var(--pink);color:#b0405a;padding:0 5px;margin-right:6px;vertical-align:middle;letter-spacing:0;white-space:nowrap}
+.wait{font-size:var(--fs14);color:#8a4a57;background:#fdf1f4;border-radius:8px;padding:6px 12px;margin-top:20px;max-width:var(--col)}
+.wait::before{content:"確認待ち｜"}
+.nw{white-space:nowrap}
+.ph-kind{display:inline-block;font-weight:700;color:#fff;background:var(--blue);border-radius:99px;padding:6px 16px;margin-bottom:20px;font-size:var(--fs14);letter-spacing:.06em}
+.kind{display:block;font-size:.8125rem;color:var(--sub);font-weight:700;letter-spacing:.08em}
+form.demo .opt a{display:inline-block;padding:10px 0}
+/* 公開用（html に .draft がない時）は、確認中の表示を出さない（build.py の DRAFT） */
+html:not(.draft) :is(.kari,.wait,.wait-inline,.ph-note,.kari-note,.tile.pending,.ch1 figcaption,.finale figcaption){display:none!important}
+
+/* 空：FVは動画、ほかの「窓」は動画から切り出した1コマ */
+.sky{position:relative;overflow:hidden;background:#2b6cc0 var(--sky) center/cover no-repeat}
+.skyv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* FVの文字入り動画（class は fvv。下層ページの .hero（青い地・余白つき）と名前が重なって上下に青い帯が出たため改名、2026-11-16）。
+   文字の塊は画面の左寄り（横40%あたり）なので、縦長の画面でも文字が中央に来るように寄せる */
+.skyv.fvv{object-position:40% 50%}
+/* 動画が読み込まれるまでの間：ブラウザによってはポスター画像が上下に余白つきで出るので、同じ画像を地にも敷く */
+.fv.sky{background:#c9d6e6 url(assets/hero-poster.jpg) 40% 50%/cover no-repeat}
+
+/* ヘッダー */
+.hd{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;position:relative;z-index:10}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+.ft :focus-visible,.cta :focus-visible,.hero :focus-visible,.home:not(.past) .hd :focus-visible,.fv :focus-visible,.pg article:first-child :focus-visible{outline-color:#fff}
+.hd .logo{display:block;line-height:1;padding:8px 0;text-decoration:none;color:inherit}
+/* ロゴは画像をやめ、書体 Momo Trust Display の文字で組む（2026-11-16 本人指定）。色は文字色に従う（空の上は白、白い地では墨） */
+.logo-type{display:block;font-family:"Momo Trust Display",sans-serif;font-size:37px;line-height:1;letter-spacing:0;white-space:nowrap;opacity:.92}
+@media(max-width:860px){.logo-type{font-size:27px}}   /* スマホはメニューのボタンと並ぶので小さく */
+.logo-type small{font-size:.6em}
+.tel .en{display:inline-block;padding:8px 0}
+.hd nav ul{display:flex;gap:28px;font-size:var(--fs14)}
+.hd nav a{text-decoration:none;padding:8px 0;border-bottom:1px solid transparent;transition:border-color .3s var(--ease)}
+.hd details a[aria-current]{font-weight:700}
+.hd details{display:none}
+/* PCのメニュー（2026-11-16 本人指定。参考：Liquid Glass Navbar）：すりガラスの丸いバー。乗せた項目へガラスのレンズが伸びながら移り、
+   離すと今のページの項目へ戻る（ホームには今のページがないので消える）。動いている間はレンズのふちに虹色が強く出る。位置と伸びは app.js */
+.hd nav.pc{position:relative;padding:5px;border-radius:99px;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.8);
+  box-shadow:0 8px 28px rgba(22,79,184,.12),inset 0 1px 0 rgba(255,255,255,.95);-webkit-backdrop-filter:blur(14px) saturate(1.6);backdrop-filter:blur(14px) saturate(1.6)}
+.home:not(.past) .hd nav.pc{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.45);box-shadow:0 8px 28px rgba(10,40,90,.12),inset 0 1px 0 rgba(255,255,255,.5)}
+.hd nav.pc ul{position:relative;z-index:1;gap:2px}
+.hd nav.pc a{display:block;padding:11px 18px;border:0;border-radius:99px;outline-offset:2px}
+.hd nav.pc .lens{position:absolute;left:0;top:5px;bottom:5px;width:0;border-radius:99px;pointer-events:none;opacity:0;scale:.8;
+  transition:opacity .35s ease,scale .45s cubic-bezier(.34,1.56,.64,1);
+  background:linear-gradient(180deg,rgba(255,255,255,.6),rgba(255,255,255,.18));
+  box-shadow:0 0 0 1px rgba(140,160,190,.28),inset 0 0 0 1px rgba(255,255,255,.95),inset 0 2px 3px rgba(255,255,255,.9),inset 0 -3px 8px rgba(22,79,184,.14),0 4px 14px rgba(22,79,184,.18);
+  -webkit-backdrop-filter:blur(2px) saturate(1.8) brightness(1.06);backdrop-filter:blur(2px) saturate(1.8) brightness(1.06)}
+.hd nav.pc .lens::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;
+  background:conic-gradient(from 200deg,#ffc2d1,#c9e4ff,#bff0dc,#ffe9b0,#e7c9ff,#ffc2d1);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);
+  opacity:calc(.5 + var(--m,0) * .5)}
+.hd nav.pc .lens.on{opacity:1;scale:1}
+.home:not(.past) .hd nav.pc .lens{background:linear-gradient(180deg,rgba(255,255,255,.38),rgba(255,255,255,.08))}
+.sub .hd{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(10px)}
+.home .hd{position:fixed;left:0;right:0;top:0;color:#fff;transition:background .3s var(--ease),color .3s var(--ease)}
+.home.past .hd{color:var(--ink);background:rgba(255,255,255,.92);backdrop-filter:blur(10px)}
+@media(max-width:860px){
+  .hd nav.pc{display:none}
+  .hd details{display:block;position:relative}
+  .hd summary{white-space:nowrap;list-style:none;cursor:pointer;font-size:var(--fs14);padding:10px 16px;border:1px solid currentColor;border-radius:99px;min-height:44px}
+  .hd summary::-webkit-details-marker{display:none}
+  .hd details ul{position:absolute;right:0;top:52px;background:#fff;color:var(--ink);padding:8px 20px;border-radius:16px;box-shadow:0 8px 32px rgba(22,79,184,.18);min-width:240px}
+  .hd details li a{display:block;padding:12px 0;text-decoration:none;border-bottom:1px solid var(--line)}
+  .hd details li:last-child a{border:0}
+}
+
+/* 丸矢印のリンク */
+/* ボタン（2026-11-16 本人指定。参考：Flow Button、色はサイトのピンクにそろえる。同日「小さすぎる、もっと目立つように」で 高さ48→64px・文字15→17px・枠をピンクの2px・白い地と淡い影）：細いピンクの枠の丸いボタン。
+   乗せると中央からピンクの円が広がって塗り、角が少し四角くなり、右の矢印が出ていき左から矢印が入ってくる。文字は白へ。押すと少し縮む */
+.more{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;min-height:64px;padding:18px 60px;margin-top:40px;
+  border:2px solid var(--pink);border-radius:100px;background:#fff;color:#111;font:inherit;font-size:1.0625rem;font-weight:700;letter-spacing:.06em;line-height:1.4;box-shadow:0 10px 24px -12px rgba(239,131,155,.7);
+  text-decoration:none;overflow:hidden;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+  transition:color .6s cubic-bezier(.23,1,.32,1),border-color .6s cubic-bezier(.23,1,.32,1),border-radius .6s cubic-bezier(.23,1,.32,1),transform .6s cubic-bezier(.23,1,.32,1)}
+.more .fb-t{position:relative;z-index:1;translate:-14px 0;transition:translate .8s ease-out}
+.more .fb-c{position:absolute;top:50%;left:50%;width:16px;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:var(--pink);opacity:0;z-index:-1;
+  transition:width .8s cubic-bezier(.19,1,.22,1),opacity .8s cubic-bezier(.19,1,.22,1)}
+.more .fb-a{position:absolute;top:50%;width:20px;height:20px;margin-top:-10px;fill:none;stroke:var(--pink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;z-index:2;
+  transition:left .8s cubic-bezier(.34,1.56,.64,1),right .8s cubic-bezier(.34,1.56,.64,1),stroke .8s cubic-bezier(.34,1.56,.64,1)}
+.more .fb-l{left:-25%}.more .fb-r{right:24px}
+.more:hover,.more:focus-visible{color:#fff;border-color:transparent;border-radius:12px}
+.more:hover .fb-t,.more:focus-visible .fb-t{translate:14px 0}
+.more:hover .fb-c,.more:focus-visible .fb-c{width:max(320px,125%);opacity:1}
+.more:hover .fb-l,.more:focus-visible .fb-l{left:24px;stroke:#fff}
+.more:hover .fb-r,.more:focus-visible .fb-r{right:-25%;stroke:#fff}
+.more:active{transform:scale(.95)}
+.more:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.hero .more,.cta .more{color:#fff;background:transparent;border-color:#fff;box-shadow:none}.hero .more .fb-a,.cta .more .fb-a{stroke:#fff}   /* 青い地の上 */
+@media (prefers-reduced-motion: reduce){.more,.more *{transition-duration:.01s!important}}
+.more+.more{margin-left:16px}
+@media(max-width:600px){.more{min-height:60px;padding:16px 46px;font-size:1rem;letter-spacing:.03em}.more .fb-r{right:18px}.more:hover .fb-l,.more:focus-visible .fb-l{left:18px}}   /* スマホは長い文言でも折り返しを減らす */
+
+/* ホーム：A案・パターン1「一本のペンの線」（visual/full-a/p1-top.png・p1-bottom.png を再現） */
+.home main{position:relative;overflow-x:clip}
+.pen{position:absolute;left:0;top:0;width:100%;pointer-events:none;z-index:4;overflow:visible}
+.pen path{fill:none;stroke:var(--pink);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.pen .pen-base{stroke:none}
+/* 筆跡：動く端末では .pen-ink は形の元だけにして、飛行機の後ろで薄れて消える筆跡（.pen-tail）だけを見せる */
+.pen .pen-ink{stroke:none}
+.pen .pen-tail{stroke-width:1.5;stroke:#f2a2b6}   /* 控えめに（2026-11-16 本人指定。2.5px の濃いピンク → 1.5px の淡いピンク） */
+@media (prefers-reduced-motion: reduce){.pen .pen-ink{stroke:#f2a2b6;stroke-width:1.5}.pen .pen-tail{display:none}}
+.pen .pen-plane{transition:opacity .3s}
+.pen .pen-plane path{stroke:var(--pinkd);stroke-width:1.3;stroke-linejoin:round}
+.pen .pen-plane .w1{fill:#fff}
+.pen .pen-plane .w2{fill:var(--pinkpp)}
+.pen .pen-plane .k{fill:var(--pinkp)}
+.pen-start,.pen-pt{position:absolute;width:0;height:0;pointer-events:none}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.chip{display:inline-block;background:var(--pink);color:#fff;font-size:var(--fs14);font-weight:700;letter-spacing:.08em;padding:2px 14px;border-radius:4px;line-height:1.7}
+.win{width:clamp(180px,20vw,300px);aspect-ratio:1;border-radius:50%;box-shadow:0 0 0 12px rgba(22,79,184,.1)}
+.ph{background:#d6e6f9;border-radius:var(--r);min-height:320px;display:grid;place-items:center;color:#3a4f73;font-size:var(--fs14);padding:16px;text-align:center}
+.tel{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 20px}
+.tel .en{font-size:var(--fs44);color:var(--blue);text-decoration:none;display:inline-block;padding:8px 0}
+
+/* FV */
+.fv{height:100svh;min-height:600px;color:#fff;--ss:clamp(3.5rem,15vw,13.75rem)}
+/* 動画をそのまま見せる（青い層は 2026-11-16 本人指示で外した） */
+.fv .tint{display:none}
+/* 冒頭は動画だけ。雲が開いて文字が見えた時（動画の4.4秒。app.js が .reveal を付ける）に、
+   ヘッダーが上からすべり降り、少し遅れて目次と下の線が出る。スクロールやキー操作があればすぐ出す */
+.home .hd{transform:translateY(-110%);opacity:0;transition:transform 1.1s var(--ease),opacity .8s var(--ease),background .3s var(--ease),color .3s var(--ease)}
+.home.reveal .hd{transform:none;opacity:1}
+.fv .index,.fv .scroll{opacity:0;transform:translateY(12px);transition:opacity 1.2s var(--ease) .9s,transform 1.2s var(--ease) .9s}
+.home.reveal .fv .index,.home.reveal .fv .scroll{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.home .hd,.fv .index,.fv .scroll{transition:none}}
+.fv .script{font-family:"Mrs Saint Delafield","Snell Roundhand",cursive;position:absolute;left:50%;top:38%;transform:translate(-50%,-50%) rotate(-5deg);font-size:var(--ss);font-weight:400;line-height:1;white-space:nowrap;text-shadow:0 2px 8px rgba(10,30,70,.28)}
+.fv .script br{display:none}
+.fv .pen-start{position:relative;display:inline-block;vertical-align:baseline}
+.fv h1{position:absolute;left:0;right:0;top:calc(38% + var(--sh,calc(var(--ss)*1.1))/2 + 8px);text-align:center;font-size:clamp(.9375rem,1.6vw,1.375rem);font-weight:400;letter-spacing:.24em;padding:0 16px;text-shadow:0 1px 3px rgba(10,30,70,.45)}
+.fv .index{position:absolute;left:0;right:0;bottom:clamp(72px,12vh,128px);display:flex;justify-content:center;gap:clamp(40px,8vw,128px)}
+.fv .index a{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#fff;text-shadow:0 1px 3px rgba(10,30,70,.4);padding:6px 4px;min-height:44px}
+.fv .index .en{font-size:clamp(1.25rem,2.2vw,1.875rem);letter-spacing:.14em;color:#fff;line-height:1.1}
+.fv .index span+span{font-size:var(--fs14);letter-spacing:.2em;margin-top:6px;text-shadow:0 1px 3px rgba(10,30,70,.7),0 0 12px rgba(10,30,70,.45)}   /* 雲の白い所でも読めるよう影を強く */
+.fv .scroll{position:absolute;left:50%;bottom:0;width:1px;height:clamp(40px,8vh,80px);background:#fff}
+@media(max-width:860px){
+  .fv .script{line-height:.82;text-align:center;top:36%}.fv .script br{display:inline}.fv .script .sp{display:none}
+  .fv h1{letter-spacing:.1em}
+  .fv .index{gap:24px;bottom:96px}.fv .index span+span{font-size:.75rem;letter-spacing:.08em}
+}
+
+/* FV（2026-11-16 本人決定：案4「o をくぐって入る」。文字は同日の本人指定で立体 → 「線で描いて満たす」へ。参考：Stroke Draw Type）。
+   画面約3枚分の区間で画面を固定する。読み込み直後に Hello / new / me inc. を1文字ずつ白い細い線で描き、描き終えた文字から液体が下から満ちる。
+   スクロールで3行の文字が1行に並び直り、そのまま上へ流れ、空が白へ溶けて序章へ（同日、o をくぐる → 散る → フェードアウト → 組み替えへ変更）。目次と下の線は寄り始めたら消える。動きは assets/fv-stroke.js。
+   ペンの線と紙飛行機は、白へ溶けた所で右から入って序章へ書き出す（app.js の道すじは FV の下端が基準） */
+.fv.fvx{height:190svh;min-height:0;overflow:visible;background:#fff}   /* フェードアウトだけになったので、画面約3枚分 → 約2枚分 */
+.fv .stage{position:sticky;top:0;height:100svh;min-height:560px;overflow:hidden;background:#c9d6e6 url(assets/sky-poster.jpg) center/cover no-repeat}
+.fv .stage .wash{position:absolute;inset:0;width:100%;height:100%;display:block}
+.fv .stage .fvsky{filter:saturate(1.55) contrast(1.08) brightness(1.02)}   /* 空を鮮やかに（本人指定） */
+.fv .stage .wash{background:#fff;opacity:0;pointer-events:none}
+.fvt{position:absolute;left:50%;top:44%;width:min(54vw,60svh * var(--ar));height:auto;margin:0;translate:-50% -50%;overflow:visible;
+  filter:drop-shadow(0 10px 28px rgba(15,47,107,.22));will-change:transform}
+@media(max-width:860px){.fvt{width:min(84vw,52svh * var(--ar));top:42%}}
+.fvt .ln{fill:none;stroke:#fff;stroke-width:var(--sw,1.8);stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:1 1;stroke-dashoffset:1}
+.fvt.run .ln{animation:fvdraw 1.5s cubic-bezier(.45,0,.25,1) forwards;animation-delay:calc(.25s + var(--i) * .11s)}
+@keyframes fvdraw{to{stroke-dashoffset:0}}
+.fvt .liq{fill:#fff}.fvt .liq.back{fill:#ffd0dc;opacity:.85}
+.fvt .solid{fill:#fff}
+.fvt .fg{will-change:transform}
+.js .fvt .solid{display:none}                                  /* 動きのスクリプトがない時は、満ちた文字だけを見せる */
+html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
+@media (prefers-reduced-motion: reduce){.fv.fvx{height:100svh;min-height:600px}.fvt .ln{stroke-dashoffset:0}.fvt.run .ln{animation:none}}
+
+/* 序章：中央1段。上下の余白を大きく取る */
+.prologue{padding:clamp(140px,26vh,280px) 0 clamp(140px,24vh,260px);text-align:center}
+.prologue h2{font-size:clamp(1.25rem,2.1vw,1.75rem);font-weight:700;line-height:1.75;max-width:none;margin:0 auto}
+/* 4行に組んで中央そろえ（改行は build.py） */
+.prologue h2 .seg{font-size:1.6em;line-height:1.3;letter-spacing:.02em}   /* 「」の言葉を大きく強調（2026-11-16 本人指定） */
+.prologue .pro-box{position:relative;display:inline-block;max-width:100%}
+/* 背景にうっすら、筆記体の Hello new me を1語ずつ描く（2026-11-16 本人指定。参考：Neon Hello の光る管の線）。文字組の中央の後ろに置く */
+.prologue .pro-bg{position:absolute;left:50%;top:50%;width:min(92vw,1180px);height:auto;translate:-50% -46%;z-index:-1;pointer-events:none;overflow:visible;
+  opacity:.26;filter:drop-shadow(0 0 10px rgba(255,140,180,.55)) drop-shadow(0 0 22px rgba(127,184,255,.35))}
+.prologue .pro-bg path{stroke-dasharray:1 1;stroke-dashoffset:1;opacity:0}   /* 描き始めるまで隠す（丸い線端の点が出ないよう）*/
+.prologue.in .pro-bg path{animation:proWrite var(--t) linear forwards;animation-delay:var(--d)}
+@keyframes proWrite{from{stroke-dashoffset:1;opacity:1}to{stroke-dashoffset:0;opacity:1}}
+@media (prefers-reduced-motion: reduce){.prologue .pro-bg path{stroke-dashoffset:0;opacity:1}.prologue.in .pro-bg path{animation:none}}   /* キャラクターはこの文字組の箱を基準に置く */
+.prologue .more{margin-top:40px}
+
+/* 第1章 HELLO：左右非対称。写真は右の画面端まで */
+.ch1{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;padding:var(--s-中) 0}
+.ch1 .wrap{margin:0;max-width:none;padding-left:max(24px,calc((100vw - var(--wrap))/2 + 24px));padding-right:72px}
+.ch1 .word{font-size:clamp(5rem,9.6vw,10rem);color:var(--blue);line-height:.82;margin-left:-.04em;white-space:nowrap}
+.ch1 .word .o{position:relative;display:inline-block}
+.ch1 .word .pen-pt{left:50%;top:52%}
+.ch1 h2{font-size:var(--fs28);font-weight:700;margin-top:36px;line-height:1.6}
+.ch1 h2 .chip{display:table;margin-bottom:20px;font-size:var(--fs14)}
+.ch1 .txt>p{margin-top:16px}
+.ch1 .visit{display:flex;flex-wrap:wrap;gap:4px 16px;color:var(--sub)}
+.ch1 .visit b{color:var(--ink)}
+.ch1 .pic{position:relative;margin:0;height:clamp(420px,44vw,640px)}
+.ch1 .pic img{width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--r) 0 0 var(--r)}
+.ch1 .pic .pen-pt{left:0;top:18%}
+.ch1 figcaption,.finale figcaption{position:absolute;right:16px;bottom:12px;font-size:.6875rem;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+@media(max-width:860px){
+  .prologue{padding:var(--s-中) 0}
+  .ch1{grid-template-columns:1fr;padding-bottom:var(--s-中)}
+  .ch1 .wrap{padding:0 24px}
+  .ch1 .word{font-size:clamp(4.5rem,24vw,7.5rem)}
+  .ch1 .pic{height:300px;margin:48px 0 0 24px}
+}
+
+/* 第2章 NEW：淡い青の帯。英字は帯の右上からはみ出す */
+.ch2{position:relative;padding-top:var(--s-静)}
+.ch2 .word{font-size:clamp(6rem,15vw,15rem);color:var(--blue);line-height:.78;text-align:right;padding-right:max(24px,calc((100vw - var(--wrap))/2 + 24px));margin-bottom:-.36em;position:relative;z-index:2;max-width:none}
+.ch2 .band{background:var(--pale);padding:clamp(80px,9vw,128px) 0 var(--s-静)}
+.ch2 h2{text-align:right;margin-top:-12px}
+.ch2 h2 .chip{position:relative}
+.ch2 ul{margin-top:72px}
+.ch2 li{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:40px;align-items:center;padding:28px 0}
+.ch2 li+li{border-top:1px solid #c5d6ef}
+.ch2 li:first-child .pic{margin-top:-120px}
+.ch2 .pic img{display:block;width:100%;aspect-ratio:5/3;object-fit:cover;border-radius:12px}
+.ch2 .txt{border-left:1px solid #9fb4d6;padding-left:32px}
+.ch2 h3{font-size:var(--fs28);font-weight:700;line-height:1.5}
+.ch2 .txt p{margin-top:10px;max-width:30em}
+.ch2 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 32px;border-top:1px solid #c5d6ef;padding-top:24px;margin-top:8px}
+.ch2 .foot .more{margin-top:0}
+/* 第2章：拠点の紹介（2026-11-16 本人指定。プログラムの紹介から変更）。拠点が2つ以上になると横に送るカルーセル（app.js） */
+.ch2 .ch2-h{display:block;font-size:var(--fs44);font-weight:700;line-height:1.4;margin-top:16px}
+.car{position:relative;margin-top:64px}
+.car-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.car-count{font-size:var(--fs20);color:var(--blue);line-height:1}.car-count b{font-size:2.2em;font-weight:600}
+.car-label{font-size:var(--fs14);color:var(--sub);font-weight:700;letter-spacing:.24em}
+.car-nav{margin-left:auto;display:flex;gap:10px}
+.car-nav button{width:52px;height:52px;border-radius:50%;border:2px solid var(--pink);background:#fff;display:grid;place-items:center;cursor:pointer;transition:background .3s,opacity .3s}
+.car-nav button:hover{background:var(--pinkpp)}.car-nav button:disabled{opacity:.35;cursor:default;background:#fff}
+.car-nav svg{width:22px;height:22px;fill:none;stroke:var(--pinkd);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.car-track{display:grid;grid-auto-flow:column;grid-auto-columns:100%;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;list-style:none;margin:0!important;padding:4px 2px 28px}
+.car-track::-webkit-scrollbar{display:none}
+.car.many .car-track{grid-auto-columns:88%}   /* 次の拠点が少し見えて、横に送れると分かる */
+.ch2 .car-slide{scroll-snap-align:start;display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:0;padding:0;border:1px solid #e3ecf8;border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 22px 48px -30px rgba(22,79,184,.5)}
+.ch2 .car-slide .pic{position:relative;margin:0!important;min-height:360px}
+.ch2 .car-slide .pic img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;border-radius:0}
+.ch2 .car-slide .info{padding:clamp(28px,3.6vw,48px);display:flex;flex-direction:column;gap:14px}
+.ch2 .car-slide .kind{align-self:flex-start;font-size:.8125rem;font-weight:700;color:#fff;background:var(--blue);border-radius:99px;padding:4px 14px;letter-spacing:.06em}
+.ch2 .car-slide h3{font-size:clamp(1.75rem,3vw,2.5rem);font-weight:700;line-height:1.2}
+.ch2 .car-slide .info>p{line-height:1.9}
+.ch2 .car-slide dl{display:grid;gap:0;border-top:2px dotted rgba(239,131,155,.5)}
+.ch2 .car-slide dl div{display:grid;grid-template-columns:5.5em 1fr;gap:12px;padding:10px 0;border-bottom:2px dotted rgba(239,131,155,.3);font-size:var(--fs14)}
+.ch2 .car-slide dt{color:var(--sub);font-weight:700}
+.car-link{align-self:flex-start;margin-top:auto;font-weight:700;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:8px 0;border-bottom:2px solid var(--pink)}
+.car-link i{font-style:normal;transition:transform .3s}.car-link:hover i{transform:translateX(4px)}
+.ch2 .car .ic-ch2-laptop{right:-34px;bottom:-6px;top:auto;translate:none;z-index:2}
+.ch2 .car .ic-ch2-camera{left:-40px;bottom:-14px;top:auto;right:auto;translate:none;z-index:2}
+@media(max-width:860px){
+  .ch2 .car-slide{grid-template-columns:1fr}.ch2 .car-slide .pic{min-height:0;aspect-ratio:4/3}
+  .car.many .car-track{grid-auto-columns:92%}
+  /* スマホはカードの下にアイコンが集まりすぎた（2026-11-16 本人指摘）：カメラは外し、ノートPCは「01 / 01 拠点」の行の右（カードの上）へ。拠点が増えて送るボタンが出る時はノートPCも外す */
+  .ch2 .car .ic-ch2-camera{display:none}
+  .ch2 .car .ic-ch2-laptop{right:0;top:-18px;bottom:auto;width:84px}
+  .ch2 .car.many .ic-ch2-laptop{display:none}
+  .ch2 .car{margin-bottom:24px}
+}
+.ch2 .pen-pt[data-pen="band-in"]{left:0;top:0}
+@media(max-width:860px){
+  .ch2 .word{font-size:clamp(5rem,30vw,8rem)}
+  .ch2 li{grid-template-columns:1fr;gap:20px}
+  .ch2 li:first-child .pic{margin-top:-72px}
+  .ch2 .txt{border-left:0;padding-left:0}
+  .ch2 li>*{min-width:0}
+  .ch2 h3{font-size:clamp(1.125rem,5.6vw,1.375rem);word-break:normal}
+}
+
+/* 第3章 ME：縦書きの見出しと、行で区切る一覧 */
+.ch3{padding:var(--s-強) 0 var(--s-中)}
+.ch3 .wrap{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:56px;align-items:start}
+.ch3 .tate{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:8px 20px;position:relative}
+.ch3 .tate h2{writing-mode:vertical-rl;font-size:clamp(2.75rem,4.6vw,4.25rem);font-weight:700;letter-spacing:.08em;line-height:1.55;grid-row:1}   /* 列の間を詰める（2026-11-16 本人指定で行送り 2.1 → 1.55） */
+.ch3 .tate h2 .tl{display:block;white-space:nowrap}
+.ch3 .tate h2{margin-left:-.06em}   /* 行間の余白のぶん左へ寄せ、左の列の文字を上のラベルの左端にそろえる */
+.ch3 .tate h2 .tl2{padding-inline-start:2.7em}   /* 縦書きの2列目（働く。）を下へずらして段違いに（2026-11-16 本人指定） */
+.ch3 .tate .word{grid-column:1/-1;font-size:clamp(5rem,9vw,8.5rem);color:var(--blue);line-height:.85;margin-top:24px}
+.ch3 .tate .chip{grid-column:1/-1;justify-self:start}
+.ch3 .tate .pen-pt{left:calc(100% + 4px);top:0}
+.ch3 .jobs ul{border-top:1px solid var(--ink)}
+.ch3 .jobs li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) minmax(0,4fr);gap:24px;align-items:center;padding:32px 0;border-bottom:1px solid var(--line)}
+.ch3 .jobs b{font-size:var(--fs20);line-height:1.5}
+.ch3 .jobs span{border-left:1px solid var(--line);padding-left:24px;color:#333;font-size:var(--fs14)}
+.ch3 .jobs em{font-style:normal;text-align:right;font-weight:700;color:var(--blue);line-height:1.6}
+.ch3 .kari-note{font-size:.75rem;color:var(--sub);margin-top:12px}
+@media(max-width:860px){
+  .ch3 .wrap{grid-template-columns:1fr;gap:40px}
+  .ch3 .tate .word{font-size:clamp(4.5rem,24vw,7rem)}
+  /* スマホ：ME と札を、縦書きの見出しの右の空いた所へ（2026-11-16 本人指定） */
+  .ch3 .tate{grid-template-rows:auto auto;column-gap:12px;align-items:center;margin-right:-16px}   /* ME を大きくするため、右の余白を画面の端の8px手前まで使う */
+  .ch3 .tate h2{grid-row:1/3;grid-column:1}
+  .ch3 .tate .word{grid-column:2;grid-row:1;align-self:end;margin-top:0;font-size:min(30vw,9.5rem);letter-spacing:-.03em}   /* 本人「ME はもっとデカくていい」。右の空いた幅いっぱいまで */
+  .ch3 .tate .chip{grid-column:2;grid-row:2;align-self:start;justify-self:end;margin:10px 10px 0 0}   /* ME の右端にそろえる（本人指定） */
+  .ch3 .jobs li{grid-template-columns:1fr;gap:6px;padding:24px 0}
+  .ch3 .jobs span{border-left:0;padding-left:0}.ch3 .jobs em{text-align:left}
+}
+
+/* 終章：空の円に、入口の行が半分重なる */
+.finale{padding:var(--s-中) 0 var(--s-強)}
+.finale .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:center}
+.finale .circle{position:relative;width:100%;max-width:520px;aspect-ratio:1;border-radius:50%;overflow:hidden;z-index:0}
+.finale .circle .skyv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.finale .circle .pen-pt{left:50%;top:0}
+.finale .box{position:relative;z-index:5;margin-left:-22%}
+.finale h2{font-size:var(--fs28);font-weight:700;margin-bottom:28px;padding-left:24px}
+.finale ul{display:grid;gap:12px}
+.finale li a{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:20px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 24px;text-decoration:none;box-shadow:0 10px 30px rgba(22,79,184,.08);transition:border-color .3s var(--ease)}
+.finale li a:hover{border-color:var(--pink)}
+.finale li b{font-size:var(--fs20)}
+.finale li span{color:var(--sub);font-size:var(--fs14)}
+.finale li i{width:44px;height:44px;border-radius:50%;background:var(--pink);color:var(--ink);display:grid;place-items:center;font-style:normal}
+.finale .tel{margin-top:32px;padding-left:calc(22% / .78 + 24px)}
+@media(max-width:860px){
+  .finale .wrap{grid-template-columns:1fr}
+  .finale .circle{width:78%;margin:0 auto}
+  .finale .box{margin:-28% 0 0}
+  .finale h2{padding-left:0;text-align:center;color:#fff;text-shadow:0 1px 3px rgba(10,30,70,.5);font-size:var(--fs20)}
+  .finale li a{grid-template-columns:1fr auto;padding:18px}
+  .finale li b{font-size:1.0625rem}
+  .finale li span{grid-column:1;grid-row:2}.finale li i{grid-row:1/3;grid-column:2}
+  .finale .tel{padding-left:0}
+}
+
+/* フッター：空の上 */
+/* ---- ホームのあしらい（2026-11-14 本人選択：30案から 01・05・10・14・17・19・22・28。比較は visual/decor-30.html） ---- */
+/* 05 便名風の章番号 */
+.flight{display:flex;align-items:center;gap:12px;font-size:.75rem;letter-spacing:.2em;color:var(--blue);line-height:1;margin:0 0 20px}
+.flight i{width:32px;border-top:1px solid currentColor}
+.ch2>.flight{justify-content:flex-end;padding-right:max(24px,calc((100vw - var(--wrap))/2 + 24px));max-width:none;margin-bottom:12px}
+.ch3 .wrap>.flight{grid-column:1/-1;margin-bottom:0}
+/* 01 第2章の帯に薄い方眼 */
+.ch2 .band{background-color:var(--pale);background-image:linear-gradient(rgba(22,79,184,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(22,79,184,.07) 1px,transparent 1px);background-size:14px 14px}
+/* 10 仕切りをピンクの点線に */
+.dots-line,.ch2 li+li,.ch2 .foot{border-top:0;background:radial-gradient(circle,var(--pink) 1.3px,transparent 1.7px) 0 0/9px 4px repeat-x}
+/* 14 ぼかした色の光（序章・終章）。ゆっくり漂う */
+.prologue,.finale{position:relative;isolation:isolate}
+.glow{position:absolute;border-radius:50%;filter:blur(70px);opacity:.6;z-index:-1;pointer-events:none;animation:glow 16s ease-in-out infinite alternate}
+.prologue .g1{width:34vw;height:34vw;max-width:440px;max-height:440px;background:var(--pinkp);left:4%;top:12%}
+.prologue .g2{width:38vw;height:38vw;max-width:500px;max-height:500px;background:#cfe4fb;right:2%;top:30%;animation-delay:-5s}
+.prologue .g3{width:24vw;height:24vw;max-width:320px;max-height:320px;background:var(--greenp);left:38%;bottom:4%;opacity:.35;animation-delay:-10s}
+.finale .g1{width:30vw;height:30vw;max-width:400px;max-height:400px;background:var(--pinkp);right:6%;top:6%;opacity:.45}
+.finale .g2{width:26vw;height:26vw;max-width:360px;max-height:360px;background:var(--greenp);right:30%;bottom:0;opacity:.3;animation-delay:-8s}
+@keyframes glow{to{transform:translate(4vw,-3vw) scale(1.12)}}
+/* 序章（ABOUT）の登場（2026-11-16 本人指定）：FV を抜けて白くなり、紙飛行機が左へ入ってきた所で、画面の中央にある文字組が奥から手前へ出る。
+   下からせり上がって見えないよう、文字組は app.js が「その瞬間に画面の中央に来る位置」へ上げておき（margin-top）、.in が付くまで隠す。
+   キャラクターとあしらいは、文字組が出た後に1つずつ遅れて出る。文字ごとのぼかしと MISSION の文は外した（本人指示） */
+.prologue .wrap{transform:perspective(900px) translateZ(-760px);opacity:0;transform-origin:50% 50%;transition:transform .7s cubic-bezier(.16,1,.3,1),opacity .4s ease-out}   /* 出たら画面の中央にいる間に出きる長さ（本人「もっと早く」で 1.3→1→0.7秒） */
+.prologue.in .wrap{transform:none;opacity:1}
+.prologue .ic{opacity:0;scale:.55;transition:opacity .45s ease-out,scale .8s cubic-bezier(.34,1.56,.64,1)}
+.prologue.in .ic{opacity:1;scale:1}
+.prologue.in .ic-pro-skip{transition-delay:.45s}.prologue.in .ic-pro-waver{transition-delay:.55s}.prologue.in .ic-pro-heart{transition-delay:.75s}.prologue.in .ic-pro-spark{transition-delay:.9s}
+.prologue:not(.in) .wrap{pointer-events:none}
+.prologue .wrap{position:sticky;top:var(--pin,0px)}   /* 出たら画面の中央に少しの間とどまる（--pin・--hold は app.js） */
+.prologue .pro-hold{display:block;height:var(--hold,0px)}
+.pen-measure .prologue .wrap{transform:none!important;transition:none!important;position:relative!important;top:auto!important}
+.pen-measure .prologue .ic{scale:1!important;transition:none!important}   /* ペンの線の道すじは、変形を外した位置で測る */
+@media (prefers-reduced-motion: reduce){.prologue .wrap,.prologue .ic{transform:none;opacity:1;scale:1;transition:none}}
+/* 28 序章の文字を、スクロールに合わせて左から塗る（--f は app.js の data-fill） */
+.prologue h2 .ink{color:transparent;background:linear-gradient(90deg,var(--ink) calc(var(--f,1) * 100%),#c3ccdb calc(var(--f,1) * 100%));-webkit-background-clip:text;background-clip:text;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+/* 17 写真の角にマスキングテープ */
+.tape{position:absolute;width:96px;height:26px;background:rgba(252,207,217,.8);box-shadow:0 1px 2px rgba(0,0,0,.06);z-index:2;pointer-events:none}
+.ch1 .pic .t1{left:-22px;top:28px;transform:rotate(-28deg)}
+.ch2 .pic{position:relative}
+.ch2 .pic .t2{right:-18px;top:10px;transform:rotate(30deg);background:rgba(167,243,210,.75)}
+.ch2 .pic .t3{left:-18px;bottom:14px;transform:rotate(-24deg)}
+/* 19 職種を航空券の札に（切り取り線は10の点線） */
+.ch3 .jobs ul{border-top:0;display:grid;gap:16px}
+.ch3 .jobs li.ticket{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,15em);gap:0;padding:0;border:0;background:#f3f8ff;border-radius:14px}
+.ticket .main{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:4px 24px;align-items:center;padding:24px 28px}
+.ticket .main small{grid-column:1/-1;font-size:.6875rem;letter-spacing:.16em;color:var(--sub);line-height:1}
+.ch3 .jobs .ticket em{position:relative;display:flex;align-items:center;justify-content:flex-end;text-align:right;padding:20px 28px;
+  background:radial-gradient(circle,var(--pink) 1.3px,transparent 1.7px) 0 0/4px 9px repeat-y}
+.ticket .main small{white-space:nowrap}
+/* 切り取り線の両端の半円の切り欠き（PCは上下、スマホは左右） */
+.ticket em::before,.ticket em::after{content:"";position:absolute;left:-10px;width:20px;height:20px;border-radius:50%;background:#fff}
+.ticket em::before{top:-10px}.ticket em::after{bottom:-10px}
+/* 22 空のフッターに紙飛行機 */
+.plane-icon path{stroke:var(--pinkd);stroke-width:1.3;stroke-linejoin:round}
+.plane-icon .w1{fill:#fff}.plane-icon .w2{fill:var(--pinkpp)}.plane-icon .k{fill:var(--pinkp)}
+.ft-plane{position:absolute;right:16%;top:clamp(56px,9vh,110px);width:64px;height:45px;transform:rotate(-14deg);animation:bob 5s ease-in-out infinite}
+/* 着地（2026-11-16 本人指定）：ペンの線を引いてきた紙飛行機が、ここ（.ft-plane の位置）に降りてくる。置いてあった方は見せない。
+   着地した紙飛行機は、その場でゆっくり揺れる（動きを減らす設定では、置いてある方を見せる） */
+.pen-lands .ft-plane{visibility:hidden}
+.pen .pen-plane.landed path{animation:landed 5s ease-in-out infinite}
+@keyframes landed{50%{transform:translateY(-6px)}}
+@keyframes bob{50%{transform:translateY(-10px) rotate(-10deg)}}
+@media(max-width:860px){
+  .ticket .main{grid-template-columns:1fr;padding:20px 20px 16px}
+  .ch3 .jobs li.ticket{grid-template-columns:1fr}
+  .ch3 .jobs .ticket em{justify-content:flex-start;text-align:left;padding:14px 20px 18px;background:radial-gradient(circle,var(--pink) 1.3px,transparent 1.7px) 0 0/9px 4px repeat-x}
+  .ticket em::after{bottom:auto;top:-10px;left:auto;right:-10px}
+  .tape{width:72px;height:20px}
+  .ch1 .pic .t1{left:-12px;top:18px}
+  .ft-plane{right:10%;width:48px;height:34px}
+  .glow{filter:blur(50px)}
+}
+@media (prefers-reduced-motion: reduce){.glow,.ft-plane{animation:none}}
+/* 節の間の波（2026-11-16 統合モックから。人物は入れない）。流れは今のホームのまま、背景だけ
+   序章(白) → 第1章(淡い青) → 濃い青の流れで白へ → 第2章(帯は淡い青、上端がうねり下端が垂れる) → 第3章(白) → 終章(淡い青) → 空のフッター(上端に淡い青が垂れる)
+   波は節の余白に重ね、文字や写真の下に置く。ペンの線（z-index 4）は波の上を通る。並びと余白は変えない（ペンの線の道すじを保つ） */
+:root{--sky2:#A9D2F5;--skyc:#6FAEE8}
+.wv{position:absolute;left:0;width:100%;display:block;pointer-events:none;z-index:-1}
+.wv .c-pale{fill:var(--pale)}.wv .c-sky2{fill:var(--sky2)}.wv .c-sky{fill:var(--skyc)}.wv .c-blue{fill:var(--blue)}.wv .c-white{fill:#fff}
+.wv .c-line{fill:none;stroke:#fff;stroke-width:3.5;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.wv.flip{transform:scaleX(-1)}
+.wv.top{bottom:calc(100% - 1px)}.wv.bottom{bottom:-1px}.wv.below{top:calc(100% - 1px)}
+.ch1,.ch2 .band{position:relative;isolation:isolate}
+.ch1{background:var(--pale);padding-bottom:clamp(150px,20vw,290px)}   /* 太い流れの分だけ下の余白を広げる */
+.ch3{padding-bottom:clamp(140px,18vw,260px)}
+.finale{background:var(--pale)}
+.ch1 .wv-rise{height:clamp(130px,20vw,300px)}
+.ch1 .wv-stream{height:clamp(120px,18vw,270px)}
+.ch2 .wv-swell{height:clamp(90px,14vw,220px)}
+.ch2 .wv-hang{height:clamp(80px,12vw,190px)}
+.finale .wv-rise{height:clamp(110px,17vw,250px)}
+.ft.sky .wv-hang{top:-1px;height:clamp(80px,12vw,190px);z-index:0}
+@media(max-width:860px){.prologue{padding-bottom:250px}}   /* スマホは波の高さが余白を上回るので、ボタンにかからないよう広げる */
+/* 黒線アイコン（2026-11-16 本人提供。site/assets/icons/、元は 03_lab/261116_黒線アイコンのキャラクター画風/kit/）
+   節の意図に合わせて置く。大きさの強弱：主役のキャラクター（大）＞ 内容のアイテム（中）＞ 小さなあしらい（小）。.flip は左右反転
+   序章＝出会い：手を振る人（動く）・ハート・きらめき／第1章＝会いに来て：写真（施設）の右上から左の文へ走ってくる人／
+   第2章＝変化を楽しむ：回る人（動く）・ノートPCとトートバッグ（ネット販売）・カメラ（動画制作）・マグカップ（在宅）／
+   第3章＝私らしく働く：採用情報を指さす人・札の付箋／終章＝窓口：振り返って招く人・吹き出し・電話 */
+.ic{position:absolute;height:auto;pointer-events:none;z-index:1}
+.ic.flip{transform:scaleX(-1)}
+/* アイコンをゆっくり動かす（2026-11-16 本人指定「もう少し大きく、動きを」）。位置を決める translate・rotate と重ならないよう transform で動かす。キャラクターは GIF で動く */
+.ic:not(.gif){animation:icFloat 6.5s ease-in-out infinite}
+.ic-ch2-tote,.ic-ch3-note,.ic-fin-phone{animation-duration:5.5s;animation-delay:-2s}
+.ic-ch2-camera,.ic-card:nth-child(2n),.ic-ch2-mug{animation-duration:7.5s;animation-delay:-4s}
+.ic-pro-heart{animation:icHeart 5s ease-in-out infinite!important}
+.ic-pro-spark{animation:icTwinkle 4.2s ease-in-out infinite!important}
+@keyframes icFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(3deg)}}
+@keyframes icHeart{0%,100%{transform:translate(0,0) rotate(0) scale(1)}25%{transform:translate(-6px,-10px) rotate(-8deg) scale(1.06)}50%{transform:translate(0,-18px) rotate(6deg) scale(1.12)}75%{transform:translate(6px,-8px) rotate(10deg) scale(1.04)}}   /* 頭上でふわふわ漂う */
+@keyframes icTwinkle{0%,100%{transform:translate(0,0) rotate(0) scale(1)}25%{transform:translate(6px,-10px) rotate(20deg) scale(1.15)}50%{transform:translate(0,-18px) rotate(40deg) scale(.92)}75%{transform:translate(-6px,-8px) rotate(25deg) scale(1.18)}}   /* 頭上できらめきながら漂う */
+@media (prefers-reduced-motion: reduce){.ic{animation:none!important}}
+.ic-pic,.ic-pic source{display:contents}.ic-pic source{display:none}   /* GIF を包む picture と source は箱を作らない（第1章の格子に1マス取られてレイアウトがずれた） */
+.ic.gif{aspect-ratio:1;object-fit:contain}   /* 動くキャラクターは 512×512 の正方形。動きを減らす設定の静止画も同じ枠に収める */
+.ch2 li,.jobs,.ticket{position:relative}
+/* 序章の人物は左右対称（2026-11-16 本人指定）：同じ大きさ・同じ高さ・文字組から同じ距離。ハートとキラ星はそれぞれの頭上の外側で、ふわふわと動く */
+.prologue .pro-box{--cw:clamp(130px,12vw,180px);--cx:clamp(20px,3.6vw,56px);--hs:clamp(38px,3.4vw,52px)}
+.prologue .ic-pro-waver{left:calc(100% + var(--cx));top:50%;translate:0 -50%;width:var(--cw)}
+.prologue .ic-pro-skip{right:calc(100% + var(--cx));top:50%;translate:0 -50%;width:var(--cw)}
+.prologue .ic-pro-heart{right:calc(100% + var(--cx) + var(--cw) * .62);top:calc(50% - var(--cw) * .5 - var(--hs) * .9);width:var(--hs);rotate:-12deg}   /* 女の子の頭上の外側 */
+.prologue .ic-pro-spark{left:calc(100% + var(--cx) + var(--cw) * .62);top:calc(50% - var(--cw) * .5 - var(--hs) * .9);width:var(--hs);rotate:12deg}   /* 男の子の頭上の外側（ハートと鏡写し） */
+.ch1 .pic .ic-ch1-runner{right:clamp(16px,3vw,48px);top:clamp(-120px,-8.4vw,-84px);width:clamp(120px,11vw,165px);height:auto;border-radius:0;object-fit:contain;z-index:2}   /* 写真の右上（以前の建物の位置）から、左の文へ向かって走る。写真の img の決まり（高さ100%・角丸）を打ち消す */
+.ch2 .ic-ch2-spin{left:max(8px,calc(50% - 600px));top:4px;width:clamp(130px,12vw,180px);z-index:3}   /* NEW の左の空き（2026-11-16 本人「アイコンが文字にかかりすぎ」で縮めて左へ） */
+.ch2 .ic-ch2-laptop{right:-20px;top:50%;translate:0 -62%;width:clamp(90px,8.6vw,130px)}
+.ch2 .ic-ch2-tote{right:-40px;top:62%;width:clamp(56px,5.6vw,84px);rotate:-8deg}
+.ch2 .ic-ch2-camera{right:8px;top:50%;translate:0 -50%;width:clamp(80px,7.6vw,115px);rotate:6deg}
+.ch2 .ic-ch2-mug{position:static;display:inline-block;vertical-align:middle;width:58px;margin:-10px 12px 0 -2px}
+.ch3 .ic-ch3-point{right:0;bottom:-96px;width:clamp(135px,11.5vw,175px)}
+.ch3 .ic-ch3-note{right:-18px;top:-34px;width:clamp(50px,4.4vw,66px);rotate:10deg;z-index:2}
+.finale .ic-fin-bubble{position:static;display:inline-block;vertical-align:-.5em;width:1.9em;margin-right:.35em}   /* 「ご用件に〜」の行の頭（本人指定） */
+.finale .ic-fin-phone{position:static;display:inline-block;width:50px;align-self:center;margin-right:-6px}
+.finale .ic-fin-looker{right:-3%;bottom:-110px;width:clamp(135px,11.5vw,175px)}
+@media(max-width:860px){
+  .prologue{padding-top:150px}
+  .prologue .pro-box{--cw:142px;--hs:42px}   /* スマホのキャラクター（本人「控えめすぎた」で 112→142px） */
+  .prologue .ic-pro-waver{left:auto;right:-6px;top:calc(100% + 44px);translate:none;width:var(--cw)}
+  .prologue .ic-pro-skip{right:auto;left:-6px;top:calc(100% + 44px);translate:none;width:var(--cw)}   /* スマホは文字組の下の左右に、向かい合って対称に */
+  .prologue .ic-pro-heart{right:auto;left:0;top:calc(100% + 10px)}
+  .prologue .ic-pro-spark{left:auto;right:0;top:calc(100% + 10px)}
+  .ch1 .pic .ic-ch1-runner{top:-46px;right:2px;width:118px}
+  .ch2{padding-top:130px}
+  .ch2 .ic-ch2-spin{left:2%;top:0;width:138px}   /* スマホは NEW の左上。上の余白を広げて置く（下は写真が上がってくるので空きがない） */
+  .ch2 .ic-ch2-laptop{top:-6px;right:-4px;translate:none;width:92px}.ch2 .ic-ch2-tote{display:none}
+  .ch2 .ic-ch2-camera{top:-4px;right:0;translate:none;width:84px}
+  .ch3 .ic-ch3-point{right:-6px;bottom:-112px;width:136px}
+  .ch3 .ic-ch3-note{width:52px;right:-8px;top:-26px}
+
+  .finale .ic-fin-looker{right:-8px;bottom:-150px;width:140px}   /* スマホは電話番号の下の余白へ */
+}
+
+/* 下層ページに TOP の雰囲気（2026-11-16 本人指定。build.py の sub_mood）：
+   ページの頭に色のにじみと黒線のキャラクター。節は1つおきに淡い青の方眼の帯（.tint）にし、上は「swell」、下は「hang」の太い波で白とつなぐ。黒い罫線はピンクの点線に */
+.sub main>section{position:relative;isolation:isolate}
+.sub main{padding-bottom:clamp(40px,6vw,96px)}   /* 空のフッターの波とのあいだ */
+.win.photo{overflow:hidden;background:var(--pale)}.win.photo img,.ph.photo img{display:block;width:100%;height:100%;object-fit:cover}
+.ph.photo{padding:0;overflow:hidden;background:var(--pale);position:relative}
+.ph-note{position:absolute;right:14px;bottom:10px;font-size:.6875rem;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5)}   /* TOP の写真と同じ注記 */
+.sub .ph1 .g1{width:34vw;height:34vw;max-width:440px;max-height:440px;background:var(--pinkp);left:-6%;top:-10%}
+.sub .ph1 .g2{width:30vw;height:30vw;max-width:400px;max-height:400px;background:var(--greenp);left:34%;bottom:-30%;opacity:.35;animation-delay:-6s}
+.sub .ph1 .ic-ph1,.sub .hero .ic-ph1{position:absolute;right:clamp(200px,24vw,360px);bottom:12px;width:clamp(110px,9.5vw,145px);z-index:1}
+.sub .hero{position:relative}
+.sub .hero .ic-ph1{right:clamp(16px,4vw,64px);bottom:-40px}
+.sub .tint{background-color:var(--pale);background-image:linear-gradient(rgba(22,79,184,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(22,79,184,.07) 1px,transparent 1px);background-size:14px 14px}
+.sub .sec.tint,.sub .tint{padding-top:var(--s-中);padding-bottom:var(--s-中)}
+.sub .tint.flat{margin:0 16px;border-radius:var(--r)}   /* 3回目からの帯は波を付けず角丸の色面に */
+.sub .tint.flat+section,.sub main>section:has(+ .tint.flat){padding-top:var(--s-中)}
+.sub main>section:has(+ .tint.flat){padding-bottom:var(--s-中)}
+.sub .tint .wv-swell{height:clamp(80px,12vw,190px)}
+.sub .tint .wv-hang{height:clamp(70px,10vw,160px)}
+.sub main>section:has(+ .tint){padding-bottom:calc(var(--s-静) + clamp(70px,10vw,160px))}   /* 上の波の分あける */
+.sub .hero:has(+ .tint){padding-bottom:var(--s-中);margin-bottom:clamp(90px,12vw,190px)}   /* 青いヒーローは箱の外に波の分をあける */
+.sub .tint+section{padding-top:calc(var(--s-静) + clamp(70px,10vw,160px))}                  /* 下に垂れる波の分あける */
+.sub .tint .wrap,.sub .tint+.sec .wrap{border-top:0!important;padding-top:0}
+.sub .sec+.sec .wrap{border-top:2px dotted rgba(239,131,155,.55)}
+.sub .ph1 .sub{border-top:2px dotted var(--pink)}
+@media(max-width:860px){
+  .sub .ph1 .ic-ph1{right:16px;bottom:8px;width:112px}
+  .sub .hero .ic-ph1{width:112px;bottom:-24px}
+}
+/* 下層の札（チップ）とカード用のアイコン */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{display:inline-block;background:var(--pale);color:var(--blue);border-radius:99px;padding:4px 14px;font-size:var(--fs14);font-weight:700}
+.ic-card{position:static!important;display:block;width:64px;height:64px;object-fit:contain;margin-bottom:14px}
+.ft.sky{background:#2b6cc0 var(--sky) center/cover no-repeat;margin-top:0;padding-top:clamp(200px,30vh,320px);position:relative}
+.ft .ft-tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,79,184,0) 0%,rgba(22,79,184,.55) 45%,rgba(22,79,184,.8))}
+.ft.sky .wrap{position:relative}
+
+/* 下層：ページ見出し。大きな空の円を右上で切る（崩し2B） */
+.ph1{padding:120px 0 88px;position:relative;overflow:hidden;min-height:440px}
+.ph1 .wrap{position:relative}
+.ph1 .win{position:absolute;right:-150px;top:-60px;width:520px;box-shadow:none}
+.ph1 h1{font-size:clamp(2rem,4.4vw,3.5rem);font-weight:700;max-width:62%}
+.ph1 .sub{margin-top:72px;padding-top:20px;border-top:1px solid var(--ink);max-width:62%}
+.ph1 .sub p{color:var(--sub)}
+.ph1 .toc{max-width:62%}
+.ph1.strong h1{color:var(--blue)}
+@media(max-width:860px){
+  .ph1{padding:188px 0 56px;min-height:0}
+  .ph1 .win{width:230px;right:-80px;top:-70px}
+  .ph1 h1,.ph1 .sub,.ph1 .toc{max-width:none}
+  .ph1 h1{font-size:clamp(1.5rem,6.4vw,2rem)}
+  .ph1 .sub{margin-top:40px}
+}
+
+/* 下層：節（見出し左・内容右） */
+.sec{padding:var(--pad) 0}
+.sec.s-静{--pad:var(--s-静)}.sec.s-中{--pad:var(--s-中)}.sec.s-強{--pad:var(--s-中)}
+.sec+.sec .wrap{border-top:1px solid var(--line);padding-top:var(--pad)}
+.sec+.sec{padding-top:0}
+.sec .wrap>.grid{display:grid;grid-template-columns:5fr 7fr;gap:32px 48px}
+.sec h2{font-size:var(--fs28);font-weight:400}
+.sec.s-強 h2{font-weight:700;font-size:var(--fs44)}
+.sec h2.en{font-size:var(--en2);color:var(--blue);font-weight:600}
+.sec .body>*+*{margin-top:20px}
+.sec .body>h2{margin-top:72px}
+.rows{border-top:1px solid var(--line)}
+.rows li{padding:20px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(8em,14em) 1fr;gap:8px 24px}
+.rows li b{font-weight:700}
+.rows li.one{display:block}
+.qa li{display:block}.qa b{display:block}.qa b::before{content:"Q　";color:var(--blue)}.qa span{display:block;margin-top:6px;color:#333}
+dl.tbl{border-top:1px solid var(--ink)}
+dl.tbl div{display:grid;grid-template-columns:minmax(7em,12em) 1fr;gap:4px 24px;padding:18px 0;border-bottom:1px solid var(--line)}
+dl.tbl dt{color:var(--sub)}
+.sec .ph{margin-top:28px;min-height:260px}
+.toc{display:flex;flex-wrap:wrap;gap:8px 12px;margin-top:28px}
+.toc a{font-size:var(--fs14);text-decoration:none;border:1px solid var(--blue);color:var(--blue);border-radius:99px;padding:6px 16px;min-height:44px;display:inline-flex;align-items:center}
+@media(max-width:860px){.sec .wrap>.grid{grid-template-columns:1fr}.rows li,dl.tbl div{grid-template-columns:1fr}.more+.more{margin-left:0;display:flex}}
+
+/* 質問（開閉） */
+.faq{border-top:1px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 48px 22px 0;font-weight:700;position:relative;min-height:48px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:8px;top:50%;translate:0 -50%;font-family:"Syne",sans-serif;font-size:1.75rem;color:var(--pinkd);font-weight:400}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 0 24px}
+
+/* 採用：ヒーローと想い */
+.hero{background:var(--blue);color:#fff;border-radius:var(--r);margin:0 16px;padding:var(--s-中) 0}
+.hero .wrap{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.hero h1{font-size:var(--fs44);font-weight:700;margin-bottom:20px}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero .win{order:-1}}
+
+.hero .win{box-shadow:0 0 0 12px rgba(255,255,255,.18)}
+.cta p{margin:16px auto 0}
+
+/* フォーム（デモ） */
+form.demo{display:grid;gap:20px;max-width:var(--col)}
+form.demo label,form.demo legend{font-weight:700;display:block;margin-bottom:6px;padding:0}
+form.demo input[type=text],form.demo input[type=email],form.demo input[type=tel],form.demo select,form.demo textarea{width:100%;font:inherit;padding:12px 14px;border:1px solid #9aa7ba;border-radius:8px;background:#fff;min-height:48px}
+form.demo fieldset{border:0;padding:0;margin:0}
+form.demo .opt label{display:inline-flex;align-items:center;gap:6px;font-weight:400;margin-right:20px;min-height:44px}
+form.demo .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+form.demo button.more{justify-self:start;margin-top:8px}
+.req{display:inline-block;font-size:.75rem;font-weight:700;color:#fff;background:#b0405a;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:.1em;letter-spacing:.04em}
+.any{display:inline-block;font-size:.75rem;color:var(--sub);border:1px solid var(--line);border-radius:4px;padding:0 7px;margin-left:6px;vertical-align:.1em}
+.req[hidden],.any[hidden]{display:none}
+.form-lead{font-size:var(--fs14);color:var(--sub)}.form-lead .req{margin:0 2px 0 0}
+form.demo .hint{font-size:.8125rem;color:var(--sub);margin-top:6px}
+form.demo .err{font-size:.875rem;color:#b0283f;font-weight:700;margin-top:6px}
+form.demo .err:empty{display:none}
+form.demo [aria-invalid="true"]{border-color:#b0283f;background:#fff6f8}
+form.demo .form-status{font-size:var(--fs14);font-weight:700;color:#b0283f}
+.form-done{background:#fff;border:2px solid var(--pink);border-radius:20px;padding:32px 28px;max-width:var(--col)}
+.form-done h3{font-size:var(--fs20);font-weight:700;margin-bottom:8px;color:var(--blue)}
+
+/* CTA */
+.cta{background:var(--blue);color:#fff;border-radius:var(--r);margin:var(--s-静) 16px 0;padding:var(--s-中) 0;text-align:center}
+.cta h2{font-size:var(--fs44);font-weight:700}
+
+
+/* フッター */
+.ft{margin-top:var(--s-中);background:var(--blue);color:#fff;padding:72px 0 32px;font-size:var(--fs14)}
+.ft .cols{display:grid;grid-template-columns:5fr 3fr 3fr 3fr;gap:32px}
+.ft .logo{height:24px;width:auto;display:block;margin-bottom:16px}
+.ft b{display:block;margin-bottom:8px;opacity:.95;font-weight:700;text-shadow:0 1px 3px rgba(10,30,70,.45)}
+.ft a{display:block;text-decoration:none;padding:6px 0;min-height:36px}
+.ft a:hover{text-decoration:underline}
+.ft small{display:block;margin-top:56px;opacity:.9;font-size:.8125rem}
+@media(max-width:860px){.ft .cols{grid-template-columns:1fr 1fr}.ft .cols>div:first-child{grid-column:1/-1}.ft a{min-height:44px;padding:10px 0}}
+
+.seg{display:inline-block}
+
+/* ==== 下層ページの節ごとの手法（2026-11-16 本人指定。build.py の UI）====
+   「UI手法の見本帳」（02_solos/260910_origin_motion_system/labs/ui-patterns/）から節ごとに1つ選び、隣り合う節で同じ手法を続けない。
+   色・書体はサイトの決まり（青・ピンク・緑、Syne と Zen Kaku Gothic New）に合わせて組み直した */
+.u{padding:var(--s-中) 0;--hd:76px}
+.u .wrap>h2,.u .acc-in>h2,.u .split-l h2,.u .b>h2,.u .num h2{font-size:var(--fs44);font-weight:700;margin-bottom:12px}
+.u .lead{color:#444;margin-bottom:8px}
+
+/* 01 リスト／行 */
+.lrows{margin-top:32px;border-top:2px solid var(--ink)}
+.lrows li{border-bottom:1px solid var(--line)}
+.lrows li>a,.lrows li:not(:has(a)){display:grid;grid-template-columns:3.5em minmax(8em,13em) 1fr 2em;gap:6px 20px;align-items:baseline;padding:22px 0;text-decoration:none;transition:padding .3s var(--ease),background .3s}
+.lrows .n{font-size:.8125rem;color:var(--pinkd);letter-spacing:.08em}
+.lrows b{font-weight:700}
+.lrows .v small{display:block;margin-top:4px;font-size:.8125rem;color:var(--blue);font-weight:700}
+.lrows .tel{font-size:clamp(1.25rem,2vw,1.5rem);color:var(--blue)}
+.lrows .ar{font-size:1.25rem;color:var(--pinkd);transition:translate .3s var(--ease)}
+.lrows li>a:hover{padding-left:12px;background:linear-gradient(90deg,var(--pinkpp),transparent 70%)}
+.lrows li>a:hover .ar{translate:6px 0}
+.lrows li:not(:has(a)){grid-template-columns:3.5em minmax(8em,13em) 1fr}
+
+/* 03 エディトリアル */
+.edit{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px;align-items:start}
+.edit .pic{margin:0;position:relative;overflow:hidden;border-radius:var(--r);background:var(--pale)}
+.edit .pic img{display:block;width:100%;height:100%;object-fit:cover}
+.edit .a{grid-column:1/8;aspect-ratio:4/3}
+.edit .b{grid-column:8/13;padding-top:24px}
+.edit .b p+p{margin-top:16px}
+.edit .c{grid-column:3/7;aspect-ratio:3/4;margin-top:-80px;border:8px solid #fff;z-index:1}
+.edit .d{grid-column:8/12;align-self:center;font-size:var(--fs20);font-weight:700;line-height:1.8;border-left:3px solid var(--pink);padding-left:20px}
+.tint .edit .c{border-color:var(--pale)}
+
+/* 04 ベントグリッド */
+.bento{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:32px}
+.bento .x{border-radius:22px;padding:26px 26px 28px;background:#fff;border:1px solid #e3ecf8;display:flex;flex-direction:column;gap:8px;min-width:0}
+.b-pg{grid-template-areas:"p1 p1 f1" "f2 p2 p2" "f3 p2 p2"}
+.b-pg .p1{grid-area:p1;background:var(--blue);color:#fff;border:0;padding:clamp(28px,4vw,48px)}
+.b-pg .p2{grid-area:p2;background:linear-gradient(150deg,#fff 30%,var(--pinkpp));padding:clamp(28px,4vw,48px)}
+.b-pg .f1{grid-area:f1;background:var(--greenp);border:0}.b-pg .f2{grid-area:f2}.b-pg .f3{grid-area:f3;background:var(--pinkp);border:0}
+.b-pg .k{font-size:.75rem;letter-spacing:.2em;opacity:.8}
+.b-pg h3{font-size:var(--fs44);font-weight:700;line-height:1.3}
+.b-pg h3 small{display:block;font-size:var(--fs16);font-weight:400;letter-spacing:.2em;margin-top:6px}
+.b-pg b{font-size:var(--fs20)}
+.b-pg .f1 p,.b-pg .f2 p,.b-pg .f3 p{font-size:var(--fs14);line-height:1.8}
+.b-pg .ic-card{width:54px;height:54px;margin:0 0 4px}
+.b-facts{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:dense}   /* 大きな数字を左に2段、長い値は右に3列ぶん */
+.b-facts .x{justify-content:space-between}
+.b-facts .wide{grid-column:span 3}
+.b-facts dt{font-size:var(--fs14);color:var(--sub);font-weight:700}
+.b-facts dd{font-weight:700;line-height:1.6}
+.b-facts .big{grid-row:span 2;order:-1;background:var(--blue);color:#fff;border:0}.b-facts .big dt{color:#fff;opacity:.85}
+.b-facts .big dd{font-size:var(--fs20)}.b-facts .big b{font-size:clamp(4.5rem,9vw,7.5rem);line-height:.9;margin-right:.08em;font-weight:600}
+.b-facts .c-pink{background:var(--pinkpp);border-color:var(--pinkp)}
+.b-facts .mid{font-size:var(--fs28);color:var(--pinkd)}
+.b-facts .pending dd{font-weight:400;color:#8a4a57;font-size:var(--fs14)}
+
+/* 06 大きな文字の索引 */
+.bigidx{margin-top:28px;border-top:2px solid var(--ink)}
+.bigidx li{border-bottom:1px solid var(--line)}
+.bigidx a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;text-decoration:none;transition:color .25s,padding .3s var(--ease)}
+.bigidx b{font-size:clamp(1.5rem,4.2vw,3.25rem);font-weight:700;line-height:1.3;letter-spacing:.02em}
+.bigidx span{flex:none;font-size:.8125rem;color:var(--sub)}
+.bigidx:hover a{color:#b9c4d6}
+.bigidx a:hover,.bigidx a:focus-visible{color:var(--blue);padding-left:16px}
+
+/* 07 タイムライン（1日の時間の線） */
+.tl-day{position:relative;margin:64px 0 0;padding:0 0 92px}
+.tl-ticks{list-style:none;padding:0;margin:0;position:relative;height:28px;border-bottom:1px solid var(--line)}
+.tl-ticks li{position:absolute;top:0;translate:-50% 0;font-size:.8125rem;color:var(--sub)}
+.tl-ticks li::after{content:"";position:absolute;left:50%;top:26px;width:1px;height:12px;background:var(--line)}
+.tl-bar{position:relative;height:14px;margin-top:22px;border-radius:99px;background:repeating-linear-gradient(90deg,#dbe6f5 0 6px,transparent 6px 12px)}
+.tl-fill{position:absolute;left:var(--a);top:0;bottom:0;width:calc(var(--b) - var(--a));border-radius:99px;background:linear-gradient(90deg,var(--pink),var(--blue));transform-origin:left;transform:scaleX(0);transition:transform 1.4s var(--ease) .2s}
+.u-tl.in .tl-fill,html:not(.js) .tl-fill{transform:none}
+.tl-pin{position:absolute;top:26px;display:flex;flex-direction:column;align-items:center;translate:-50% 0;font-size:.8125rem;font-weight:700;white-space:nowrap;opacity:0;transition:opacity .5s 1.2s}
+.tl-pin b{font-size:clamp(1.75rem,3.4vw,2.75rem);color:var(--blue);line-height:1.1}
+.tl-pin.s{left:var(--a)}.tl-pin.e{left:var(--b)}
+.u-tl.in .tl-pin,html:not(.js) .tl-pin{opacity:1}
+.tl-foot{display:grid;grid-template-columns:auto 1fr;gap:24px 48px;align-items:center}
+.tl-week{display:flex;gap:8px}
+.tl-week li{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:700;border:1px dashed #b9c4d6;color:#8a95a8}
+.tl-week li.on{background:var(--blue);color:#fff;border:0}
+
+/* 08 大きな番号のステップ */
+.bigsteps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:56px;list-style:none;padding:0}
+.bigsteps li{padding:8px 20px 8px 20px;border-left:1px solid #c9d6ea}
+.bigsteps li:first-child{border-left:0;padding-left:0}
+.bigsteps b{display:block;font-size:clamp(3.5rem,7vw,6.25rem);line-height:.9;font-weight:600;color:transparent;-webkit-text-stroke:1.5px var(--blue);transition:color .3s,-webkit-text-stroke-color .3s}
+.bigsteps li:hover b{color:var(--pink);-webkit-text-stroke-color:var(--pink)}
+.bigsteps h3{margin-top:18px;font-size:var(--fs16);font-weight:700;line-height:1.6}
+.bigsteps p{margin-top:6px;font-size:var(--fs14);line-height:1.8}
+.u-steps .bigsteps li>p:only-of-type{font-weight:700}
+.addr2{display:grid;grid-template-columns:5fr 6fr;gap:40px;align-items:center;margin-top:32px}
+.addr2 .pic{margin:0;position:relative;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;background:var(--pale)}
+.addr2 .pic img{display:block;width:100%;height:100%;object-fit:cover}
+.addr2 h3{font-size:var(--fs28);font-weight:700;margin-bottom:8px}
+
+/* 10 スクロールテリング（行動指針） */
+.st{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:40px}
+.st-vis{position:sticky;top:calc(var(--hd) + 24px);height:calc(100svh - var(--hd) - 64px);max-height:640px;border-radius:var(--r);overflow:hidden;display:grid;place-items:center;background:var(--pinkpp);transition:background .8s var(--ease)}
+.st-vis.s1{background:var(--pale)}.st-vis.s2{background:#e3f8ef}
+.st-vis::before{content:"";position:absolute;width:62%;aspect-ratio:1;border-radius:50%;background:#fff;opacity:.7;transition:transform .9s var(--ease),border-radius .9s var(--ease)}
+.st-vis.s1::before{transform:scale(1.15) rotate(45deg);border-radius:38% 62% 55% 45%}
+.st-vis.s2::before{transform:scale(.9);border-radius:50% 50% 12px 50%}
+.st-in{position:relative;display:grid}
+.st-w{grid-area:1/1;justify-self:center;font-size:clamp(3.5rem,8vw,7.5rem);line-height:1;color:var(--pinkd);opacity:0;transform:translateY(24px) scale(.94);transition:opacity .6s var(--ease),transform .7s var(--ease)}
+.st-w.w1{color:var(--blue)}.st-w.w2{color:#0a8f68}
+.st-w.on{opacity:1;transform:none}
+.st-n{position:absolute;left:24px;bottom:20px;font-size:.8125rem;letter-spacing:.12em;color:var(--sub)}
+.st-n b{color:var(--ink);font-weight:600}
+.st-steps{list-style:none;padding:0}
+.st-steps li{min-height:70svh;display:flex;flex-direction:column;justify-content:center;opacity:.28;transition:opacity .5s}
+.st-steps li.on,html:not(.js) .st-steps li{opacity:1}
+.st-steps .k{font-size:.8125rem;letter-spacing:.2em;color:var(--pinkd)}
+.st-steps h3{font-size:var(--fs28);font-weight:700;line-height:1.5;margin:8px 0 12px}
+
+/* 11 アコーディオン */
+.acc-in{display:grid;grid-template-columns:4fr 8fr;gap:32px 56px;align-items:start}
+.acc{border-top:2px solid var(--ink)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:3.6em 1fr 32px;gap:12px;align-items:center;padding:22px 0;font-weight:700;min-height:48px}
+.acc summary::-webkit-details-marker{display:none}
+.acc .q{font-size:.8125rem;color:var(--pinkd);letter-spacing:.06em}
+.acc summary i{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--blue);position:relative;transition:transform .3s var(--ease),background .3s}
+.acc summary i::before,.acc summary i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:var(--blue);translate:-50% -50%}
+.acc summary i::after{rotate:90deg}
+.acc details[open] summary i{transform:rotate(45deg);background:var(--blue)}
+.acc details[open] summary i::before,.acc details[open] summary i::after{background:#fff}
+.acc summary:hover .qt{color:var(--blue)}
+.acc .a{padding:0 44px 24px 4.35em;color:#333}
+
+/* 12 タブ（募集要項） */
+.jtabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px;padding:6px;background:#fff;border:1px solid #d5e2f3;border-radius:28px;width:fit-content;max-width:100%}
+.jtabs button{font:inherit;font-weight:700;font-size:var(--fs14);border:0;border-radius:99px;padding:10px 20px;min-height:44px;background:transparent;color:var(--ink);cursor:pointer;transition:background .35s var(--ease),color .35s}
+.jtabs button:hover{background:var(--pale)}
+.jtabs button[aria-selected="true"]{background:var(--blue);color:#fff}
+.tp{display:grid;grid-template-columns:7fr 5fr;gap:24px 48px;margin-top:24px;padding:clamp(28px,4vw,48px);background:#fff;border-radius:var(--r);border:1px solid #e3ecf8}
+.js .tp:not(.on){display:none}
+.tp.on{animation:tpIn .45s var(--ease)}
+@keyframes tpIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.tp h3{font-size:var(--fs28);font-weight:700;margin:6px 0 12px}
+.tp .tag{display:inline-block;font-size:.8125rem;background:var(--greenp);border-radius:99px;padding:2px 12px;font-weight:700}
+.tp.special{background:linear-gradient(160deg,#fff 40%,#eafaf3)}
+.tp-r{border-left:2px dotted rgba(239,131,155,.6);padding-left:clamp(20px,3vw,40px)}
+.tp .pay{font-size:clamp(1.375rem,2.4vw,1.875rem);font-weight:700;color:var(--blue);line-height:1.4}
+.tp dl{margin-top:16px}
+.tp dl div{display:grid;grid-template-columns:6em 1fr;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);font-size:.9375rem}
+.tp dt{color:#555;font-weight:700;font-size:.8125rem}
+.js .tabs .tp+.tp{margin-top:24px}
+
+/* 13 ホバーで広がるパネル */
+.exp{display:flex;gap:10px;height:clamp(380px,46vw,460px);margin-top:32px}
+.exp>article{flex:1;min-width:0;border-radius:var(--r);position:relative;overflow:hidden;cursor:pointer;transition:flex .6s cubic-bezier(.6,0,.2,1);outline-offset:4px}
+.exp>article.on{flex:4.2;cursor:default}
+.exp .c-blue{background:var(--blue);color:#fff}
+.exp .c-pink{background:var(--pinkp)}
+.exp .c-green{background:var(--greenp)}
+.exp .c-photo{background:#1f3a66;color:#fff}
+.exp .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.exp .c-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,30,70,0) 30%,rgba(10,30,70,.78))}
+.exp .v{position:absolute;left:22px;top:24px;writing-mode:vertical-rl;font-weight:700;font-size:var(--fs20);letter-spacing:.12em;transition:opacity .3s;z-index:1}
+.exp .tx{position:absolute;left:clamp(22px,3vw,36px);right:clamp(22px,3vw,36px);bottom:clamp(22px,3vw,32px);opacity:0;transform:translateY(12px);transition:opacity .4s .15s,transform .4s .15s;z-index:1;max-width:34em}
+.exp .tx h3{font-size:var(--fs28);font-weight:700;margin-bottom:8px;line-height:1.4}
+.exp .tx p{font-size:var(--fs14);line-height:1.9}
+.exp .tx p+p{margin-top:10px}
+.exp .tx .chips{margin-bottom:12px}
+.exp .tx .chips span{background:#fff}
+.exp .ic-exp{position:absolute;right:20px;top:20px;width:clamp(56px,5.6vw,80px);height:auto;z-index:1;transition:transform .6s var(--ease)}
+.exp>article:not(.on) .ic-exp{transform:scale(.6) translate(30%,-30%)}
+.exp>article.on .v{opacity:0}
+.exp>article.on .tx{opacity:1;transform:none}
+.exp .tel{font-size:clamp(1.75rem,3.4vw,2.5rem);text-decoration:none;color:var(--blue)}
+.exp .go{font-weight:700;color:var(--pinkd)}
+.exp .c-blue .tel,.exp .c-photo .tel{color:#fff}.exp .c-blue .go,.exp .c-photo .go{color:var(--pinkp)}
+.exp .ph-note{z-index:2}
+.u-exp .more{margin-top:28px}
+
+/* 15 全面のビジュアル */
+.u-fb{position:relative;padding:0;min-height:max(560px,86svh);display:flex;align-items:flex-end;color:#fff;overflow:hidden;margin:0 16px;border-radius:var(--r)}
+.fb-img{position:absolute;inset:-12% 0;will-change:transform}
+.fb-img img{width:100%;height:100%;object-fit:cover;display:block}
+.u-fb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,30,70,0) 25%,rgba(10,30,70,.82) 92%)}
+.fb-in{position:relative;z-index:1;padding-bottom:clamp(40px,7vw,88px);width:100%}
+.u-fb .fb-in>h2{font-size:clamp(2rem,5.6vw,4.5rem);line-height:1.25;max-width:14em}
+.fb-in p{margin-top:20px;max-width:34em;color:rgba(255,255,255,.92)}
+.u-fb .ph-note{z-index:2;top:14px;bottom:auto}
+
+/* 16 スプリット画面 */
+.u-split{padding:0;margin:var(--s-静) 0}
+.split{display:grid;grid-template-columns:5fr 7fr}
+.split-l{position:sticky;top:var(--hd);height:calc(100svh - var(--hd));display:flex;align-items:center;padding:clamp(32px,5vw,72px);background:var(--blue);color:#fff;border-radius:0 var(--r) var(--r) 0}
+.split-l p{margin-top:16px;opacity:.92}
+.split-l .ic-split{position:static!important;display:block;width:clamp(72px,7vw,100px);height:auto;margin-top:32px}
+.split-r .sr{min-height:62svh;padding:clamp(32px,5vw,72px);display:flex;flex-direction:column;justify-content:center;border-bottom:2px dotted rgba(239,131,155,.5)}
+.split-r .sr:last-child{border-bottom:0}
+.split-r .k{font-size:.8125rem;letter-spacing:.2em;color:var(--pinkd)}
+.split-r h3{font-size:var(--fs28);font-weight:700;margin:6px 0 10px}
+.split-r .ic-card{width:68px;height:68px}
+.u-split-form .split-r .sr{min-height:0}
+
+/* 17 数字・一言の大見出し */
+.say+.say{margin-top:clamp(72px,10vw,140px)}
+.say .v{font-size:clamp(4.5rem,15vw,13rem);line-height:.82;color:transparent;-webkit-text-stroke:2px var(--blue);letter-spacing:-.03em;margin:0}
+.say.s1 .v{-webkit-text-stroke-color:var(--pinkd);text-align:right}
+.say-t{display:grid;grid-template-columns:6fr 5fr;gap:24px 48px;margin-top:28px;align-items:start}
+.say .big{font-size:var(--fs28);font-weight:700;line-height:1.7;max-width:none}
+.say.s1 .say-t{grid-template-columns:5fr 6fr}.say.s1 .big{order:2}
+.num{display:grid;grid-template-columns:1.1fr 1fr;gap:32px 56px;align-items:end;margin-top:24px}
+.num .v{font-size:var(--fs44);font-weight:700;line-height:1;max-width:none;color:var(--blue)}
+.num .v b{font-size:clamp(9rem,26vw,20rem);line-height:.78;font-weight:600;letter-spacing:-.06em;margin-right:.04em}
+.num .v small{display:block;font-size:var(--fs14);color:var(--ink);font-weight:700;margin-top:18px;line-height:1.7}
+.num-side li{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.num-side li:first-child{border-top:2px solid var(--ink)}
+.num-side .k{font-size:var(--fs14);color:var(--sub);font-weight:700}
+.num-side b{font-size:var(--fs20);color:var(--blue);grid-row:span 2;align-self:center}
+.num-side small{font-size:.8125rem;color:var(--sub)}
+.u-num .note{margin-top:28px;font-size:var(--fs14);color:var(--sub);max-width:none}
+.u-num .num p{margin-top:12px}
+.u-tel .bigtel2{display:inline-block;margin-top:16px;font-size:clamp(2.5rem,11vw,9.5rem);color:var(--blue);text-decoration:none;letter-spacing:-.03em;line-height:1}
+.u-tel .bigtel2:hover{color:var(--pinkd)}
+.u-tel .fax{margin-top:16px;color:var(--sub)}
+.u-tel .fax .en{font-size:var(--fs20);color:var(--ink)}
+@media (prefers-reduced-motion: no-preference){
+  .js .u-num .num .v b,.js .u-tel .bigtel2,.js .say .v{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform 1.1s var(--ease)}
+  .js .u-num.in .num .v b,.js .u-tel.in .bigtel2,.js .say.in .v{opacity:1;transform:none}
+}
+
+/* 18 マーキー（採用ページの最後の呼びかけ） */
+.cta.has-mq{overflow:hidden;padding-top:0}
+.mq{overflow:hidden;white-space:nowrap;border-bottom:1px solid rgba(255,255,255,.35);padding:18px 0;margin-bottom:var(--s-静)}
+.mq .row{display:inline-flex;gap:48px;animation:mq 30s linear infinite;font-family:"Syne",sans-serif;font-weight:600;font-size:clamp(2.5rem,6vw,5rem);line-height:1}
+.mq .row span:nth-child(3n+2){color:transparent;-webkit-text-stroke:1.5px #fff}
+.mq .row span::after{content:"✳";color:var(--pinkp);margin-left:48px;-webkit-text-stroke:0}
+.mq:hover .row{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.mq .row{animation:none}.fb-img{transform:none!important}.tl-fill{transition:none}}
+
+@media(max-width:860px){
+  .u{--hd:64px}
+  .lrows li>a,.lrows li:not(:has(a)){grid-template-columns:2.6em 1fr 1.5em;padding:18px 0}
+  .lrows li:not(:has(a)){grid-template-columns:2.6em 1fr}
+  .lrows .v{grid-column:2/3}.lrows .ar{grid-row:1;grid-column:3}
+  .edit{grid-template-columns:1fr}.edit .a,.edit .b,.edit .c,.edit .d{grid-column:1/-1}
+  .edit .c{width:62%;margin:-72px 0 0 auto}.edit .b{padding-top:8px}
+  .bento,.b-pg{grid-template-columns:1fr;grid-template-areas:"p1" "p2" "f1" "f2" "f3"}
+  .b-facts{grid-template-columns:1fr}.b-facts .wide{grid-column:auto}.b-facts .big{grid-row:auto}
+  .bigidx a{flex-direction:column;gap:2px}
+  .tl-day{margin-top:40px;padding-bottom:84px}
+  .tl-ticks li:nth-child(even) span{visibility:hidden}
+  .tl-foot{grid-template-columns:1fr}
+  .tl-week li{width:38px;height:38px}
+  .bigsteps{grid-template-columns:1fr;margin-top:40px}
+  .bigsteps li,.bigsteps li:first-child{display:grid;grid-template-columns:4.2rem 1fr;gap:0 16px;padding:18px 0;border-left:0;border-top:1px solid #c9d6ea}
+  .bigsteps b{grid-row:span 2;font-size:3.5rem}.bigsteps h3{margin-top:4px}
+  .addr2{grid-template-columns:1fr;gap:20px}
+  .st{grid-template-columns:1fr;gap:0}
+  .st-vis{top:calc(var(--hd) + 8px);height:34svh;z-index:1}
+  .st-steps li{min-height:56svh}
+  .acc-in{grid-template-columns:1fr;gap:8px}
+  .acc summary{grid-template-columns:1fr 32px}.acc .q{grid-column:1/-1;margin-bottom:-8px}
+  .acc .a{padding:0 0 22px}
+  .tp{grid-template-columns:1fr}.tp-r{border-left:0;border-top:2px dotted rgba(239,131,155,.6);padding:20px 0 0}
+  .jtabs{border-radius:20px}
+  .exp{flex-direction:column;height:auto}
+  .exp>article,.exp>article.on{flex:none;min-height:260px;cursor:default}
+  .exp .tx{position:relative;left:auto;right:auto;bottom:auto;opacity:1;transform:none;padding:96px 24px 24px}
+  .exp .v{display:none}
+  .exp>article:not(.on) .ic-exp{transform:none}
+  .exp .c-photo .tx{padding-top:180px}
+  .u-fb{margin:0 8px;min-height:540px}
+  .split{grid-template-columns:1fr}
+  .split-l{position:relative;top:auto;height:auto;border-radius:var(--r);margin:0 16px;padding:40px 24px}
+  .split-r .sr{min-height:0;padding:36px 24px}
+  .say .v{-webkit-text-stroke-width:1.5px}
+  .say-t,.say.s1 .say-t{grid-template-columns:1fr}.say.s1 .big{order:0}
+  .num{grid-template-columns:1fr;gap:20px}
+}
+</style>
+</head>
+<body class="sub" style="--sky:url(../assets/sky-poster.jpg)">
+<header class="hd">
+  <a class="logo" href="../index.html" aria-label="Hello new me inc. ホーム"><span class="logo-type" aria-hidden="true">Hello new me <small>inc.</small></span></a>
+  <nav class="pc" aria-label="メニュー"><ul><li><a href="../about/index.html">ハローニューミーについて</a></li><li><a href="../index.html#H3">サービス</a></li><li><a href="../information/index.html">情報公開</a></li><li><a href="../recruit/index.html">採用情報</a></li><li><a href="../contact/index.html">お問い合わせ</a></li></ul></nav>
+  <details><summary>メニュー</summary><ul><li><a href="../about/index.html">ハローニューミーについて</a></li><li><a href="../index.html#H3">サービス</a></li><li><a href="../information/index.html">情報公開</a></li><li><a href="../recruit/index.html">採用情報</a></li><li><a href="../contact/index.html">お問い合わせ</a></li></ul></details>
+</header>
+<main><section id="P1" class="ph1"><i class="glow g1"></i><i class="glow g2"></i><div class="win sky" role="img" aria-label="空"></div><div class="wrap"><h1><span class="seg"><span class="nw">プライバシーポリシー</span></span></h1><div class="sub"></div><p class="wait">現行サイトの本文（https://www.hellonewme-inc.com/privacypolicy）を移し、会社サイト用に見直す</p></div></section></main>
+<footer class="ft sky"><div class="ft-tint"></div><svg class="wv wv-hang top flip" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true"><path class="c-sky2" d="M0,0 L1440,0 L1440,110 C1220,230 980,240 760,170 C540,100 300,130 0,220Z"/><path class="c-pale" d="M0,0 L1440,0 L1440,60 C1220,170 980,180 760,120 C540,60 300,80 0,170Z"/><path class="c-line" d="M1450,90 C1230,206 990,214 770,148 C580,92 400,96 220,130"/></svg><svg class="plane-icon ft-plane" viewBox="-6 -14 40 28" aria-hidden="true"><path class="w2" d="M30,0 L4,1 L-1,12 Z"/><path class="k" d="M30,0 L4,1 L7,6 Z"/><path class="w1" d="M30,0 L-4,-12 L4,1 Z"/></svg><div class="wrap">
+  <div class="cols"><div><img class="logo" src="../assets/logo-white.png" alt="Hello new me inc." width="256" height="24">株式会社ハローニューミー<br>〒812-0013 福岡県福岡市博多区博多駅東2丁目9-25<br>アバンダント84 301号<br>TEL 092-292-0005／FAX 092-292-7003</div><div><b>サービス・ご相談</b><a href="../work/index.html">就労継続支援B型 アイミー</a><a href="../contact/index.html">お問い合わせ</a></div><div><b>法人・運営情報</b><a href="../about/index.html">ハローニューミーについて</a><a href="../information/index.html">情報公開</a><a href="../recruit/index.html">採用情報</a><a href="../privacy/index.html">個人情報</a><a href="../contact/index.html#C5">ご意見・苦情</a></div><div><b>関連サイト</b><a href="https://www.hellonewme-inc.com/" target="_blank" rel="noopener">アイミー博多（施設サイト）</a></div></div>
+  <small>© Hello New Me Inc.</small>
+</div></footer>
+<script>/* 会社サイトの動き。定義の正本は ../設計書.md の9章。ライブラリは使わない。 */
+(() => {
+  const d = document, root = d.documentElement;
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;  // 動きを減らす設定
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+
+  /* ---- 下層ページの節ごとの手法（2026-11-16 本人指定。見本帳 labs/ui-patterns の手法。build.py の UI）---- */
+  // 画面に入ったら .in（タイムラインの帯が伸びる・大きな数字と言葉が上がってくる）
+  const inView = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); inView.unobserve(e.target); } }), { threshold: .35 });
+  d.querySelectorAll('.u-tl,.u-num,.u-tel,.say').forEach((el) => inView.observe(el));
+  // 10 スクロールテリング：画面の中ほどに来た段に合わせて、止めた側の言葉と色を替える
+  d.querySelectorAll('[data-story]').forEach((st) => {
+    const vis = st.querySelector('.st-vis'), words = [...vis.querySelectorAll('.st-w')], steps = [...st.querySelectorAll('.st-steps li')], n = vis.querySelector('.st-n b');
+    const set = (i) => {
+      vis.className = 'st-vis s' + i;
+      words.forEach((w, j) => w.classList.toggle('on', j === i));
+      steps.forEach((s, j) => s.classList.toggle('on', j === i));
+      n.textContent = String(i + 1).padStart(2, '0');
+    };
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) set(+e.target.dataset.s); }), { rootMargin: '-45% 0px -45% 0px' });
+    steps.forEach((s) => io.observe(s));
+  });
+  // 13 ホバーで広がるパネル：乗せる・押す・キーで選ぶと、その1枚だけ広がる（スマホは全部開いて縦に並ぶ）
+  d.querySelectorAll('[data-exp]').forEach((exp) => {
+    const items = [...exp.children];
+    const on = (a) => items.forEach((x) => x.classList.toggle('on', x === a));
+    items.forEach((a) => { a.addEventListener('mouseenter', () => on(a)); a.addEventListener('focusin', () => on(a)); a.addEventListener('click', () => on(a)); });
+  });
+  // 12 タブ：職種を切り替える。左右の矢印キーでも移れる
+  d.querySelectorAll('[data-tabs]').forEach((tabs) => {
+    const bts = [...tabs.querySelectorAll('[role="tab"]')], panes = [...tabs.querySelectorAll('[role="tabpanel"]')];
+    const set = (i, focus) => {
+      bts.forEach((b, j) => { b.setAttribute('aria-selected', j === i); b.tabIndex = j === i ? 0 : -1; });
+      panes.forEach((p, j) => p.classList.toggle('on', j === i));
+      if (focus) bts[i].focus();
+    };
+    bts.forEach((b, i) => {
+      b.addEventListener('click', () => set(i));
+      b.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); set((i + (e.key === 'ArrowRight' ? 1 : bts.length - 1)) % bts.length, true); }
+      });
+    });
+  });
+  // 15 全面のビジュアル：スクロールに合わせて写真をゆっくりずらす
+  const par = [...d.querySelectorAll('[data-par]')];
+  if (par.length && !still) {
+    const move = () => par.forEach((el) => { const r = el.parentElement.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) el.style.transform = `translateY(${(r.top * -.12).toFixed(1)}px)`; });
+    addEventListener('scroll', move, { passive: true }); move();
+  }
+
+  /* ---- 拠点のカルーセル（2026-11-16）：拠点が2つ以上の時だけ前後のボタンで送る。何枚目かを数字で示す ---- */
+  d.querySelectorAll('[data-car].many').forEach((car) => {
+    const track = car.querySelector('.car-track'), slides = [...track.children], count = car.querySelector('.car-count b');
+    const prev = car.querySelector('.car-prev'), next = car.querySelector('.car-next');
+    const idx = () => Math.round(track.scrollLeft / (slides[1].offsetLeft - slides[0].offsetLeft));
+    const sync = () => { const i = Math.max(0, Math.min(slides.length - 1, idx())); count.textContent = String(i + 1).padStart(2, '0'); prev.disabled = i === 0; next.disabled = i === slides.length - 1; };
+    const go = (dir) => { const i = Math.max(0, Math.min(slides.length - 1, idx() + dir)); track.scrollTo({ left: slides[i].offsetLeft - slides[0].offsetLeft, behavior: still ? 'auto' : 'smooth' }); };
+    prev.addEventListener('click', () => go(-1)); next.addEventListener('click', () => go(1));
+    track.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+    track.tabIndex = 0; track.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') { e.preventDefault(); go(1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); } });
+    sync();
+  });
+
+  /* ---- 画面に入った時だけ再生する動画（終章の空。FV と同じ動画を二重に読み込まないため。2026-11-16 レビュー）---- */
+  const lazyV = d.querySelectorAll('video[data-autoplay]');
+  if (lazyV.length && !still) {
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.preload = 'auto'; e.target.play().catch(() => {}); } else e.target.pause(); }), { rootMargin: '200px' });
+    lazyV.forEach((v) => io.observe(v));
+  }
+
+  /* ---- お問い合わせフォーム（2026-11-16 レビュー指摘3）：項目ごとの日本語の案内、電話番号は連絡方法しだいで必須、送った後の画面（デモ） ---- */
+  const form = d.querySelector('form.demo');
+  if (form) {
+    const $ = (id) => form.querySelector('#' + id), tel = $('f-tel');
+    const telNeeded = () => form.querySelector('input[name="how"]:checked').value !== 'mail';
+    const syncTel = () => {
+      const need = telNeeded(); tel.required = need;
+      form.querySelector('[data-tel-req]').hidden = !need; form.querySelector('[data-tel-any]').hidden = need;
+    };
+    form.querySelectorAll('input[name="how"]').forEach((r) => r.addEventListener('change', () => { syncTel(); if (tel.getAttribute('aria-invalid')) check(tel); }));
+    syncTel();
+    const msg = (el) => {
+      const v = el.type === 'checkbox' ? el.checked : el.value.trim();
+      if (el.required && !v) return el.type === 'checkbox' ? 'プライバシーポリシーへの同意が必要です' : el.tagName === 'SELECT' ? 'お問い合わせ種別を選んでください' : 'ご入力ください';
+      if (el.type === 'email' && v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return 'メールアドレスの形で入力してください（例：hello@example.com）';
+      if (el.type === 'tel' && v && !/^[0-9０-９+\-ー－() ]{10,}$/.test(v)) return '電話番号は数字で入力してください（例：092-292-0005）';
+      return '';
+    };
+    const check = (el) => {
+      const m = msg(el), err = $('e-' + el.id.replace('f-', ''));
+      if (err) err.textContent = m;
+      if (m) el.setAttribute('aria-invalid', 'true'); else el.removeAttribute('aria-invalid');
+      return !m;
+    };
+    const fields = [...form.querySelectorAll('input:not([type=radio]),select,textarea')];
+    fields.forEach((el) => el.addEventListener(el.type === 'checkbox' || el.tagName === 'SELECT' ? 'change' : 'blur', () => { if (el.value || el.getAttribute('aria-invalid')) check(el); }));
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const bad = fields.filter((el) => !check(el));
+      const status = form.querySelector('.form-status');
+      if (bad.length) { status.textContent = `入力内容を確認してください（${bad.length}か所）`; bad[0].focus(); return; }
+      status.textContent = '';
+      form.hidden = true;
+      const done = form.nextElementSibling; done.hidden = false; done.focus();
+    });
+  }
+
+  /* ---- PCのメニュー：ガラスのレンズが、乗せた項目へ伸びながら移る（2026-11-16 本人指定。参考：Liquid Glass Navbar）----
+     レンズの左右の端を別々のばねで動かす。進む側の端は速く、後ろの端は遅れてついてくるので、移る間だけ横に伸びて縮む */
+  const gnav = d.querySelector('.hd nav.pc');
+  if (gnav) {
+    const lens = d.createElement('i'); lens.className = 'lens'; lens.setAttribute('aria-hidden', 'true'); gnav.prepend(lens);
+    const current = gnav.querySelector('a[aria-current]');
+    let L = 0, R = 0, tL = 0, tR = 0, vL = 0, vR = 0, raf = 0, at = null;
+    const draw = (m) => {
+      lens.style.width = Math.max(0, R - L) + 'px';
+      lens.style.transform = `translateX(${L}px) scaleY(${(1 - m * .1).toFixed(3)})`;
+      lens.style.setProperty('--m', m.toFixed(3));
+    };
+    const step = () => {
+      const dir = Math.sign(tL + tR - L - R), kL = dir > 0 ? .045 : .16, kR = dir > 0 ? .16 : .045;
+      vL = (vL + (tL - L) * kL) * .74; vR = (vR + (tR - R) * kR) * .74;
+      const W = gnav.clientWidth - 4;   // 勢いでバーの外へはみ出さない
+      L = clamp(L + vL, 4, W); R = clamp(R + vR, 4, W);
+      const moving = Math.abs(tL - L) + Math.abs(tR - R) + Math.abs(vL) + Math.abs(vR) > .3;
+      if (!moving) { L = tL; R = tR; vL = vR = 0; }
+      draw(moving ? clamp(Math.abs(vR - vL) / 30 + (Math.abs(vL) + Math.abs(vR)) / 80) : 0);
+      raf = moving ? requestAnimationFrame(step) : 0;
+    };
+    const go = (a, jump) => {
+      at = a;
+      if (!a) { lens.classList.remove('on'); return; }
+      const n = gnav.getBoundingClientRect(), r = a.getBoundingClientRect();
+      tL = r.left - n.left - 1; tR = r.right - n.left - 1;
+      if (jump || still || !lens.classList.contains('on')) { L = tL; R = tR; vL = vR = 0; draw(0); }
+      lens.classList.add('on');
+      if (!raf && !still) raf = requestAnimationFrame(step);
+    };
+    gnav.addEventListener('pointerover', (e) => { const a = e.target.closest('a'); if (a && a !== at) go(a); });
+    gnav.addEventListener('pointerleave', () => go(current));
+    gnav.addEventListener('focusin', (e) => { const a = e.target.closest('a'); if (a) go(a); });
+    gnav.addEventListener('focusout', (e) => { if (!gnav.contains(e.relatedTarget)) go(current); });
+    addEventListener('resize', () => { if (at) go(at, true); });
+    (d.fonts ? d.fonts.ready : Promise.resolve()).then(() => go(current, true));
+  }
+
+  /* ---- 文字の塗り（about の行動指針）：スクロールに合わせて左から青くなる ---- */
+  const fills = [...d.querySelectorAll('[data-fill]')];
+  const paint = () => {
+    const vh = innerHeight;
+    fills.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--f', still ? 1 : clamp((vh * .92 - r.top) / (vh * .42) - Number(el.dataset.fill) * .22));
+    });
+  };
+
+  /* ---- 序章（ABOUT）の登場（2026-11-16 本人指定）：序章の上端が画面の PRO_AT（高さの割合）まで上がった瞬間に、
+     画面の中央にある文字組が奥から出る（style.css の .in）。文字組はその瞬間に中央へ来る位置まで上げておく ---- */
+  const pro = d.querySelector('.prologue'), proBox = pro && pro.querySelector('.wrap');
+  const PRO_AT = 1.08;  // 大きいほど早く出る。1.08 は FV がほぼ白くなった所（2026-11-16 本人指定で .55 → .75 → .98 → 1.08）
+  const PRO_HOLD = .45;  // 文字組が画面の中央にとどまるスクロールの長さ（画面の高さに対する比）。この間に奥から出きる
+  const proLift = () => {
+    if (!pro) return;
+    proBox.style.marginTop = proBox.style.marginBottom = '';
+    const vh = innerHeight, pad = parseFloat(getComputedStyle(pro).paddingTop) || 0, h = proBox.offsetHeight;
+    const pin = Math.max(0, (vh - h) / 2), hold = Math.round(vh * PRO_HOLD);
+    const m = Math.min(0, pin - PRO_AT * vh - pad);
+    // 文字組だけを上げ、出る瞬間に画面の中央（pin）に来るようにする。そこから hold の間は中央にとどまる（style.css の sticky と .pro-hold）。節の高さは変えない
+    pro.style.setProperty('--pin', pin + 'px'); pro.style.setProperty('--hold', hold + 'px');
+    proBox.style.marginTop = m + 'px'; proBox.style.marginBottom = (-m - hold) + 'px';
+  };
+  const proIn = () => {
+    if (!pro) return;
+    const t = pro.getBoundingClientRect().top, was = pro.classList.contains('in');
+    pro.classList.toggle('in', still || (was ? t < innerHeight * (PRO_AT + .15) : t <= innerHeight * PRO_AT));   // 戻る時は少し下まで残す
+  };
+  if (pro) {
+    proLift(); proIn();
+    addEventListener('scroll', proIn, { passive: true });
+    addEventListener('resize', () => { proLift(); proIn(); });
+  }
+
+  const fv = d.querySelector('.fv');
+  if (!fv) { paint(); addEventListener('scroll', paint, { passive: true }); addEventListener('resize', paint); return; }
+
+  /* ---- ホーム：冒頭は動画だけ。ヘッダーと目次は CSS で後からふわっと出す（2026-11-16）。
+     スクロール・キー操作・フォーカスがあれば待たずにすぐ出す ---- */
+  //   合図は「雲が開いて文字が見えた時」＝ FVの動画の4.4秒。動画が再生されない端末（省電力など）では、読み込みから4.4秒で出す
+  const REVEAL_AT = 4.4;
+  let revealed = false, onReveal = () => {};
+  const ready = () => {
+    if (revealed) return;
+    revealed = true; d.body.classList.add('reveal'); onReveal();
+  };
+  addEventListener('scroll', () => { if (scrollY > 20) ready(); }, { passive: true });
+  d.addEventListener('focusin', ready);
+  d.addEventListener('keydown', ready, { once: true });
+  const heroV = d.querySelector('.fv video.fvv'), fvx = fv.classList.contains('fvx');
+  if (fvx) {   // 2026-11-16 からのFV：Hello を線で描き終えた頃に assets/fv-stroke.js が合図（fv3d:reveal）を出す。来なければ5秒で出す
+    if (still) ready(); else { addEventListener('fv3d:reveal', ready); setTimeout(ready, 5000); }
+  } else if (still || !heroV) ready();
+  else {
+    heroV.addEventListener('timeupdate', () => { if (heroV.currentTime >= REVEAL_AT) ready(); });
+    setTimeout(() => { if (heroV.paused || heroV.readyState < 3) ready(); }, REVEAL_AT * 1000 + 600);
+  }
+
+  /* ---- ホーム：FVの筆記体の大きさ ---- */
+  const script = fv.querySelector('.script');
+  const FONT = 'Mrs Saint Delafield';  // 仮の書体。筆記の動きは保留（設計書9章）
+  const fit = () => {
+    if (!script) return;   // 2026-11-16 筆記体はFVから外した
+    // 表示中の文字の大きさを一時的に変えると描画の残りが出るため、見えない複製で幅を測る
+    const probe = script.cloneNode(true);
+    probe.style.cssText = 'position:absolute;visibility:hidden;left:0;top:0;transform:none;font-size:100px';
+    fv.appendChild(probe);
+    const w = probe.scrollWidth || 1;
+    probe.remove();
+    const size = 100 * Math.min(innerWidth * (innerWidth <= 860 ? .8 : .86), 1180) / w;
+    script.style.fontSize = size + 'px';
+    fv.style.setProperty('--ss', size + 'px');
+    fv.style.setProperty('--sh', script.offsetHeight + 'px');
+  };
+
+  /* ---- ホーム：一本のペンの線 ----
+     FVの右の外から飛んでくるピンクの線が（2026-11-16 までは筆記体の「!!」から）、序章 → HELLO の O → 写真 → NEW の帯 → ME の縦書き → 終章の空の円 をつなぐ（最初の道すじ。本人選択 2026-11-14）。
+     線の形はページの実際の配置から毎回作り直す。通る点は向心型のCatmull-Romでつなぎ、急に向きが変わる所が出ないようにする。
+     ペン先には小さな紙飛行機が乗り、線の向きに沿って飛ぶ。
+     スクロールに合わせて、ペン先が画面の高さの62%あたりに来るまで描かれる。 */
+  // ペンの線は 2026-11-16 本人指定で廃止（紙飛行機を止めた後も線が残ったため）。線を引く処理は残し、ここで止める。戻す時は true に
+  const PEN_ON = false;
+  const main = d.querySelector('main');
+  const svg = d.querySelector('svg.pen'), ink = svg.querySelector('.pen-ink');
+  if (!PEN_ON) svg.style.display = 'none';   // 線を引かない時は、紙飛行機ごと隠す（左上の原点に紙飛行機が残って見えた）
+  const pt = (sel) => d.querySelector(sel);
+  let total = 1, table = [], drawn = 0, target = 0, laid = false, tailLen = 720;
+
+  // 紙飛行機の演出（ペン先に乗って飛び、フッターへ着地する）は 2026-11-16 本人指定で一旦止める。戻す時は true に
+  const PLANE_ON = false;
+  // 紙飛行機（線の終わり＝しっぽ側を原点、機首を右に向けた形）
+  const NS = 'http://www.w3.org/2000/svg';
+  const plane = d.createElementNS(NS, 'g');
+  plane.setAttribute('class', 'pen-plane');
+  // 上の翼（白）・下の翼（淡いピンク）・折り目の影。斜め上から見た形
+  plane.innerHTML = '<path class="w2" d="M30,0 L4,1 L-1,12 Z"/><path class="k" d="M30,0 L4,1 L7,6 Z"/><path class="w1" d="M30,0 L-4,-12 L4,1 Z"/>';
+  svg.appendChild(plane);
+
+  // 筆跡：紙飛行機のすぐ後ろだけ濃いピンクで、離れるほど薄れて消える（軌道の点線は残さない。本人指定 2026-11-14）
+  const mk = (tag, attrs, parent = svg) => { const e = d.createElementNS(NS, tag); Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v)); parent.insertBefore(e, plane); return e; };
+  const TAIL_N = 10;
+  const tail = [...Array(TAIL_N)].map((_, i) => mk('path', { class: 'pen-tail', style: `opacity:${((1 - i / TAIL_N) ** 1.4).toFixed(3)}` }));
+
+  const rel = (el, fx = .5, fy = .5) => {
+    const r = el.getBoundingClientRect(), m = main.getBoundingClientRect();
+    return [r.left - m.left + r.width * fx, r.top - m.top + r.height * fy];
+  };
+  // 通る点を滑らかな曲線でつなぐ（向心型Catmull-Rom → 3次ベジェ）。
+  // 点の間隔が不揃いでも、輪や尖りが出にくい。endDir を渡すと最後の向きをそろえる
+  const smooth = (P, endDir) => {
+    const A = .5, dist = (p, q) => Math.max(1e-3, Math.hypot(q[0] - p[0], q[1] - p[1]) ** A);
+    let s = `M${P[0][0]},${P[0][1]}`;
+    for (let i = 0; i < P.length - 1; i++) {
+      const p1 = P[i], p2 = P[i + 1];
+      const p0 = P[i - 1] || [2 * p1[0] - p2[0], 2 * p1[1] - p2[1]];
+      const p3 = P[i + 2] || (endDir ? [p2[0] + endDir[0], p2[1] + endDir[1]] : [2 * p2[0] - p1[0], 2 * p2[1] - p1[1]]);
+      const d1 = dist(p0, p1), d2 = dist(p1, p2), d3 = dist(p2, p3);
+      const c1 = [0, 1].map((k) => (d1 * d1 * p2[k] - d2 * d2 * p0[k] + (2 * d1 * d1 + 3 * d1 * d2 + d2 * d2) * p1[k]) / (3 * d1 * (d1 + d2)));
+      const c2 = [0, 1].map((k) => (d3 * d3 * p1[k] - d2 * d2 * p3[k] + (2 * d3 * d3 + 3 * d3 * d2 + d2 * d2) * p2[k]) / (3 * d3 * (d3 + d2)));
+      s += ` C${c1[0]},${c1[1]} ${c2[0]},${c2[1]} ${p2[0]},${p2[1]}`;
+    }
+    return s;
+  };
+
+  const layout = () => {
+    d.body.classList.add('pen-measure');   // 奥から出てくる序章などの変形を外した位置で道すじを測る
+    const W = main.clientWidth, H = main.scrollHeight, sp = innerWidth <= 860;
+    svg.setAttribute('width', W); svg.setAttribute('height', H);
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.style.height = H + 'px';
+    const fvB = Math.min(rel(fv, 0, 1)[1], rel(pt('.prologue h2'), 0, 0)[1] - 220);   // 序章の文字組を上げて FV に重ねた分、FV の下端を手前にみなす（道すじが上へ戻らない）
+    const vis = rel(pt('.prologue h2'), 0, .5), visTop = rel(pt('.prologue h2'), 0, 0)[1];
+    const skip = pt('.prologue .ic-pro-skip'), skipL = skip && skip.offsetWidth ? rel(skip, 0, 0)[0] - 36 : Infinity;   // 序章の左の女の子のさらに左を通る（2026-11-16）
+    const oo = rel(pt('.ch1 .word .o'), .5, .55);
+    const pic = rel(pt('.ch1 .pic'), 0, .22), picB = rel(pt('.ch1 .pic'), 0, 1)[1];
+    const bandT = rel(pt('.ch2 .band'), 0, 0)[1];
+    // 第2章：見出しと拠点のカードの間を横切る（2026-11-16 拠点のカルーセルに変更）
+    const car = pt('.ch2 .car');
+    const gapY = car ? (rel(pt('.ch2 h2'), 0, 1)[1] + rel(car, 0, 0)[1]) / 2 : bandT + 200;
+    const tate = pt('.ch3 .tate h2'), tTop = rel(tate, 1, 0), tBot = rel(tate, 1, 1);
+    const circle = pt('.finale .circle'), cc = rel(circle, .5, .5), cr = circle.getBoundingClientRect().width / 2;
+    const x = (f) => W * f;
+    // 円弧上の点（中心 c、半径 R、角度 deg。0＝右、90＝下）。急に曲がる所は、この点を並べて円で曲げる
+    const on = (c, R, deg) => [c[0] + R * Math.cos(deg * Math.PI / 180), c[1] + R * Math.sin(deg * Math.PI / 180)];
+
+    // FV：筆記体を外したので（2026-11-16）、紙飛行機は画面の右の外から入ってきて、ゆるい弧で左下へ進む
+    const start = [W + 40, fvB - (sp ? 330 : 380)];
+    // 第1章：O をくぐって右へ抜け、文章と写真の間の余白で小さな輪を描いて下りる
+    const txtR = rel(pt('.ch1 .txt'), 1, 0)[0], picL = rel(pt('.ch1 .pic'), 0, 0)[0];
+    const gapX = (txtR + picL) / 2, lr = sp ? 26 : 54, lc = [gapX + lr, oo[1] + 10 - lr];
+    const ch1 = sp
+      ? [[W - 18, oo[1] + 56], [W - 18, (oo[1] + pic[1]) / 2 + 8], [W - 18, pic[1] - 40], [x(.9), bandT - 120]]
+      : [...[90, 45, 0, -45, -90, -135, 180].map((deg) => on(lc, lr, deg)), [gapX, lc[1] + lr * 1.6], [gapX, picB - 40]];
+    // 第2章の帯を出たら：右の余白を下りて、ボタンの下で円弧を描いて左へ。
+    // 第3章：縦書きの見出しの左で円弧を描いて下向きになり、そのまま終章の空の円の左端へ
+    const footB = rel(pt('.ch2 .foot'), 0, 1)[1];
+    const xr = W - (sp ? 16 : 40), yH = footB + (sp ? 28 : 46);
+    const gx = Math.min(rel(tate, 0, 0)[0] - (sp ? 10 : 18), cc[0] - cr - 12);
+    const r2 = sp ? 36 : 110, r3 = Math.max(sp ? 36 : 60, Math.min(sp ? 90 : 200, tTop[1] - 30 - yH));
+    const c2 = [xr - r2, yH - r2], c3 = [gx + r3, yH + r3];
+    const CR = cc[0] - gx;                        // 空の円を少し外側からなぞる
+    const P = [
+      start,
+      [x(sp ? .7 : .62), fvB - (sp ? 210 : 260)],
+      ...(sp && !fv.classList.contains('fvx') ? [[x(.2), rel(pt('.fv .index'), 0, 0)[1] - 30], [x(.04), rel(pt('.fv .index'), 0, 0)[1] + 4]] : []),   // スマホ：FVの目次の左端を通る（目次が画面に固定される新しいFVでは通らない）
+      [x(sp ? .03 : .05), fvB - 60],
+      [sp ? x(.04) : Math.max(Math.min(vis[0] - 130, skipL), x(.04)), (fvB + visTop) / 2 + 40],
+      [sp ? x(.04) : Math.max(Math.min(vis[0] - 120, skipL), x(.04)), vis[1] + 30],   // 文の左端に触れないよう少し離す
+      ...(sp ? [[x(.045), rel(pt('.prologue .more'), 0, 1)[1] - 40], [x(.07), rel(pt('.prologue .more'), 0, 1)[1] + 30]] : []),   // スマホ：序章の文章とボタンの左を下りきってから O へ
+      [oo[0] - (sp ? 60 : 140), oo[1] - (sp ? 70 : 150)],
+      oo,
+      ...ch1,
+      [x(.08), bandT - 30],
+      ...(sp ? [[x(.06), (bandT + gapY) / 2]] : []),
+      [x(sp ? .06 : .03), gapY],
+      [x(.35), gapY + 26],
+      [x(.65), gapY - 22],
+      [x(.88), gapY + 4],
+      [xr, gapY + (sp ? 60 : 110)],
+      [xr, gapY + (sp ? 120 : 200)],
+      [xr, c2[1]],
+      on(c2, r2, 45),
+      [c2[0], yH],
+      [c3[0], yH],
+      on(c3, r3, 225),
+      [gx, c3[1]],
+      [gx, c3[1] + 60],
+      [gx, cc[1] - 60],
+      [gx, cc[1]],
+    ];
+    // 終章：空の円の左端から反時計回り（下 → 右 → 上 → 左）に一周して、少し重ねて終える
+    const q = (deg) => on(cc, CR, deg).join(',');
+    const a = [90, 0, -90, -180, -200].map((deg) => `A${CR},${CR} 0 0 0 ${q(deg)}`).join(' ');
+    // 着地（2026-11-16 本人指定）：円を一周した後、そのまま下へ降りて、フッターの紙飛行機の位置に横向きで着地する
+    const ringD = smooth(P, [0, 60]) + ' ' + a;
+    ink.setAttribute('d', ringD);
+    const ringEnd = ink.getTotalLength(), E = ink.getPointAtLength(ringEnd), E0 = ink.getPointAtLength(ringEnd - 4);
+    const ftp = d.querySelector('.ft-plane'), finB = rel(pt('.finale'), 0, 1)[1];
+    let landD = '', T = null;
+    if (ftp && PLANE_ON) {
+      T = rel(ftp, .5, .5);
+      const dx = E.x - E0.x, dy = E.y - E0.y, dl = Math.hypot(dx, dy) || 1;
+      const LP = [[E.x, E.y], [E.x + dx / dl * 70, E.y + dy / dl * 70],
+        [sp ? 12 : E.x - 6, finB - (sp ? 70 : 130)],
+        [T[0] - (sp ? 130 : 320), T[1] + (sp ? 12 : 24)], T];
+      landD = ' ' + smooth(LP, [60, 0]);   // 最後は右向きの水平で降りる
+    }
+    const dd = ringD + landD;
+    ink.setAttribute('d', dd);
+    total = ink.getTotalLength();
+    landAt = T ? total : 0;
+    d.body.classList.toggle('pen-lands', !!T && !still);
+    ink.style.strokeDasharray = `${total} ${total}`;
+    tail.forEach((e) => e.setAttribute('d', dd));
+    tailLen = sp ? 420 : 720;
+    // 長さ → 描き終わるべき高さの対応表（上へ戻る区間は、直前の一番下を使う）
+    const circleStart = ringEnd - CR * (Math.PI * 2 + 20 * Math.PI / 180);
+    table = []; let maxY = 0;
+    for (let i = 0; i <= 900; i++) {
+      const L = total * i / 900, p = ink.getPointAtLength(L);
+      maxY = Math.max(maxY, p.y);
+      let y = maxY;
+      if (L > circleStart && L <= ringEnd) y = cc[1] + (L - circleStart) / (ringEnd - circleStart) * (CR + 60);  // 円は、ペン先が円の中ほどから下へ進むあいだに描き切る
+      else if (L > ringEnd) y = Math.max(maxY, cc[1] + CR + 60);                                              // 着地の区間は、降りていく高さに合わせる
+      table.push([L, Math.max(y, table.length ? table[table.length - 1][1] : 0)]);
+    }
+    // 横へ進む区間・輪・円では、スクロールがほとんど進まないうちに線が何百pxも進み、紙飛行機が瞬間移動して見える。
+    // 対応表の高さを、線の長さ方向に前後へならす（箱型の平均を3回＝ほぼガウス型）。
+    // 横の区間は前後の縦の区間からスクロール量を分けてもらい、ゆっくり速くなってゆっくり遅くなる。
+    // 平均は並びの順を崩さないので、表は単調なまま
+    const step = total / 900, HW = Math.round((sp ? 260 : 450) / step);   // 片側の幅（線の長さで PC 450px・スマホ 260px）
+    // 両端は、縦に下りる線（長さ1pxにつき高さ1px）が続くものとして延ばしてから平均し、後で切り取る（端だけ急に速くならないように）
+    const PAD = HW * 3, raw = table.map((r) => r[1]);
+    let ys = [...Array(PAD)].map((_, j) => raw[0] - (PAD - j) * step).concat(raw, [...Array(PAD)].map((_, j) => raw[raw.length - 1] + (landAt ? 0 : (j + 1) * step)));   // 着地で終わる時は、終わりを深く見積もらない（最後まで届くように）
+    for (let pass = 0; pass < 3; pass++) {
+      const pre = [0]; ys.forEach((v) => pre.push(pre[pre.length - 1] + v));
+      ys = ys.map((v, i) => { const lo = Math.max(0, i - HW), hi = Math.min(ys.length, i + HW + 1); return (pre[hi] - pre[lo]) / (hi - lo); });
+    }
+    ys = ys.slice(PAD, PAD + raw.length);
+    table = table.map((r, i) => [r[0], ys[i]]);
+    d.body.classList.remove('pen-measure');
+    laid = true;
+  };
+
+  // 紙飛行機をペン先へ。向きは少し手前の点から取る
+  const fly = () => {
+    if (still || !laid || !PLANE_ON) { plane.style.opacity = 0; return; }
+    // 向きは少し手前の点から。書き出し直後は少し先の点から取る
+    const p = ink.getPointAtLength(drawn);
+    const q = drawn < 6 ? p : ink.getPointAtLength(drawn - 6), r = drawn < 6 ? ink.getPointAtLength(6) : p;
+    const deg = Math.atan2(r.y - q.y, r.x - q.x) * 180 / Math.PI;
+    // 左向きに飛ぶ時は裏返さず、鏡に映した形にする（翼がいつも上に来る）
+    plane.setAttribute('transform', `translate(${p.x},${p.y}) rotate(${deg})${Math.abs(deg) > 90 ? ' scale(1,-1)' : ''}`);
+    plane.style.opacity = 1;
+    plane.classList.toggle('landed', landAt > 0 && drawn >= landAt - 1);   // 着地したら、その場でゆっくり揺れる
+  };
+
+  const lengthAt = (y) => {
+    if (y >= table[table.length - 1][1]) return total;
+    let lo = 0, hi = table.length - 1;
+    while (lo < hi) { const m = (lo + hi + 1) >> 1; if (table[m][1] <= y) lo = m; else hi = m - 1; }
+    return table[lo][0];
+  };
+
+  // 読み込み直後の飛び込み：冒頭は動画だけ。動画の文字が出そろって目次が出た後、紙飛行機が画面の右の外から FV の中へ飛んでくる
+  // ヘッダーの地を白くする位置。新しいFVは白へ溶け始める所（区間の82%）から
+  const pastY = () => fv.classList.contains('fvx') && !fv.classList.contains('fvx-off') ? (fv.offsetHeight - innerHeight) * .82 : fv.offsetHeight - 90;
+  let landAt = 0;
+  const INTRO_WAIT = 2400, INTRO_FLY = 3200;   // 文字が見えた合図（ヘッダーが降りる時）から2.4秒後、目次が出た後に飛んでくる
+  let introAt = 0, introLoop = false, vel = 0, lastT = 0, loopOn = false;
+  const ease = (t) => (t < .5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);   // ゆっくり出て、ゆっくり着く
+
+  const tick = () => {
+    if (!laid) return;
+    if (introAt && scrollY > 20) introAt = 0;      // 待っている間・飛んでいる間にスクロールしたら、すぐ普通の動きへ
+    if (!still && introAt) {
+      const t = (performance.now() - introAt - INTRO_WAIT) / INTRO_FLY;
+      if (t < 1) {
+        const tip = scrollY - (main.getBoundingClientRect().top + scrollY) + innerHeight * (.62 + .38 * (1 - clamp(scrollY / innerHeight)));
+        target = lengthAt(tip);
+        drawn = target * ease(clamp(t)); vel = 0; lastT = 0;
+        draw();
+        d.body.classList.toggle('past', scrollY > pastY());
+        // スクロールでも tick は呼ばれるので、飛び立ちの繰り返しは1本だけにする
+        if (!introLoop) { introLoop = true; requestAnimationFrame(() => { introLoop = false; tick(); }); }
+        return;
+      }
+      introAt = 0;
+    }
+    const tip = scrollY - (main.getBoundingClientRect().top + scrollY) + innerHeight * (.62 + .38 * (1 - clamp(scrollY / innerHeight)));
+    target = still ? total : lengthAt(tip);
+    if (still) { drawn = target; vel = 0; }
+    else {
+      // ばねで追う：ゆっくり加速して、ゆっくり止まる（減衰が臨界のばね）。速さには上限を設け、速いスクロールでも飛ばない
+      const now = performance.now(), dt = Math.min(.05, lastT ? (now - lastT) / 1000 : 1 / 60); lastT = now;
+      const W0 = 3.2, VMAX = innerWidth <= 860 ? 1100 : 1800;       // 固有角振動数（大きいほど早く追いつく）・最高速度 px/秒
+      vel += (W0 * W0 * (target - drawn) - 2 * W0 * vel) * dt;
+      vel = Math.max(-VMAX, Math.min(VMAX, vel));
+      drawn += vel * dt;
+      if (Math.abs(target - drawn) < .5 && Math.abs(vel) < 4) { drawn = target; vel = 0; }
+    }
+    draw();
+    d.body.classList.toggle('past', scrollY > pastY());
+    paint();
+    if (drawn !== target || vel) { if (!loopOn) { loopOn = true; requestAnimationFrame(() => { loopOn = false; tick(); }); } }
+    else lastT = 0;
+  };
+  const draw = () => {
+    ink.style.strokeDashoffset = total - drawn;
+    // 濃い筆跡は飛行機の後ろ tailLen の範囲だけ。TAIL_N 本に分け、後ろほど薄くする
+    tail.forEach((e, i) => {
+      const b = Math.max(0, drawn - tailLen * i / TAIL_N), a0 = Math.max(0, drawn - tailLen * (i + 1) / TAIL_N);
+      // 先頭が長さ0の線だと丸い端が点として残るので、ずらし量で位置を決める
+      e.style.strokeDasharray = `${Math.max(.01, b - a0)} ${total + 10}`;
+      e.style.strokeDashoffset = -a0;
+      e.style.visibility = b - a0 < .5 ? 'hidden' : '';
+    });
+    fly();
+  };
+  const onScroll = () => { if (PEN_ON) requestAnimationFrame(tick); };
+  addEventListener('scroll', onScroll, { passive: true });
+
+  let first = true;
+  const start = () => {
+    fit();
+    if (!PEN_ON) return;
+    layout();
+    if (first) {   // 最初の1回だけ飛び込みを見せる。合図が来るまでは描かない
+      first = false; drawn = 0;
+      // 新しいFVでは飛び込みを見せない（紙飛行機は o をくぐって白へ溶けた所で、スクロールに合わせて入ってくる）
+      introAt = fv.classList.contains('fvx') ? 0 : revealed ? performance.now() : performance.now() + 1e7;
+      onReveal = () => { if (introAt) { introAt = performance.now(); tick(); } };
+    }
+    tick();
+  };
+  (d.fonts && d.fonts.load ? Promise.all([d.fonts.load(`100px "${FONT}"`), d.fonts.ready]).catch(() => {}) : Promise.resolve()).then(start);
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(start, 120); });
+  // 和文の書体は文字の範囲ごとに後から届く。届いたら序章の文字組の位置とペンの道すじを測り直す（届く前の文字幅で測ると線が文にかかる）
+  if (d.fonts) d.fonts.addEventListener('loadingdone', () => { if (pro) { proLift(); proIn(); } clearTimeout(rt); rt = setTimeout(start, 120); });
+  addEventListener('load', start);
+  const video = d.querySelectorAll('.skyv');
+  if (still) video.forEach((v) => { v.removeAttribute('autoplay'); v.pause(); });
+})();
+</script>
+</body>
+</html>
