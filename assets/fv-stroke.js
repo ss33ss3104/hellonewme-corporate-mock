@@ -6,7 +6,9 @@
    乗せると：その文字の液体が抜けて輪郭に戻り、離すとまた満ちる（PC）。
    スクロール（FV の区間）：3行の文字が1行（Hello new me inc.）に並び直り（〜.42）、そのまま上へ流れて画面の外へ（.45〜.9）。空は .62〜.95 で白へ。
    （2026-11-16 本人指定。o をくぐる → 散る → フェードアウト → 1行に組み替えて流す）
-   満ちた後は、ピアノの鍵盤のように1文字ずつランダムに沈んで跳ね返る（同日の本人指定。動きを減らす設定では動かさない） */
+   満ちた後は、ピアノの鍵盤のように1文字ずつランダムに沈んで跳ね返る（同日の本人指定。動きを減らす設定では動かさない）
+   1行に並んだ後は、上へ流す代わりに、縮みながらヘッダーのロゴの位置へ移り、ロゴと入れ替わる（同日の本人指定。FVの間はヘッダーのロゴを隠す）。
+   空が白くなるのに合わせて、文字の色も白からロゴの墨色へ変わる */
 (() => {
   const fv = document.querySelector('.fv.fvx'), svg = fv && fv.querySelector('.fvt');
   const reveal = () => dispatchEvent(new Event('fv3d:reveal'));
@@ -44,6 +46,24 @@
   let cx = -oneW / 2;
   rowBox.forEach((b) => { b.dx = cx - b.x1; b.dy = mid.y2 - b.y2; cx += b.x2 - b.x1 + SP; });
   glyphs.forEach((g) => { const b = rowBox.find((x) => x.r === g.row); g.dx = b.dx; g.dy = b.dy; });
+
+  // ロゴへの移り先：1行に並んだ文字の外形（変形なしの時）を舞台からの位置で測っておく。画面の大きさが変わったら測り直す
+  const logo = document.querySelector('.hd .logo-type'), SWAP = .82;   // SWAP：ロゴと入れ替わる所。app.js の pastY（ヘッダーの地が白くなる所）と同じ
+  let line = null;
+  const measureLine = () => {
+    const st = stage.getBoundingClientRect(), prevS = svg.style.transform, prev = glyphs.map((g) => g.el.style.transform);
+    svg.style.transform = 'none';
+    glyphs.forEach((g) => { g.el.style.transform = `translate(${g.dx}px,${g.dy}px)`; });
+    let x1 = 1e9, y1 = 1e9, x2 = -1e9, y2 = -1e9;
+    glyphs.forEach((g) => { const r = g.el.querySelector('.ln').getBoundingClientRect(); x1 = Math.min(x1, r.left); y1 = Math.min(y1, r.top); x2 = Math.max(x2, r.right); y2 = Math.max(y2, r.bottom); });
+    const b = svg.getBoundingClientRect();
+    glyphs.forEach((g, i) => { g.el.style.transform = prev[i]; });
+    svg.style.transform = prevS;
+    line = { cx: (x1 + x2) / 2 - st.left, cy: (y1 + y2) / 2 - st.top, w: x2 - x1, sx: b.left + b.width / 2 - st.left, sy: b.top + b.height / 2 - st.top };
+  };
+  addEventListener('resize', () => { line = null; });
+  if (logo && !still) document.body.classList.add('fvmorph');
+  const mix = (c) => Math.round(255 + (26 - 255) * c);   // 白 → 墨（#1A1A1A）
 
   let t0 = performance.now(), revealed = false, inView = true;
   // ピアノの鍵盤：満ちた後、1文字ずつランダムに、押されて沈み、ばねで跳ね返る（2026-11-16 本人指定）。
@@ -86,20 +106,35 @@
       g.back.setAttribute('transform', `translate(${(-(w * g.lam * .35 + g.lam / 2) % g.lam).toFixed(1)} ${(level - g.amp * 1.2).toFixed(1)})`);
     });
 
-    // スクロール：3行 → 1行に組み替え（〜.42、行ごとに少しずらす）→ そのまま上へ流れて画面の外へ（.45〜.9）
+    // スクロール：3行 → 1行に組み替え（〜.42、行ごとに少しずらす）→ 縮みながらヘッダーのロゴの位置へ（.44〜SWAP）→ ロゴと入れ替わる
     const vb = svg.viewBox.baseVal, w = svg.getBoundingClientRect().width / (parseFloat(svg.dataset.s || 1)), k = w / vb.width;
     const m = ease(seg(p, .02, .42)), fit = Math.min(1, innerWidth * .8 / (oneW * k));
-    if (!still && t > last && p < .6 && t >= nextKey) strike(t);
+    if (!still && t > last && p < .4 && t >= nextKey) strike(t);
     glyphs.forEach((g) => {
       const lag = (2 - g.row) * .05;                          // 下の行から先に動かし、上の行（Hello）が最後に下りてくる（途中で重ならない）
       const kr = ease(seg(p, .02 + lag, .32 + lag));
       const u = g.hit < 0 ? 1 : (t - g.hit) / KEY, by = u < 1 ? keyY(u, g.y2 - g.y1) : 0;
       g.el.style.transform = kr > 0 || by ? `translate(${(g.dx * kr).toFixed(1)}px,${(g.dy * kr + by).toFixed(1)}px)` : '';
     });
-    const sc = 1 + (fit - 1) * m, up = ease(seg(p, .45, .9)) * (innerHeight * .62);
-    svg.dataset.s = sc;
-    svg.style.transform = p > 0 ? `translateY(${(-up).toFixed(1)}px) scale(${sc.toFixed(4)})` : '';
-    wash.style.opacity = seg(p, .62, .95).toFixed(3);
+    const sc = 1 + (fit - 1) * m, q = logo ? ease(seg(p, .44, SWAP)) : 0;
+    let S = sc, tx = 0, ty = -ease(seg(p, .45, .9)) * innerHeight * .62 * (logo ? 0 : 1);   // ロゴが無いページでは以前どおり上へ流す
+    if (q > 0) {
+      if (!line) measureLine();
+      const st = stage.getBoundingClientRect(), T = logo.getBoundingClientRect();
+      const Tc = [T.left + T.width / 2 - st.left, T.top + T.height / 2 - st.top];
+      const Rc = [line.sx + (line.cx - line.sx) * sc, line.sy + (line.cy - line.sy) * sc];   // 1行に並んだ時の中心
+      S = sc + (T.width / line.w - sc) * q;
+      // 縮める中心は SVG の中心。文字の中心が Rc から Tc へまっすぐ進むよう、ずらし量を決める
+      tx = Rc[0] + (Tc[0] - Rc[0]) * q - line.sx - (line.cx - line.sx) * S;
+      ty = Rc[1] + (Tc[1] - Rc[1]) * q - line.sy - (line.cy - line.sy) * S;
+    }
+    svg.dataset.s = S;
+    svg.style.transform = p > 0 ? `translate(${tx.toFixed(1)}px,${ty.toFixed(1)}px) scale(${S.toFixed(4)})` : '';
+    const c = logo ? seg(p, .62, .8) : 0;                     // 文字の色：白 → 墨。影も薄くする
+    svg.style.setProperty('--fvc', `rgb(${mix(c)},${mix(c)},${mix(c)})`);
+    svg.style.setProperty('--fvk', c.toFixed(3));
+    svg.style.opacity = logo && p >= SWAP ? 0 : '';
+    wash.style.opacity = (logo ? seg(p, .5, .8) : seg(p, .62, .95)).toFixed(3);
     if (fade) fade.style.opacity = (1 - seg(p, 0, .12)).toFixed(3);   // 目次と下の線は、寄り始めたら消す
   }
   requestAnimationFrame(frame);

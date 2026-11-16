@@ -62,40 +62,31 @@ html:not(.draft) :is(.kari,.wait,.wait-inline,.ph-note,.kari-note,.tile.pending,
 @media(max-width:860px){.logo-type{font-size:27px}}   /* スマホはメニューのボタンと並ぶので小さく */
 .logo-type small{font-size:.6em}
 .tel .en{display:inline-block;padding:8px 0}
-.hd nav ul{display:flex;gap:28px;font-size:var(--fs14)}
-.hd nav a{text-decoration:none;padding:8px 0;border-bottom:1px solid transparent;transition:border-color .3s var(--ease)}
-.hd details a[aria-current]{font-weight:700}
-.hd details{display:none}
-/* PCのメニュー（2026-11-16 本人指定。参考：Liquid Glass Navbar）：すりガラスの丸いバー。乗せた項目へガラスのレンズが伸びながら移り、
-   離すと今のページの項目へ戻る（ホームには今のページがないので消える）。動いている間はレンズのふちに虹色が強く出る。位置と伸びは app.js */
-.hd nav.pc{position:relative;padding:5px;border-radius:99px;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.8);
-  box-shadow:0 8px 28px rgba(22,79,184,.12),inset 0 1px 0 rgba(255,255,255,.95);-webkit-backdrop-filter:blur(14px) saturate(1.6);backdrop-filter:blur(14px) saturate(1.6)}
-.home:not(.past) .hd nav.pc{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.45);box-shadow:0 8px 28px rgba(10,40,90,.12),inset 0 1px 0 rgba(255,255,255,.5)}
-.hd nav.pc ul{position:relative;z-index:1;gap:2px}
-.hd nav.pc a{display:block;padding:11px 18px;border:0;border-radius:99px;outline-offset:2px}
-.hd nav.pc .lens{position:absolute;left:0;top:5px;bottom:5px;width:0;border-radius:99px;pointer-events:none;opacity:0;scale:.8;
-  transition:opacity .35s ease,scale .45s cubic-bezier(.34,1.56,.64,1);
-  background:linear-gradient(180deg,rgba(255,255,255,.6),rgba(255,255,255,.18));
-  box-shadow:0 0 0 1px rgba(140,160,190,.28),inset 0 0 0 1px rgba(255,255,255,.95),inset 0 2px 3px rgba(255,255,255,.9),inset 0 -3px 8px rgba(22,79,184,.14),0 4px 14px rgba(22,79,184,.18);
-  -webkit-backdrop-filter:blur(2px) saturate(1.8) brightness(1.06);backdrop-filter:blur(2px) saturate(1.8) brightness(1.06)}
-.hd nav.pc .lens::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;
-  background:conic-gradient(from 200deg,#ffc2d1,#c9e4ff,#bff0dc,#ffe9b0,#e7c9ff,#ffc2d1);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);
-  opacity:calc(.5 + var(--m,0) * .5)}
-.hd nav.pc .lens.on{opacity:1;scale:1}
-.home:not(.past) .hd nav.pc .lens{background:linear-gradient(180deg,rgba(255,255,255,.38),rgba(255,255,255,.08))}
+/* メニュー：PC・スマホとも3本線のボタン（2026-11-16 本人指定で、PCのガラスのバーから変更）。開くと右上に札が出て、線は×になる */
+.ham{position:relative}
+.ham summary{list-style:none;cursor:pointer;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;border:1.5px solid currentColor;transition:background .3s var(--ease)}
+.ham summary::-webkit-details-marker{display:none}
+.ham summary:hover{background:rgba(255,255,255,.18)}
+.home.past .ham summary:hover,.sub .ham summary:hover{background:var(--pale)}
+.ham .bars{position:relative;width:22px;height:14px;display:block}
+.ham .bars i{position:absolute;left:0;width:100%;height:2px;border-radius:2px;background:currentColor;transition:transform .35s var(--ease),opacity .2s,top .35s var(--ease)}
+.ham .bars i:nth-child(1){top:0}.ham .bars i:nth-child(2){top:6px}.ham .bars i:nth-child(3){top:12px}
+.ham[open] .bars i:nth-child(1){top:6px;transform:rotate(45deg)}.ham[open] .bars i:nth-child(2){opacity:0}.ham[open] .bars i:nth-child(3){top:6px;transform:rotate(-45deg)}
+.ham nav{position:absolute;right:0;top:64px;background:#fff;color:var(--ink);padding:10px 24px;border-radius:20px;box-shadow:0 18px 48px rgba(22,79,184,.22);min-width:min(300px,calc(100vw - 32px));animation:hamIn .35s var(--ease)}
+@keyframes hamIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.ham nav a{display:flex;align-items:center;justify-content:space-between;padding:14px 0;text-decoration:none;border-bottom:1px solid var(--line);font-weight:700;min-height:48px}
+.ham nav a::after{content:"→";color:var(--pinkd);font-weight:400;transition:translate .3s var(--ease)}
+.ham nav a:hover::after{translate:4px 0}
+.ham nav li:last-child a{border:0}
+.ham nav a[aria-current]{color:var(--blue)}
+@media(max-width:860px){.ham summary{width:46px;height:46px}.ham nav{top:56px}}
+@media (prefers-reduced-motion: reduce){.ham nav{animation:none}.ham .bars i{transition:none}}
 .sub .hd{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(10px)}
+.home.fvmorph:not(.past) .hd .logo{opacity:0;visibility:hidden}   /* FVの間はロゴを隠す。FVの文字が縮んでここへ来て入れ替わる（assets/fv-stroke.js。2026-11-16 本人指定） */
+.home .hd .logo{transition:opacity .25s ease,visibility 0s}
 .home .hd{position:fixed;left:0;right:0;top:0;color:#fff;transition:background .3s var(--ease),color .3s var(--ease)}
 .home.past .hd{color:var(--ink);background:rgba(255,255,255,.92);backdrop-filter:blur(10px)}
-@media(max-width:860px){
-  .hd nav.pc{display:none}
-  .hd details{display:block;position:relative}
-  .hd summary{white-space:nowrap;list-style:none;cursor:pointer;font-size:var(--fs14);padding:10px 16px;border:1px solid currentColor;border-radius:99px;min-height:44px}
-  .hd summary::-webkit-details-marker{display:none}
-  .hd details ul{position:absolute;right:0;top:52px;background:#fff;color:var(--ink);padding:8px 20px;border-radius:16px;box-shadow:0 8px 32px rgba(22,79,184,.18);min-width:240px}
-  .hd details li a{display:block;padding:12px 0;text-decoration:none;border-bottom:1px solid var(--line)}
-  .hd details li:last-child a{border:0}
-}
+
 
 /* 丸矢印のリンク */
 /* ボタン（2026-11-16 本人指定。参考：Flow Button、色はサイトのピンクにそろえる。同日「小さすぎる、もっと目立つように」で 高さ48→64px・文字15→17px・枠をピンクの2px・白い地と淡い影）：細いピンクの枠の丸いボタン。
@@ -180,12 +171,12 @@ html:not(.draft) :is(.kari,.wait,.wait-inline,.ph-note,.kari-note,.tile.pending,
 .fv .stage .fvsky{filter:saturate(1.55) contrast(1.08) brightness(1.02)}   /* 空を鮮やかに（本人指定） */
 .fv .stage .wash{background:#fff;opacity:0;pointer-events:none}
 .fvt{position:absolute;left:50%;top:44%;width:min(54vw,60svh * var(--ar));height:auto;margin:0;translate:-50% -50%;overflow:visible;
-  filter:drop-shadow(0 10px 28px rgba(15,47,107,.22));will-change:transform}
+  filter:drop-shadow(0 10px 28px rgba(15,47,107,calc(.22 - var(--fvk,0) * .22)));will-change:transform}
 @media(max-width:860px){.fvt{width:min(84vw,52svh * var(--ar));top:42%}}
-.fvt .ln{fill:none;stroke:#fff;stroke-width:var(--sw,1.8);stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:1 1;stroke-dashoffset:1}
+.fvt .ln{fill:none;stroke:var(--fvc,#fff);stroke-width:var(--sw,1.8);stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:1 1;stroke-dashoffset:1}
 .fvt.run .ln{animation:fvdraw 1.5s cubic-bezier(.45,0,.25,1) forwards;animation-delay:calc(.25s + var(--i) * .11s)}
 @keyframes fvdraw{to{stroke-dashoffset:0}}
-.fvt .liq{fill:#fff}.fvt .liq.back{fill:#ffd0dc;opacity:.85}
+.fvt .liq{fill:var(--fvc,#fff)}.fvt .liq.back{fill:#ffd0dc;opacity:calc(.85 - var(--fvk,0) * .85)}
 .fvt .solid{fill:#fff}
 .fvt .fg{will-change:transform}
 .js .fvt .solid{display:none}                                  /* 動きのスクリプトがない時は、満ちた文字だけを見せる */
@@ -293,7 +284,7 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
 }
 
 /* 第3章 ME：縦書きの見出しと、行で区切る一覧 */
-.ch3{padding:var(--s-強) 0 var(--s-中)}
+.ch3{padding:var(--s-強) 0 var(--s-中);position:relative;z-index:1}
 .ch3 .wrap{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:56px;align-items:start}
 .ch3 .tate{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:8px 20px;position:relative}
 .ch3 .tate h2{writing-mode:vertical-rl;font-size:clamp(2.75rem,4.6vw,4.25rem);font-weight:700;letter-spacing:.08em;line-height:1.55;grid-row:1}   /* 列の間を詰める（2026-11-16 本人指定で行送り 2.1 → 1.55） */
@@ -372,6 +363,7 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
    キャラクターとあしらいは、文字組が出た後に1つずつ遅れて出る。文字ごとのぼかしと MISSION の文は外した（本人指示） */
 .prologue .wrap{transform:perspective(900px) translateZ(-760px);opacity:0;transform-origin:50% 50%;transition:transform .7s cubic-bezier(.16,1,.3,1),opacity .4s ease-out}   /* 出たら画面の中央にいる間に出きる長さ（本人「もっと早く」で 1.3→1→0.7秒） */
 .prologue.in .wrap{transform:none;opacity:1}
+.prologue:not(.in) .wrap{transition-duration:.45s,.18s}   /* 戻る時は素早く消す */
 .prologue .ic{opacity:0;scale:.55;transition:opacity .45s ease-out,scale .8s cubic-bezier(.34,1.56,.64,1)}
 .prologue.in .ic{opacity:1;scale:1}
 .prologue.in .ic-pro-skip{transition-delay:.45s}.prologue.in .ic-pro-waver{transition-delay:.55s}.prologue.in .ic-pro-heart{transition-delay:.75s}.prologue.in .ic-pro-spark{transition-delay:.9s}
@@ -403,7 +395,8 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
 /* 22 空のフッターに紙飛行機 */
 .plane-icon path{stroke:var(--pinkd);stroke-width:1.3;stroke-linejoin:round}
 .plane-icon .w1{fill:#fff}.plane-icon .w2{fill:var(--pinkpp)}.plane-icon .k{fill:var(--pinkp)}
-.ft-plane{position:absolute;right:16%;top:clamp(56px,9vh,110px);width:64px;height:45px;transform:rotate(-14deg);animation:bob 5s ease-in-out infinite}
+/* フッターの紙飛行機は 2026-11-16 本人指定で外した（build.py で出さない） */
+.ft-plane{display:none;position:absolute;right:16%;top:clamp(56px,9vh,110px);width:64px;height:45px;transform:rotate(-14deg);animation:bob 5s ease-in-out infinite}
 /* 着地（2026-11-16 本人指定）：ペンの線を引いてきた紙飛行機が、ここ（.ft-plane の位置）に降りてくる。置いてあった方は見せない。
    着地した紙飛行機は、その場でゆっくり揺れる（動きを減らす設定では、置いてある方を見せる） */
 .pen-lands .ft-plane{visibility:hidden}
@@ -473,7 +466,7 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
 .ch2 .ic-ch2-tote{right:-40px;top:62%;width:clamp(56px,5.6vw,84px);rotate:-8deg}
 .ch2 .ic-ch2-camera{right:8px;top:50%;translate:0 -50%;width:clamp(80px,7.6vw,115px);rotate:6deg}
 .ch2 .ic-ch2-mug{position:static;display:inline-block;vertical-align:middle;width:58px;margin:-10px 12px 0 -2px}
-.ch3 .ic-ch3-point{right:0;bottom:-96px;width:clamp(135px,11.5vw,175px)}
+.ch3 .ic-ch3-point{right:0;bottom:-56px;width:clamp(135px,11.5vw,175px);z-index:5}   /* 終章の波の裏に隠れて見えた（2026-11-16 本人指摘）ので、波から上げて前に重ねる */
 .ch3 .ic-ch3-note{right:-18px;top:-34px;width:clamp(50px,4.4vw,66px);rotate:10deg;z-index:2}
 .finale .ic-fin-bubble{position:static;display:inline-block;vertical-align:-.5em;width:1.9em;margin-right:.35em}   /* 「ご用件に〜」の行の頭（本人指定） */
 .finale .ic-fin-phone{position:static;display:inline-block;width:50px;align-self:center;margin-right:-6px}
@@ -481,16 +474,16 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
 @media(max-width:860px){
   .prologue{padding-top:150px}
   .prologue .pro-box{--cw:142px;--hs:42px}   /* スマホのキャラクター（本人「控えめすぎた」で 112→142px） */
-  .prologue .ic-pro-waver{left:auto;right:-6px;top:calc(100% + 44px);translate:none;width:var(--cw)}
-  .prologue .ic-pro-skip{right:auto;left:-6px;top:calc(100% + 44px);translate:none;width:var(--cw)}   /* スマホは文字組の下の左右に、向かい合って対称に */
-  .prologue .ic-pro-heart{right:auto;left:0;top:calc(100% + 10px)}
-  .prologue .ic-pro-spark{left:auto;right:0;top:calc(100% + 10px)}
+  .prologue .ic-pro-waver{left:auto;right:-6px;top:calc(100% + 58px);translate:none;width:var(--cw)}
+  .prologue .ic-pro-skip{right:auto;left:-6px;top:calc(100% + 58px);translate:none;width:var(--cw)}   /* スマホは文字組の下の左右に、向かい合って対称に */
+  .prologue .ic-pro-heart{right:auto;left:0;top:calc(100% + 26px)}
+  .prologue .ic-pro-spark{left:auto;right:0;top:calc(100% + 26px)}
   .ch1 .pic .ic-ch1-runner{top:-46px;right:2px;width:118px}
   .ch2{padding-top:130px}
   .ch2 .ic-ch2-spin{left:2%;top:0;width:138px}   /* スマホは NEW の左上。上の余白を広げて置く（下は写真が上がってくるので空きがない） */
   .ch2 .ic-ch2-laptop{top:-6px;right:-4px;translate:none;width:92px}.ch2 .ic-ch2-tote{display:none}
   .ch2 .ic-ch2-camera{top:-4px;right:0;translate:none;width:84px}
-  .ch3 .ic-ch3-point{right:-6px;bottom:-112px;width:136px}
+  .ch3 .ic-ch3-point{right:-6px;bottom:-64px;width:136px}
   .ch3 .ic-ch3-note{width:52px;right:-8px;top:-26px}
 
   .finale .ic-fin-looker{right:-8px;bottom:-150px;width:140px}   /* スマホは電話番号の下の余白へ */
@@ -909,11 +902,10 @@ form.demo .form-status{font-size:var(--fs14);font-weight:700;color:#b0283f}
 <body class="sub" style="--sky:url(../assets/sky-poster.jpg)">
 <header class="hd">
   <a class="logo" href="../index.html" aria-label="Hello new me inc. ホーム"><span class="logo-type" aria-hidden="true">Hello new me <small>inc.</small></span></a>
-  <nav class="pc" aria-label="メニュー"><ul><li><a href="../about/index.html" aria-current="page">ハローニューミーについて</a></li><li><a href="../index.html#H3">サービス</a></li><li><a href="../information/index.html">情報公開</a></li><li><a href="../recruit/index.html">採用情報</a></li><li><a href="../contact/index.html">お問い合わせ</a></li></ul></nav>
-  <details><summary>メニュー</summary><ul><li><a href="../about/index.html" aria-current="page">ハローニューミーについて</a></li><li><a href="../index.html#H3">サービス</a></li><li><a href="../information/index.html">情報公開</a></li><li><a href="../recruit/index.html">採用情報</a></li><li><a href="../contact/index.html">お問い合わせ</a></li></ul></details>
+  <details class="ham"><summary aria-label="メニューを開く"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span></summary><nav aria-label="メニュー"><ul><li><a href="../about/index.html" aria-current="page">ハローニューミーについて</a></li><li><a href="../index.html#H3">サービス</a></li><li><a href="../information/index.html">情報公開</a></li><li><a href="../recruit/index.html">採用情報</a></li><li><a href="../contact/index.html">お問い合わせ</a></li></ul></nav></details>
 </header>
 <main><section id="A1" class="ph1"><i class="glow g1"></i><i class="glow g2"></i><picture class="ic-pic"><source srcset="../assets/icons/chara-04-waver.gif" media="(prefers-reduced-motion: no-preference)"><img class="ic gif ic-ph1 flip" src="../assets/icons/chara-04-waver.webp" alt="" width="289" height="464" loading="lazy" decoding="async" aria-hidden="true"></picture><div class="win photo"><img src="../assets/photo-about-head.jpg" alt="" width="1000" height="1000" decoding="async"></div><div class="wrap"><h1><span class="seg"><span class="nw">ハローニューミー</span>について</span></h1><div class="sub"><p>私たちが大切にしていること、会社の概要と事業をご紹介します。</p></div></div></section><section id="A2" class="u u-num u-say tint"><svg class="wv wv-swell top" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true"><path class="c-sky2" d="M0,320 L0,200 C220,80 460,70 680,170 C840,244 960,270 1120,280 L1120,320Z"/><path class="c-pale" d="M0,320 L0,260 C200,170 420,160 620,230 C800,292 960,300 1120,270 C1260,244 1360,120 1440,60 L1440,320Z"/><path class="c-line" d="M-10,232 C200,130 420,120 640,200 C820,266 980,280 1140,250"/></svg><svg class="wv wv-hang below" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true"><path class="c-sky2" d="M0,0 L1440,0 L1440,110 C1220,230 980,240 760,170 C540,100 300,130 0,220Z"/><path class="c-pale" d="M0,0 L1440,0 L1440,60 C1220,170 980,180 760,120 C540,60 300,80 0,170Z"/><path class="c-line" d="M1450,90 C1230,206 990,214 770,148 C580,92 400,96 220,130"/></svg><div class="wrap"><article class="say s0"><h2 class="en v">VISION</h2><div class="say-t"><p class="big">私たちは、「ハロー（出会い）」から始まる物語を大切にし、「新しい私」へと続く道のりを創造します。</p><p>障害福祉サービスを通じて、私たちは単なる支援者ではなく、人生という物語を共に紡ぐパートナーでありたいと願っています。自らの人生の主役として、新しい可能性や自分自身と出会い、未来を拓くための第一歩を。誰かのための人生ではなく、自分のための人生を。心を込めて伴走し、あなたが主役となるステージを支えます。</p></div></article><article class="say s1"><h2 class="en v">MISSION</h2><div class="say-t"><p class="big">希望に満ちた「新しい私」と出会うための架け橋となります。</p><p>過去や現状にとらわれるのではなく、未来への可能性を信じること。その一歩を踏み出すための安全で確かな架け橋をかけ続けます。</p></div></article></div></section><section id="A3" class="u u-story"><div class="wrap"><h2>行動指針</h2><p class="lead">出会いが、変化を生み、私らしさにつながる。3つの言葉は、ひと続きの道のりです。</p><div class="st" data-story><div class="st-vis s0" aria-hidden="true"><div class="st-in en"><span class="st-w w0 on">HELLO</span><span class="st-w w1">NEW</span><span class="st-w w2">ME</span></div><span class="st-n en"><b>01</b> / 03</span></div><ol class="st-steps"><li data-s="0" class="on"><span class="en k">01 HELLO</span><h3>出会いの創造</h3><p>新しい自分との「出会い」、そして新しい仲間や可能性との「出会い」を、かけがえのない瞬間として大切にします。この「出会い」こそが、すべての始まりであり、変化の原動力です。</p></li><li data-s="1"><span class="en k">02 NEW</span><h3>変化を楽しむ</h3><p>変化を楽しみ、昨日よりも少しだけ成長した「新しい私」に出会う喜びを、共に分かち合います。停滞ではなく、常に新鮮な驚きを追求します。</p></li><li data-s="2"><span class="en k">03 ME</span><h3>私らしさの尊重</h3><p>誰かと比べるのではなく、自分らしい生き方を模索する「私らしさ」を尊重し、その輝きを全力で引き出します。あなたはあなたのままで素晴らしい。</p></li></ol></div></div></section><section id="A4" class="u u-rows tint"><svg class="wv wv-swell top" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true"><path class="c-sky2" d="M0,320 L0,200 C220,80 460,70 680,170 C840,244 960,270 1120,280 L1120,320Z"/><path class="c-pale" d="M0,320 L0,260 C200,170 420,160 620,230 C800,292 960,300 1120,270 C1260,244 1360,120 1440,60 L1440,320Z"/><path class="c-line" d="M-10,232 C200,130 420,120 640,200 C820,266 980,280 1140,250"/></svg><svg class="wv wv-hang below" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true"><path class="c-sky2" d="M0,0 L1440,0 L1440,110 C1220,230 980,240 760,170 C540,100 300,130 0,220Z"/><path class="c-pale" d="M0,0 L1440,0 L1440,60 C1220,170 980,180 760,120 C540,60 300,80 0,170Z"/><path class="c-line" d="M1450,90 C1230,206 990,214 770,148 C580,92 400,96 220,130"/></svg><div class="wrap"><h2>法人概要</h2><ul class="lrows"><li><span class="n en">01</span><b>会社名</b><span class="v">株式会社ハローニューミー（Hello New Me Inc.）</span></li><li><span class="n en">02</span><b>設立</b><span class="v">2025年12月1日</span></li><li><span class="n en">03</span><b>所在地</b><span class="v">〒812-0013 福岡県福岡市博多区博多駅東2丁目9-25 アバンダント84 301号</span></li><li><span class="n en">04</span><b>TEL / FAX</b><span class="v">092-292-0005 / 092-292-7003</span></li><li><span class="n en">05</span><b>事業内容</b><span class="v">障がい福祉サービス事業／動画制作業務委託／SNS運営業務委託／EC運営業務委託／広告業務委託</span></li><li><span class="n en">06</span><b>運営事業所</b><span class="v">就労継続支援B型 アイミー博多（事業所番号 4010102517）</span></li></ul><p class="wait">代表者名・法人番号を載せるか。メールアドレス（現行はGmail）を載せるか。住所の正式表記</p></div></section><section id="A5" class="u u-exp"><div class="wrap"><h2>事業と取組</h2><div class="exp" data-exp><article class="c-photo on" tabindex="0"><img class="bg" src="../assets/photo-about-room.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async"><span class="ph-note">写真は仮（生成画像）。施設写真は確認待ち</span><span class="v" aria-hidden="true">障がい福祉サービス事業</span><div class="tx"><h3>障がい福祉サービス事業</h3><p class="">障害や難病のある方の「働きたい」という想いに寄り添い、就労の機会と生産活動の場を提供しています。個々のスキルアップを重視し、一般就労や在宅ワークへの移行を支援します。</p></div></article><article class="c-pink" tabindex="0"><img class="ic ic-exp" src="../assets/icons/item-13-camera.webp" alt="" width="292" height="225" loading="lazy" decoding="async" aria-hidden="true"><span class="v" aria-hidden="true">受託事業</span><div class="tx"><h3>受託事業</h3><p class="chips"><span>動画制作</span><span>SNS運営</span><span>EC運営</span><span>広告</span></p><p class="wait-inline">説明文と実績は確認待ち</p></div></article></div><a class="more" href="../work/index.html"><svg class="fb-a fb-l" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg><span class="fb-t">アイミーを見る</span><span class="fb-c" aria-hidden="true"></span><svg class="fb-a fb-r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></section></main>
-<footer class="ft sky"><div class="ft-tint"></div><svg class="wv wv-hang top flip" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true"><path class="c-sky2" d="M0,0 L1440,0 L1440,110 C1220,230 980,240 760,170 C540,100 300,130 0,220Z"/><path class="c-pale" d="M0,0 L1440,0 L1440,60 C1220,170 980,180 760,120 C540,60 300,80 0,170Z"/><path class="c-line" d="M1450,90 C1230,206 990,214 770,148 C580,92 400,96 220,130"/></svg><svg class="plane-icon ft-plane" viewBox="-6 -14 40 28" aria-hidden="true"><path class="w2" d="M30,0 L4,1 L-1,12 Z"/><path class="k" d="M30,0 L4,1 L7,6 Z"/><path class="w1" d="M30,0 L-4,-12 L4,1 Z"/></svg><div class="wrap">
+<footer class="ft sky"><div class="ft-tint"></div><svg class="wv wv-hang top flip" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true"><path class="c-sky2" d="M0,0 L1440,0 L1440,110 C1220,230 980,240 760,170 C540,100 300,130 0,220Z"/><path class="c-pale" d="M0,0 L1440,0 L1440,60 C1220,170 980,180 760,120 C540,60 300,80 0,170Z"/><path class="c-line" d="M1450,90 C1230,206 990,214 770,148 C580,92 400,96 220,130"/></svg><div class="wrap">
   <div class="cols"><div><img class="logo" src="../assets/logo-white.png" alt="Hello new me inc." width="256" height="24">株式会社ハローニューミー<br>〒812-0013 福岡県福岡市博多区博多駅東2丁目9-25<br>アバンダント84 301号<br>TEL 092-292-0005／FAX 092-292-7003</div><div><b>サービス・ご相談</b><a href="../work/index.html">就労継続支援B型 アイミー</a><a href="../contact/index.html">お問い合わせ</a></div><div><b>法人・運営情報</b><a href="../about/index.html">ハローニューミーについて</a><a href="../information/index.html">情報公開</a><a href="../recruit/index.html">採用情報</a><a href="../privacy/index.html">個人情報</a><a href="../contact/index.html#C5">ご意見・苦情</a></div><div><b>関連サイト</b><a href="https://www.hellonewme-inc.com/" target="_blank" rel="noopener">アイミー博多（施設サイト）</a></div></div>
   <small>© Hello New Me Inc.</small>
 </div></footer>
@@ -1024,44 +1016,15 @@ form.demo .form-status{font-size:var(--fs14);font-weight:700;color:#b0283f}
     });
   }
 
-  /* ---- PCのメニュー：ガラスのレンズが、乗せた項目へ伸びながら移る（2026-11-16 本人指定。参考：Liquid Glass Navbar）----
-     レンズの左右の端を別々のばねで動かす。進む側の端は速く、後ろの端は遅れてついてくるので、移る間だけ横に伸びて縮む */
-  const gnav = d.querySelector('.hd nav.pc');
-  if (gnav) {
-    const lens = d.createElement('i'); lens.className = 'lens'; lens.setAttribute('aria-hidden', 'true'); gnav.prepend(lens);
-    const current = gnav.querySelector('a[aria-current]');
-    let L = 0, R = 0, tL = 0, tR = 0, vL = 0, vR = 0, raf = 0, at = null;
-    const draw = (m) => {
-      lens.style.width = Math.max(0, R - L) + 'px';
-      lens.style.transform = `translateX(${L}px) scaleY(${(1 - m * .1).toFixed(3)})`;
-      lens.style.setProperty('--m', m.toFixed(3));
-    };
-    const step = () => {
-      const dir = Math.sign(tL + tR - L - R), kL = dir > 0 ? .045 : .16, kR = dir > 0 ? .16 : .045;
-      vL = (vL + (tL - L) * kL) * .74; vR = (vR + (tR - R) * kR) * .74;
-      const W = gnav.clientWidth - 4;   // 勢いでバーの外へはみ出さない
-      L = clamp(L + vL, 4, W); R = clamp(R + vR, 4, W);
-      const moving = Math.abs(tL - L) + Math.abs(tR - R) + Math.abs(vL) + Math.abs(vR) > .3;
-      if (!moving) { L = tL; R = tR; vL = vR = 0; }
-      draw(moving ? clamp(Math.abs(vR - vL) / 30 + (Math.abs(vL) + Math.abs(vR)) / 80) : 0);
-      raf = moving ? requestAnimationFrame(step) : 0;
-    };
-    const go = (a, jump) => {
-      at = a;
-      if (!a) { lens.classList.remove('on'); return; }
-      const n = gnav.getBoundingClientRect(), r = a.getBoundingClientRect();
-      tL = r.left - n.left - 1; tR = r.right - n.left - 1;
-      if (jump || still || !lens.classList.contains('on')) { L = tL; R = tR; vL = vR = 0; draw(0); }
-      lens.classList.add('on');
-      if (!raf && !still) raf = requestAnimationFrame(step);
-    };
-    gnav.addEventListener('pointerover', (e) => { const a = e.target.closest('a'); if (a && a !== at) go(a); });
-    gnav.addEventListener('pointerleave', () => go(current));
-    gnav.addEventListener('focusin', (e) => { const a = e.target.closest('a'); if (a) go(a); });
-    gnav.addEventListener('focusout', (e) => { if (!gnav.contains(e.relatedTarget)) go(current); });
-    addEventListener('resize', () => { if (at) go(at, true); });
-    (d.fonts ? d.fonts.ready : Promise.resolve()).then(() => go(current, true));
-  }
+  /* ---- メニュー（3本線。2026-11-16 本人指定）：項目を選ぶ・外を押す・Esc で閉じる。開いた時は札の最初の項目へ移れる ---- */
+  d.querySelectorAll('details.ham').forEach((ham) => {
+    const sum = ham.querySelector('summary');
+    const close = () => { if (ham.open) { ham.open = false; } };
+    ham.addEventListener('toggle', () => sum.setAttribute('aria-label', ham.open ? 'メニューを閉じる' : 'メニューを開く'));
+    ham.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+    d.addEventListener('click', (e) => { if (ham.open && !ham.contains(e.target)) close(); });
+    d.addEventListener('keydown', (e) => { if (e.key === 'Escape' && ham.open) { close(); sum.focus(); } });
+  });
 
   /* ---- 文字の塗り（about の行動指針）：スクロールに合わせて左から青くなる ---- */
   const fills = [...d.querySelectorAll('[data-fill]')];
@@ -1090,8 +1053,10 @@ form.demo .form-status{font-size:var(--fs14);font-weight:700;color:#b0283f}
   };
   const proIn = () => {
     if (!pro) return;
-    const t = pro.getBoundingClientRect().top, was = pro.classList.contains('in');
-    pro.classList.toggle('in', still || (was ? t < innerHeight * (PRO_AT + .15) : t <= innerHeight * PRO_AT));   // 戻る時は少し下まで残す
+    const t = pro.getBoundingClientRect().top;
+    // 戻る（上へスクロールする）時も同じ所で奥へ戻す。以前は少し下まで残していたため、中央の固定が外れた文字組が
+    // FV の空の上へ下がってきて薄く重なって見えた（2026-11-16 本人「スクロール反転した時のバグ」）
+    pro.classList.toggle('in', still || t <= innerHeight * PRO_AT);
   };
   if (pro) {
     proLift(); proIn();
@@ -1383,13 +1348,15 @@ form.demo .form-status{font-size:var(--fs14);font-weight:700;color:#b0283f}
     });
     fly();
   };
-  const onScroll = () => { if (PEN_ON) requestAnimationFrame(tick); };
+  // ペンの線を止めている時も、ヘッダーの地の切り替え（past）と文字の塗りはスクロールに合わせて動かす
+  // （2026-11-16 本人「スクロール反転した時のバグ」：線を止めた時にこの2つも止まり、白い地の上でヘッダーが白いままだった）
+  const onScroll = () => { if (PEN_ON) requestAnimationFrame(tick); else { d.body.classList.toggle('past', scrollY > pastY()); paint(); } };
   addEventListener('scroll', onScroll, { passive: true });
 
   let first = true;
   const start = () => {
     fit();
-    if (!PEN_ON) return;
+    if (!PEN_ON) { onScroll(); return; }
     layout();
     if (first) {   // 最初の1回だけ飛び込みを見せる。合図が来るまでは描かない
       first = false; drawn = 0;
