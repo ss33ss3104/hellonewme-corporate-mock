@@ -30,10 +30,12 @@
   });
     const last = START + (glyphs.length - 1) * STAGGER + DRAW * .75 + FILL;
 
-  // 線の太さを画面で約1.8pxにそろえる
+  // 線の太さを画面で約1.8pxにそろえる。縮める・寄せる変形を除いた本来の幅（clientWidth）で測る
+  // （2026-11-16 本人指摘：スマホで序章まで進んで戻ると縁が太くもっさりした。スマホはアドレスバーの出し入れで resize が起き、
+  //   縮めた途中の見た目の幅で測っていたため、線の太さが数倍になっていた）
   const measure = () => {
-    const r = svg.getBoundingClientRect(), vb = svg.viewBox.baseVal;
-    svg.style.setProperty('--sw', (1.8 * vb.width / r.width).toFixed(2));
+    const vb = svg.viewBox.baseVal, w = svg.clientWidth || svg.getBoundingClientRect().width;
+    if (w) svg.style.setProperty('--sw', (1.8 * vb.width / w).toFixed(2));
   };
   measure(); addEventListener('resize', measure);
 

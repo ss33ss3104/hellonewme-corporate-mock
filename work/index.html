@@ -461,7 +461,8 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
 .prologue .ic-pro-heart{right:calc(100% + var(--cx) + var(--cw) * .62);top:calc(50% - var(--cw) * .5 - var(--hs) * .9);width:var(--hs);rotate:-12deg}   /* 女の子の頭上の外側 */
 .prologue .ic-pro-spark{left:calc(100% + var(--cx) + var(--cw) * .62);top:calc(50% - var(--cw) * .5 - var(--hs) * .9);width:var(--hs);rotate:12deg}   /* 男の子の頭上の外側（ハートと鏡写し） */
 .ch1 .pic .ic-ch1-runner{right:clamp(16px,3vw,48px);top:clamp(-120px,-8.4vw,-84px);width:clamp(120px,11vw,165px);height:auto;border-radius:0;object-fit:contain;z-index:2}   /* 写真の右上（以前の建物の位置）から、左の文へ向かって走る。写真の img の決まり（高さ100%・角丸）を打ち消す */
-.ch2 .ic-ch2-spin{left:max(8px,calc(50% - 600px));top:4px;width:clamp(130px,12vw,180px);z-index:3}   /* NEW の左の空き（2026-11-16 本人「アイコンが文字にかかりすぎ」で縮めて左へ） */
+.ch2 .ch2-t{position:relative;display:inline-block}
+.ch2 .ic-ch2-spin{right:calc(100% + clamp(12px,2vw,32px));bottom:-.4em;width:clamp(130px,12vw,180px);z-index:3}   /* 見出し「新しい私」〜の左の空き（2026-11-16 本人指定。以前は NEW の左上） */
 .ch2 .ic-ch2-laptop{right:-20px;top:50%;translate:0 -62%;width:clamp(90px,8.6vw,130px)}
 .ch2 .ic-ch2-tote{right:-40px;top:62%;width:clamp(56px,5.6vw,84px);rotate:-8deg}
 .ch2 .ic-ch2-camera{right:8px;top:50%;translate:0 -50%;width:clamp(80px,7.6vw,115px);rotate:6deg}
@@ -479,8 +480,7 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
   .prologue .ic-pro-heart{right:auto;left:0;top:calc(100% + 26px)}
   .prologue .ic-pro-spark{left:auto;right:0;top:calc(100% + 26px)}
   .ch1 .pic .ic-ch1-runner{top:-46px;right:2px;width:118px}
-  .ch2{padding-top:130px}
-  .ch2 .ic-ch2-spin{left:2%;top:0;width:138px}   /* スマホは NEW の左上。上の余白を広げて置く（下は写真が上がってくるので空きがない） */
+  .ch2 .ic-ch2-spin{right:auto;left:-10px;bottom:-.3em;width:min(124px,calc(100vw - 250px))}   /* スマホは見出しが2行で幅いっぱいになるので、左端の空きに置く（右寄せの見出しの左） */   /* スマホは NEW の左上。上の余白を広げて置く（下は写真が上がってくるので空きがない） */
   .ch2 .ic-ch2-laptop{top:-6px;right:-4px;translate:none;width:92px}.ch2 .ic-ch2-tote{display:none}
   .ch2 .ic-ch2-camera{top:-4px;right:0;translate:none;width:84px}
   .ch3 .ic-ch3-point{right:-6px;bottom:-64px;width:136px}
@@ -897,6 +897,10 @@ form.demo .form-status{font-size:var(--fs14);font-weight:700;color:#b0283f}
   .say-t,.say.s1 .say-t{grid-template-columns:1fr}.say.s1 .big{order:0}
   .num{grid-template-columns:1fr;gap:20px}
 }
+/* 第2章の回る人：タブレット幅（見出しが1行に収まる）は見出しの左の外。スマホの見出しの左端の空きへの置き方は 600px 以下だけ（2026-11-16） */
+@media(min-width:601px) and (max-width:860px){.ch2 .ic-ch2-spin{left:auto;right:calc(100% + 10px);width:124px}}
+/* 幅の狭いスマホ（400px 以下）は、第3章の人がボタンにかからないよう少し小さく下げる */
+@media(max-width:400px){.ch3 .ic-ch3-point{width:116px;bottom:-78px}}
 </style>
 </head>
 <body class="sub" style="--sky:url(../assets/sky-poster.jpg)">

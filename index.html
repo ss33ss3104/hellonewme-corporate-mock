@@ -461,7 +461,8 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
 .prologue .ic-pro-heart{right:calc(100% + var(--cx) + var(--cw) * .62);top:calc(50% - var(--cw) * .5 - var(--hs) * .9);width:var(--hs);rotate:-12deg}   /* 女の子の頭上の外側 */
 .prologue .ic-pro-spark{left:calc(100% + var(--cx) + var(--cw) * .62);top:calc(50% - var(--cw) * .5 - var(--hs) * .9);width:var(--hs);rotate:12deg}   /* 男の子の頭上の外側（ハートと鏡写し） */
 .ch1 .pic .ic-ch1-runner{right:clamp(16px,3vw,48px);top:clamp(-120px,-8.4vw,-84px);width:clamp(120px,11vw,165px);height:auto;border-radius:0;object-fit:contain;z-index:2}   /* 写真の右上（以前の建物の位置）から、左の文へ向かって走る。写真の img の決まり（高さ100%・角丸）を打ち消す */
-.ch2 .ic-ch2-spin{left:max(8px,calc(50% - 600px));top:4px;width:clamp(130px,12vw,180px);z-index:3}   /* NEW の左の空き（2026-11-16 本人「アイコンが文字にかかりすぎ」で縮めて左へ） */
+.ch2 .ch2-t{position:relative;display:inline-block}
+.ch2 .ic-ch2-spin{right:calc(100% + clamp(12px,2vw,32px));bottom:-.4em;width:clamp(130px,12vw,180px);z-index:3}   /* 見出し「新しい私」〜の左の空き（2026-11-16 本人指定。以前は NEW の左上） */
 .ch2 .ic-ch2-laptop{right:-20px;top:50%;translate:0 -62%;width:clamp(90px,8.6vw,130px)}
 .ch2 .ic-ch2-tote{right:-40px;top:62%;width:clamp(56px,5.6vw,84px);rotate:-8deg}
 .ch2 .ic-ch2-camera{right:8px;top:50%;translate:0 -50%;width:clamp(80px,7.6vw,115px);rotate:6deg}
@@ -479,8 +480,7 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
   .prologue .ic-pro-heart{right:auto;left:0;top:calc(100% + 26px)}
   .prologue .ic-pro-spark{left:auto;right:0;top:calc(100% + 26px)}
   .ch1 .pic .ic-ch1-runner{top:-46px;right:2px;width:118px}
-  .ch2{padding-top:130px}
-  .ch2 .ic-ch2-spin{left:2%;top:0;width:138px}   /* スマホは NEW の左上。上の余白を広げて置く（下は写真が上がってくるので空きがない） */
+  .ch2 .ic-ch2-spin{right:auto;left:-10px;bottom:-.3em;width:min(124px,calc(100vw - 250px))}   /* スマホは見出しが2行で幅いっぱいになるので、左端の空きに置く（右寄せの見出しの左） */   /* スマホは NEW の左上。上の余白を広げて置く（下は写真が上がってくるので空きがない） */
   .ch2 .ic-ch2-laptop{top:-6px;right:-4px;translate:none;width:92px}.ch2 .ic-ch2-tote{display:none}
   .ch2 .ic-ch2-camera{top:-4px;right:0;translate:none;width:84px}
   .ch3 .ic-ch3-point{right:-6px;bottom:-64px;width:136px}
@@ -897,6 +897,10 @@ form.demo .form-status{font-size:var(--fs14);font-weight:700;color:#b0283f}
   .say-t,.say.s1 .say-t{grid-template-columns:1fr}.say.s1 .big{order:0}
   .num{grid-template-columns:1fr;gap:20px}
 }
+/* 第2章の回る人：タブレット幅（見出しが1行に収まる）は見出しの左の外。スマホの見出しの左端の空きへの置き方は 600px 以下だけ（2026-11-16） */
+@media(min-width:601px) and (max-width:860px){.ch2 .ic-ch2-spin{left:auto;right:calc(100% + 10px);width:124px}}
+/* 幅の狭いスマホ（400px 以下）は、第3章の人がボタンにかからないよう少し小さく下げる */
+@media(max-width:400px){.ch3 .ic-ch3-point{width:116px;bottom:-78px}}
 </style>
 </head>
 <body class="home" style="--sky:url(assets/sky-poster.jpg)">
@@ -935,11 +939,11 @@ form.demo .form-status{font-size:var(--fs14);font-weight:700;color:#b0283f}
   </div>
   <figure class="pic"><img src="assets/photo-hello.jpg" alt="" width="508" height="516" loading="lazy"><i class="tape t1" aria-hidden="true"></i><picture class="ic-pic"><source srcset="assets/icons/chara-01-runner.gif" media="(prefers-reduced-motion: no-preference)"><img class="ic gif ic-ch1-runner flip" src="assets/icons/chara-01-runner.webp" alt="" width="298" height="419" loading="lazy" decoding="async" aria-hidden="true"></picture><i class="pen-pt" data-pen="pic"></i><figcaption>写真は仮（生成画像）。施設写真は確認待ち</figcaption></figure>
 </section>
-<section id="H4" class="ch2"><picture class="ic-pic"><source srcset="assets/icons/chara-08-spinner.gif" media="(prefers-reduced-motion: no-preference)"><img class="ic gif ic-ch2-spin" src="assets/icons/chara-08-spinner.webp" alt="" width="320" height="455" loading="lazy" decoding="async" aria-hidden="true"></picture>
+<section id="H4" class="ch2">
   <p class="flight en" aria-hidden="true">HNM 02<i></i>NEW</p>
   <p class="word en" aria-hidden="true">NEW</p>
   <div class="band"><svg class="wv wv-swell top" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true"><path class="c-sky2" d="M0,320 L0,200 C220,80 460,70 680,170 C840,244 960,270 1120,280 L1120,320Z"/><path class="c-pale" d="M0,320 L0,260 C200,170 420,160 620,230 C800,292 960,300 1120,270 C1260,244 1360,120 1440,60 L1440,320Z"/><path class="c-line" d="M-10,232 C200,130 420,120 640,200 C820,266 980,280 1140,250"/></svg><svg class="wv wv-hang below" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true"><path class="c-sky2" d="M0,0 L1440,0 L1440,110 C1220,230 980,240 760,170 C540,100 300,130 0,220Z"/><path class="c-pale" d="M0,0 L1440,0 L1440,60 C1220,170 980,180 760,120 C540,60 300,80 0,170Z"/><path class="c-line" d="M1450,90 C1230,206 990,214 770,148 C580,92 400,96 220,130"/></svg><div class="wrap">
-    <h2><span class="chip">変化を楽しむ</span><span class="vh">NEW </span><span class="ch2-h"><span class="kari">仮</span>「新しい私」に出会える場所。</span></h2>
+    <h2><span class="chip">変化を楽しむ</span><span class="vh">NEW </span><span class="ch2-h"><span class="ch2-t"><picture class="ic-pic"><source srcset="assets/icons/chara-08-spinner.gif" media="(prefers-reduced-motion: no-preference)"><img class="ic gif ic-ch2-spin" src="assets/icons/chara-08-spinner.webp" alt="" width="320" height="455" loading="lazy" decoding="async" aria-hidden="true"></picture><span class="kari">仮</span>「新しい私」に出会える場所。</span></span></h2>
     <i class="pen-pt" data-pen="band-in"></i>
     <div class="car" data-car aria-roledescription="カルーセル" aria-label="拠点の紹介"><div class="car-head"><span class="car-count en"><b>01</b> / 01</span><span class="car-label">拠点</span></div><img class="ic ic-ch2-laptop" src="assets/icons/item-01-laptop.webp" alt="" width="301" height="258" loading="lazy" decoding="async" aria-hidden="true"><img class="ic ic-ch2-camera" src="assets/icons/item-13-camera.webp" alt="" width="292" height="225" loading="lazy" decoding="async" aria-hidden="true"><ul class="car-track"><li class="car-slide" aria-roledescription="スライド" aria-label="1 / 1"><div class="pic"><img src="assets/photo-work-place.jpg" alt="" width="1000" height="750" loading="lazy"><i class="tape t2" aria-hidden="true"></i></div><div class="info"><span class="kind">就労継続支援B型</span><h3>アイミー博多</h3><p>動画制作とネット販売、2つの育成プログラムで、在宅ワークや一般就労につながるスキルを身につけます。</p><dl><div><dt>所在地</dt><dd>〒812-0013 福岡県福岡市博多区博多駅東2丁目9-25 アバンダント84 301号</dd></div><div><dt>アクセス</dt><dd>JR博多駅から徒歩7分</dd></div><div><dt>利用時間</dt><dd>月曜〜土曜 10:00〜15:00</dd></div><div><dt>定員</dt><dd>20名</dd></div></dl><a class="car-link" href="work/index.html">アイミー博多について詳しく<i aria-hidden="true">→</i></a></div></li></ul></div>
     <div class="foot"><p><img class="ic ic-ch2-mug" src="assets/icons/item-08-mug.webp" alt="" width="263" height="286" loading="lazy" decoding="async" aria-hidden="true">在宅でも、週1〜2回・短時間からでも始められます。</p><a class="more" href="work/index.html"><svg class="fb-a fb-l" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg><span class="fb-t">働き方とプログラムを見る</span><span class="fb-c" aria-hidden="true"></span><svg class="fb-a fb-r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
@@ -1434,6 +1438,6 @@ form.demo .form-status{font-size:var(--fs14);font-weight:700;color:#b0283f}
   if (still) video.forEach((v) => { v.removeAttribute('autoplay'); v.pause(); });
 })();
 </script>
-<script src="assets/fv-stroke.js?v=cae0aff6" defer></script>
+<script src="assets/fv-stroke.js?v=002a2975" defer></script>
 </body>
 </html>
