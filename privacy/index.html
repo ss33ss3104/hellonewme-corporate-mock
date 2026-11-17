@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <title>プライバシーポリシー｜株式会社ハローニューミー</title>
-<meta name="description" content="福岡市博多区で就労継続支援B型事業所「アイミー博多」を運営する、株式会社ハローニューミーの個人情報の取り扱いについて。">
+<meta name="description" content="福岡市博多区で就労継続支援B型事業所「アイミー」を運営する、株式会社ハローニューミーの個人情報の取り扱いについて。">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
 <link rel="preload" href="../assets/fonts/MomoTrustDisplay-Regular.ttf" as="font" type="font/ttf" crossorigin>
@@ -249,6 +249,7 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
 .car-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
 .car-count{font-size:var(--fs20);color:var(--blue);line-height:1}.car-count b{font-size:2.2em;font-weight:600}
 .car-label{font-size:var(--fs14);color:var(--sub);font-weight:700;letter-spacing:.24em}
+@media(max-width:860px){.car-label{letter-spacing:.06em;padding-right:96px}.car-count{flex-shrink:0;white-space:nowrap}}   /* 「障がい福祉サービス事業所」がスマホでノートPCのアイコンの下に潜った（2026-11-17）ので、アイコンの幅だけ右を空けて折り返す */
 .car-nav{margin-left:auto;display:flex;gap:10px}
 .car-nav button{width:52px;height:52px;border-radius:50%;border:2px solid var(--pink);background:#fff;display:grid;place-items:center;cursor:pointer;transition:background .3s,opacity .3s}
 .car-nav button:hover{background:var(--pinkpp)}.car-nav button:disabled{opacity:.35;cursor:default;background:#fff}
@@ -300,11 +301,11 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
 .ch3 .tate .word{grid-column:1/-1;font-size:clamp(5rem,9vw,8.5rem);color:var(--blue);line-height:.85;margin-top:24px}
 .ch3 .tate .chip{grid-column:1/-1;justify-self:start}
 .ch3 .tate .pen-pt{left:calc(100% + 4px);top:0}
-.ch3 .jobs ul{border-top:1px solid var(--ink)}
-.ch3 .jobs li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) minmax(0,4fr);gap:24px;align-items:center;padding:32px 0;border-bottom:1px solid var(--line)}
-.ch3 .jobs b{font-size:var(--fs20);line-height:1.5}
-.ch3 .jobs span{border-left:1px solid var(--line);padding-left:24px;color:#333;font-size:var(--fs14)}
-.ch3 .jobs em{font-style:normal;text-align:right;font-weight:700;color:var(--blue);line-height:1.6}
+:is(.ch3,.rech) .jobs ul{border-top:1px solid var(--ink)}
+:is(.ch3,.rech) .jobs li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) minmax(0,4fr);gap:24px;align-items:center;padding:32px 0;border-bottom:1px solid var(--line)}
+:is(.ch3,.rech) .jobs b{font-size:var(--fs20);line-height:1.5}
+:is(.ch3,.rech) .jobs span{border-left:1px solid var(--line);padding-left:24px;color:#333;font-size:var(--fs14)}
+:is(.ch3,.rech) .jobs em{font-style:normal;text-align:right;font-weight:700;color:var(--blue);line-height:1.6}
 .ch3 .kari-note{font-size:.75rem;color:var(--sub);margin-top:12px}
 @media(max-width:860px){
   .ch3 .wrap{grid-template-columns:1fr;gap:40px}
@@ -314,8 +315,8 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
   .ch3 .tate h2{grid-row:1/3;grid-column:1}
   .ch3 .tate .word{grid-column:2;grid-row:1;align-self:end;margin-top:0;font-size:min(30vw,9.5rem);letter-spacing:-.03em}   /* 本人「ME はもっとデカくていい」。右の空いた幅いっぱいまで */
   .ch3 .tate .chip{grid-column:2;grid-row:2;align-self:start;justify-self:end;margin:10px 10px 0 0}   /* ME の右端にそろえる（本人指定） */
-  .ch3 .jobs li{grid-template-columns:1fr;gap:6px;padding:24px 0}
-  .ch3 .jobs span{border-left:0;padding-left:0}.ch3 .jobs em{text-align:left}
+  :is(.ch3,.rech) .jobs li{grid-template-columns:1fr;gap:6px;padding:24px 0}
+  :is(.ch3,.rech) .jobs span{border-left:0;padding-left:0}:is(.ch3,.rech) .jobs em{text-align:left}
 }
 
 /* 終章：空の円に、入口の行が半分重なる */
@@ -388,11 +389,11 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
 .ch2 .pic .t2{right:-18px;top:10px;transform:rotate(30deg);background:rgba(167,243,210,.75)}
 .ch2 .pic .t3{left:-18px;bottom:14px;transform:rotate(-24deg)}
 /* 19 職種を航空券の札に（切り取り線は10の点線） */
-.ch3 .jobs ul{border-top:0;display:grid;gap:16px}
-.ch3 .jobs li.ticket{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,15em);gap:0;padding:0;border:0;background:#f3f8ff;border-radius:14px}
+:is(.ch3,.rech) .jobs ul{border-top:0;display:grid;gap:16px}
+:is(.ch3,.rech) .jobs li.ticket{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,15em);gap:0;padding:0;border:0;background:#f3f8ff;border-radius:14px}
 .ticket .main{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:4px 24px;align-items:center;padding:24px 28px}
 .ticket .main small{grid-column:1/-1;font-size:.6875rem;letter-spacing:.16em;color:var(--sub);line-height:1}
-.ch3 .jobs .ticket em{position:relative;display:flex;align-items:center;justify-content:flex-end;text-align:right;padding:20px 28px;
+:is(.ch3,.rech) .jobs .ticket em{position:relative;display:flex;align-items:center;justify-content:flex-end;text-align:right;padding:20px 28px;
   background:radial-gradient(circle,var(--pink) 1.3px,transparent 1.7px) 0 0/4px 9px repeat-y}
 .ticket .main small{white-space:nowrap}
 /* 切り取り線の両端の半円の切り欠き（PCは上下、スマホは左右） */
@@ -411,8 +412,8 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
 @keyframes bob{50%{transform:translateY(-10px) rotate(-10deg)}}
 @media(max-width:860px){
   .ticket .main{grid-template-columns:1fr;padding:20px 20px 16px}
-  .ch3 .jobs li.ticket{grid-template-columns:1fr}
-  .ch3 .jobs .ticket em{justify-content:flex-start;text-align:left;padding:14px 20px 18px;background:radial-gradient(circle,var(--pink) 1.3px,transparent 1.7px) 0 0/9px 4px repeat-x}
+  :is(.ch3,.rech) .jobs li.ticket{grid-template-columns:1fr}
+  :is(.ch3,.rech) .jobs .ticket em{justify-content:flex-start;text-align:left;padding:14px 20px 18px;background:radial-gradient(circle,var(--pink) 1.3px,transparent 1.7px) 0 0/9px 4px repeat-x}
   .ticket em::after{bottom:auto;top:-10px;left:auto;right:-10px}
   .tape{width:72px;height:20px}
   .ch1 .pic .t1{left:-12px;top:18px}
@@ -431,7 +432,13 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
 .wv.top{bottom:calc(100% - 1px)}.wv.bottom{bottom:-1px}.wv.below{top:calc(100% - 1px)}
 .ch1,.ch2 .band{position:relative;isolation:isolate}
 .ch1{background:var(--pale);padding-bottom:clamp(150px,20vw,290px)}   /* 太い流れの分だけ下の余白を広げる */
-.ch3{padding-bottom:clamp(140px,18vw,260px)}
+.ch3{padding-bottom:var(--s-中)}   /* 2026-11-17 案1：終章の波との間に採用情報の節が入ったので、波の下の余白は .rech へ移す */
+/* 採用情報（2026-11-17 案1で ME の章から独立）：物語の章より一段引かせ、左に見出し・右に職種の札 */
+.rech{position:relative;z-index:1;padding:var(--s-中) 0 clamp(140px,18vw,260px)}
+.rech .wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;align-items:start}
+.rech .rec-head h2{font-size:var(--fs28);font-weight:700;line-height:1.5;margin:14px 0 16px}
+.rech .rec-head p{font-size:var(--fs14);color:var(--sub);line-height:1.9}
+@media(max-width:860px){.rech .wrap{grid-template-columns:1fr;gap:28px}}
 .finale{background:var(--pale)}
 .ch1 .wv-rise{height:clamp(130px,20vw,300px)}
 .ch1 .wv-stream{height:clamp(120px,18vw,270px)}
@@ -916,7 +923,7 @@ form.demo .form-status{font-size:var(--fs14);font-weight:700;color:#b0283f}
 </header>
 <main><section id="P1" class="ph1"><i class="glow g1"></i><i class="glow g2"></i><div class="win sky" role="img" aria-label="空"></div><div class="wrap"><h1><span class="seg"><span class="nw">プライバシーポリシー</span></span></h1><div class="sub"></div><p class="wait">現行サイトの本文（https://www.hellonewme-inc.com/privacypolicy）を移し、会社サイト用に見直す</p></div></section></main>
 <footer class="ft sky"><div class="ft-tint"></div><svg class="wv wv-hang top flip" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true"><path class="c-sky2" d="M0,0 L1440,0 L1440,110 C1220,230 980,240 760,170 C540,100 300,130 0,220Z"/><path class="c-pale" d="M0,0 L1440,0 L1440,60 C1220,170 980,180 760,120 C540,60 300,80 0,170Z"/><path class="c-line" d="M1450,90 C1230,206 990,214 770,148 C580,92 400,96 220,130"/></svg><div class="wrap">
-  <div class="cols"><div><img class="logo" src="../assets/logo-white.png" alt="Hello new me inc." width="256" height="24">株式会社ハローニューミー<br>〒812-0013 福岡県福岡市博多区博多駅東2丁目9-25<br>アバンダント84 301号<br>TEL 092-292-0005／FAX 092-292-7003</div><div><b>サービス・ご相談</b><a href="../work/index.html">就労継続支援B型 アイミー</a><a href="../contact/index.html">お問い合わせ</a></div><div><b>法人・運営情報</b><a href="../about/index.html">ハローニューミーについて</a><a href="../information/index.html">情報公開</a><a href="../recruit/index.html">採用情報</a><a href="../privacy/index.html">個人情報</a><a href="../contact/index.html#C5">ご意見・苦情</a></div><div><b>関連サイト</b><a href="https://www.hellonewme-inc.com/" target="_blank" rel="noopener">アイミー博多（施設サイト）</a></div></div>
+  <div class="cols"><div><img class="logo" src="../assets/logo-white.png" alt="Hello new me inc." width="256" height="24">株式会社ハローニューミー<br>〒812-0013 福岡県福岡市博多区博多駅東2丁目9-25<br>アバンダント84 301号<br>TEL 092-292-0005／FAX 092-292-7003</div><div><b>サービス・ご相談</b><a href="../work/index.html">就労継続支援B型 アイミー</a><a href="../contact/index.html">お問い合わせ</a></div><div><b>法人・運営情報</b><a href="../about/index.html">ハローニューミーについて</a><a href="../information/index.html">情報公開</a><a href="../recruit/index.html">採用情報</a><a href="../privacy/index.html">個人情報</a><a href="../contact/index.html#C5">ご意見・苦情</a></div><div><b>関連サイト</b><a href="https://www.hellonewme-inc.com/" target="_blank" rel="noopener">アイミー（施設サイト）</a></div></div>
   <small>© Hello New Me Inc.</small>
 </div></footer>
 <script>/* 会社サイトの動き。定義の正本は ../設計書.md の9章。ライブラリは使わない。 */

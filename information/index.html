@@ -249,6 +249,7 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
 .car-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
 .car-count{font-size:var(--fs20);color:var(--blue);line-height:1}.car-count b{font-size:2.2em;font-weight:600}
 .car-label{font-size:var(--fs14);color:var(--sub);font-weight:700;letter-spacing:.24em}
+@media(max-width:860px){.car-label{letter-spacing:.06em;padding-right:96px}.car-count{flex-shrink:0;white-space:nowrap}}   /* 「障がい福祉サービス事業所」がスマホでノートPCのアイコンの下に潜った（2026-11-17）ので、アイコンの幅だけ右を空けて折り返す */
 .car-nav{margin-left:auto;display:flex;gap:10px}
 .car-nav button{width:52px;height:52px;border-radius:50%;border:2px solid var(--pink);background:#fff;display:grid;place-items:center;cursor:pointer;transition:background .3s,opacity .3s}
 .car-nav button:hover{background:var(--pinkpp)}.car-nav button:disabled{opacity:.35;cursor:default;background:#fff}
@@ -300,11 +301,11 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
 .ch3 .tate .word{grid-column:1/-1;font-size:clamp(5rem,9vw,8.5rem);color:var(--blue);line-height:.85;margin-top:24px}
 .ch3 .tate .chip{grid-column:1/-1;justify-self:start}
 .ch3 .tate .pen-pt{left:calc(100% + 4px);top:0}
-.ch3 .jobs ul{border-top:1px solid var(--ink)}
-.ch3 .jobs li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) minmax(0,4fr);gap:24px;align-items:center;padding:32px 0;border-bottom:1px solid var(--line)}
-.ch3 .jobs b{font-size:var(--fs20);line-height:1.5}
-.ch3 .jobs span{border-left:1px solid var(--line);padding-left:24px;color:#333;font-size:var(--fs14)}
-.ch3 .jobs em{font-style:normal;text-align:right;font-weight:700;color:var(--blue);line-height:1.6}
+:is(.ch3,.rech) .jobs ul{border-top:1px solid var(--ink)}
+:is(.ch3,.rech) .jobs li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) minmax(0,4fr);gap:24px;align-items:center;padding:32px 0;border-bottom:1px solid var(--line)}
+:is(.ch3,.rech) .jobs b{font-size:var(--fs20);line-height:1.5}
+:is(.ch3,.rech) .jobs span{border-left:1px solid var(--line);padding-left:24px;color:#333;font-size:var(--fs14)}
+:is(.ch3,.rech) .jobs em{font-style:normal;text-align:right;font-weight:700;color:var(--blue);line-height:1.6}
 .ch3 .kari-note{font-size:.75rem;color:var(--sub);margin-top:12px}
 @media(max-width:860px){
   .ch3 .wrap{grid-template-columns:1fr;gap:40px}
@@ -314,8 +315,8 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
   .ch3 .tate h2{grid-row:1/3;grid-column:1}
   .ch3 .tate .word{grid-column:2;grid-row:1;align-self:end;margin-top:0;font-size:min(30vw,9.5rem);letter-spacing:-.03em}   /* 本人「ME はもっとデカくていい」。右の空いた幅いっぱいまで */
   .ch3 .tate .chip{grid-column:2;grid-row:2;align-self:start;justify-self:end;margin:10px 10px 0 0}   /* ME の右端にそろえる（本人指定） */
-  .ch3 .jobs li{grid-template-columns:1fr;gap:6px;padding:24px 0}
-  .ch3 .jobs span{border-left:0;padding-left:0}.ch3 .jobs em{text-align:left}
+  :is(.ch3,.rech) .jobs li{grid-template-columns:1fr;gap:6px;padding:24px 0}
+  :is(.ch3,.rech) .jobs span{border-left:0;padding-left:0}:is(.ch3,.rech) .jobs em{text-align:left}
 }
 
 /* 終章：空の円に、入口の行が半分重なる */
@@ -388,11 +389,11 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
 .ch2 .pic .t2{right:-18px;top:10px;transform:rotate(30deg);background:rgba(167,243,210,.75)}
 .ch2 .pic .t3{left:-18px;bottom:14px;transform:rotate(-24deg)}
 /* 19 職種を航空券の札に（切り取り線は10の点線） */
-.ch3 .jobs ul{border-top:0;display:grid;gap:16px}
-.ch3 .jobs li.ticket{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,15em);gap:0;padding:0;border:0;background:#f3f8ff;border-radius:14px}
+:is(.ch3,.rech) .jobs ul{border-top:0;display:grid;gap:16px}
+:is(.ch3,.rech) .jobs li.ticket{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,15em);gap:0;padding:0;border:0;background:#f3f8ff;border-radius:14px}
 .ticket .main{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:4px 24px;align-items:center;padding:24px 28px}
 .ticket .main small{grid-column:1/-1;font-size:.6875rem;letter-spacing:.16em;color:var(--sub);line-height:1}
-.ch3 .jobs .ticket em{position:relative;display:flex;align-items:center;justify-content:flex-end;text-align:right;padding:20px 28px;
+:is(.ch3,.rech) .jobs .ticket em{position:relative;display:flex;align-items:center;justify-content:flex-end;text-align:right;padding:20px 28px;
   background:radial-gradient(circle,var(--pink) 1.3px,transparent 1.7px) 0 0/4px 9px repeat-y}
 .ticket .main small{white-space:nowrap}
 /* 切り取り線の両端の半円の切り欠き（PCは上下、スマホは左右） */
@@ -411,8 +412,8 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
 @keyframes bob{50%{transform:translateY(-10px) rotate(-10deg)}}
 @media(max-width:860px){
   .ticket .main{grid-template-columns:1fr;padding:20px 20px 16px}
-  .ch3 .jobs li.ticket{grid-template-columns:1fr}
-  .ch3 .jobs .ticket em{justify-content:flex-start;text-align:left;padding:14px 20px 18px;background:radial-gradient(circle,var(--pink) 1.3px,transparent 1.7px) 0 0/9px 4px repeat-x}
+  :is(.ch3,.rech) .jobs li.ticket{grid-template-columns:1fr}
+  :is(.ch3,.rech) .jobs .ticket em{justify-content:flex-start;text-align:left;padding:14px 20px 18px;background:radial-gradient(circle,var(--pink) 1.3px,transparent 1.7px) 0 0/9px 4px repeat-x}
   .ticket em::after{bottom:auto;top:-10px;left:auto;right:-10px}
   .tape{width:72px;height:20px}
   .ch1 .pic .t1{left:-12px;top:18px}
@@ -431,7 +432,13 @@ html:not(.js) .fvt .liq,html:not(.js) .fvt .ln{display:none}
 .wv.top{bottom:calc(100% - 1px)}.wv.bottom{bottom:-1px}.wv.below{top:calc(100% - 1px)}
 .ch1,.ch2 .band{position:relative;isolation:isolate}
 .ch1{background:var(--pale);padding-bottom:clamp(150px,20vw,290px)}   /* 太い流れの分だけ下の余白を広げる */
-.ch3{padding-bottom:clamp(140px,18vw,260px)}
+.ch3{padding-bottom:var(--s-中)}   /* 2026-11-17 案1：終章の波との間に採用情報の節が入ったので、波の下の余白は .rech へ移す */
+/* 採用情報（2026-11-17 案1で ME の章から独立）：物語の章より一段引かせ、左に見出し・右に職種の札 */
+.rech{position:relative;z-index:1;padding:var(--s-中) 0 clamp(140px,18vw,260px)}
+.rech .wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;align-items:start}
+.rech .rec-head h2{font-size:var(--fs28);font-weight:700;line-height:1.5;margin:14px 0 16px}
+.rech .rec-head p{font-size:var(--fs14);color:var(--sub);line-height:1.9}
+@media(max-width:860px){.rech .wrap{grid-template-columns:1fr;gap:28px}}
 .finale{background:var(--pale)}
 .ch1 .wv-rise{height:clamp(130px,20vw,300px)}
 .ch1 .wv-stream{height:clamp(120px,18vw,270px)}
@@ -916,7 +923,7 @@ form.demo .form-status{font-size:var(--fs14);font-weight:700;color:#b0283f}
 </header>
 <main><section id="I1" class="ph1"><i class="glow g1"></i><i class="glow g2"></i><picture class="ic-pic"><source srcset="../assets/icons/chara-08-spinner.gif" media="(prefers-reduced-motion: no-preference)"><img class="ic gif ic-ph1 flip" src="../assets/icons/chara-08-spinner.webp" alt="" width="320" height="455" loading="lazy" decoding="async" aria-hidden="true"></picture><div class="win photo"><img src="../assets/photo-information-head.jpg" alt="" width="1000" height="1000" decoding="async"></div><div class="wrap"><h1><span class="seg">情報公開</span></h1><div class="sub"><p>事業所の公表情報、財務状況、支援と運営の取組をご案内します。</p></div><div class="toc"><a href="#I2">事業所の詳しい情報</a><a href="#I3">事業所の概要</a><a href="#I4">財務状況</a><a href="#I5">生産活動と工賃の実績</a><a href="#I6">利用料について</a><a href="#I7">支援の質と運営の取組</a><a href="#I9">職員の処遇改善への取組</a><a href="#I10">苦情・ご意見の窓口</a></div></div></section><section id="I2" class="u u-rows tint"><svg class="wv wv-swell top" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true"><path class="c-sky2" d="M0,320 L0,200 C220,80 460,70 680,170 C840,244 960,270 1120,280 L1120,320Z"/><path class="c-pale" d="M0,320 L0,260 C200,170 420,160 620,230 C800,292 960,300 1120,270 C1260,244 1360,120 1440,60 L1440,320Z"/><path class="c-line" d="M-10,232 C200,130 420,120 640,200 C820,266 980,280 1140,250"/></svg><svg class="wv wv-hang below" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true"><path class="c-sky2" d="M0,0 L1440,0 L1440,110 C1220,230 980,240 760,170 C540,100 300,130 0,220Z"/><path class="c-pale" d="M0,0 L1440,0 L1440,60 C1220,170 980,180 760,120 C540,60 300,80 0,170Z"/><path class="c-line" d="M1450,90 C1230,206 990,214 770,148 C580,92 400,96 220,130"/></svg><div class="wrap"><h2>事業所の詳しい情報。</h2><p class="lead">職員体制・運営・公表済みの決算資料は、WAM NET（障害福祉サービス等情報公表システム）でご確認いただけます。</p><ul class="lrows"><li><a href="https://www.wam.go.jp/sfkohyoout/COP020100E00.do?_FORMID=COP000101&amp;corporationNumber=A4013200000152&amp;facilityNumber=4010102517&amp;bunjoNumber=000000&amp;serviceType=46&amp;serviceSubNumber=A0000158626" target="_blank" rel="noopener"><span class="n en">01</span><b>アイミー博多</b><span class="v">就労継続支援B型・事業所番号 4010102517<small>WAM NET で見る ↗</small></span><span class="ar" aria-hidden="true">→</span></a></li></ul></div></section><section id="I3" class="u u-bento"><div class="wrap"><h2>事業所の概要。</h2><dl class="bento b-facts"><div class="x"><dt>事業の開始・指定日</dt><dd>2026年2月2日</dd></div><div class="x big c-blue"><dt>利用定員</dt><dd><b class="en">20</b>名</dd></div><div class="x wide"><dt>営業日・時間</dt><dd>月曜〜土曜 9:00〜16:30（利用時間 10:00〜15:00）。日曜・祝日・12月31日〜1月3日は休業</dd></div><div class="x c-pink"><dt>サービスを提供する地域</dt><dd class="mid">福岡市全域</dd></div><div class="x c-pink"><dt>送迎</dt><dd class="mid">なし</dd></div><div class="x pending"><dt>協力医療機関</dt><dd>確認待ち（載せるか）</dd></div></dl><p class="wait">主たる対象（WAMでは精神障害者）を載せるか</p></div></section><section id="I4" class="u u-index tint"><svg class="wv wv-swell top" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true"><path class="c-sky2" d="M0,320 L0,200 C220,80 460,70 680,170 C840,244 960,270 1120,280 L1120,320Z"/><path class="c-pale" d="M0,320 L0,260 C200,170 420,160 620,230 C800,292 960,300 1120,270 C1260,244 1360,120 1440,60 L1440,320Z"/><path class="c-line" d="M-10,232 C200,130 420,120 640,200 C820,266 980,280 1140,250"/></svg><svg class="wv wv-hang below" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true"><path class="c-sky2" d="M0,0 L1440,0 L1440,110 C1220,230 980,240 760,170 C540,100 300,130 0,220Z"/><path class="c-pale" d="M0,0 L1440,0 L1440,60 C1220,170 980,180 760,120 C540,60 300,80 0,170Z"/><path class="c-line" d="M1450,90 C1230,206 990,214 770,148 C580,92 400,96 220,130"/></svg><div class="wrap"><h2>財務状況。</h2><p class="lead">第1期の損益計算書、キャッシュフロー計算書、貸借対照表、就労支援事業別事業活動明細書を公表しています。</p><ul class="bigidx"><li><a href="https://www.wam.go.jp/sfkohyoout/COP020100E00.do?_FORMID=COP000101&amp;corporationNumber=A4013200000152&amp;facilityNumber=4010102517&amp;bunjoNumber=000000&amp;serviceType=46&amp;serviceSubNumber=A0000158626" target="_blank" rel="noopener"><b>損益計算書</b><span>第1期 ・ WAM NET ↗</span></a></li><li><a href="https://www.wam.go.jp/sfkohyoout/COP020100E00.do?_FORMID=COP000101&amp;corporationNumber=A4013200000152&amp;facilityNumber=4010102517&amp;bunjoNumber=000000&amp;serviceType=46&amp;serviceSubNumber=A0000158626" target="_blank" rel="noopener"><b>キャッシュフロー計算書</b><span>第1期 ・ WAM NET ↗</span></a></li><li><a href="https://www.wam.go.jp/sfkohyoout/COP020100E00.do?_FORMID=COP000101&amp;corporationNumber=A4013200000152&amp;facilityNumber=4010102517&amp;bunjoNumber=000000&amp;serviceType=46&amp;serviceSubNumber=A0000158626" target="_blank" rel="noopener"><b>貸借対照表</b><span>第1期 ・ WAM NET ↗</span></a></li><li><a href="https://www.wam.go.jp/sfkohyoout/COP020100E00.do?_FORMID=COP000101&amp;corporationNumber=A4013200000152&amp;facilityNumber=4010102517&amp;bunjoNumber=000000&amp;serviceType=46&amp;serviceSubNumber=A0000158626" target="_blank" rel="noopener"><b>就労支援事業別事業活動明細書</b><span>第1期 ・ WAM NET ↗</span></a></li></ul><p class="wait">PDFをこのサイトにも置くか</p></div></section><section id="I5" class="u u-edit"><div class="wrap"><div class="edit"><figure class="pic a"><img src="../assets/photo-work-task.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async"><span class="ph-note">写真は仮（生成画像）。施設写真は確認待ち</span></figure><div class="b"><h2>生産活動と工賃の実績。</h2><p>動画作成に関する業務、ネットショッピングサイトに関する業務、その他の軽作業を行っています。</p></div><figure class="pic c"><img src="../assets/photo-about-room.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async"><span class="ph-note">写真は仮（生成画像）。施設写真は確認待ち</span></figure><p class="d">平均工賃や一般就労への移行の実績は、年度の実績がまとまり次第掲載します。</p></div></div></section><section id="I6" class="u u-num tint flat"><div class="wrap"><div class="num"><p class="v"><b class="en">1</b>割<small>利用者負担（原則）</small></p><div><h2>利用料について。</h2><p>利用者負担は原則1割で、所得に応じた上限があります。送迎・食事・日用品などの実費の徴収はありません。</p><a class="more" href="../work/index.html"><svg class="fb-a fb-l" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg><span class="fb-t">費用と工賃について</span><span class="fb-c" aria-hidden="true"></span><svg class="fb-a fb-r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div></section><section id="I7" class="u u-steps"><div class="wrap"><h2>支援の質と運営の取組。</h2><ol class="bigsteps"><li><b class="en">01</b><p>個別支援計画を作成し、ご本人の同意を得て、半年ごとに見直します</p></li><li><b class="en">02</b><p>週ごと・月ごとに支援の状況を評価しています</p></li><li><b class="en">03</b><p>相談支援専門員や主治医と連携しています</p></li><li><b class="en">04</b><p>感染症や災害のときも支援を続けるための業務継続計画を定めています</p></li><li><b class="en">05</b><p>ヒヤリハットを共有し、委員会を開いています</p></li></ol></div></section><section id="I9" class="u u-exp"><div class="wrap"><h2>職員の処遇改善への取組。</h2><div class="exp" data-exp><article class="c-blue on" tabindex="0"><img class="ic ic-exp" src="../assets/icons/item-20-sticky-notes.webp" alt="" width="259" height="209" loading="lazy" decoding="async" aria-hidden="true"><span class="v" aria-hidden="true">学びを支える</span><div class="tx"><h3>学びを支える</h3><p>会社の費用負担で研修を受けられます</p></div></article><article class="c-pink" tabindex="0"><img class="ic ic-exp" src="../assets/icons/part-13-bubble-round.webp" alt="" width="230" height="221" loading="lazy" decoding="async" aria-hidden="true"><span class="v" aria-hidden="true">相談しやすい職場</span><div class="tx"><h3>相談しやすい職場</h3><p>週1回のミーティングと個別面談で、業務や働き方の相談につなげます</p></div></article><article class="c-green" tabindex="0"><img class="ic ic-exp" src="../assets/icons/item-08-mug.webp" alt="" width="263" height="286" loading="lazy" decoding="async" aria-hidden="true"><span class="v" aria-hidden="true">働く環境を整える</span><div class="tx"><h3>働く環境を整える</h3><p>業務の分担、記録システムとチャットでの情報共有、年1回の健康診断</p></div></article></div><p class="wait">加算の区分</p></div></section><section id="I10" class="u u-rows tint flat"><div class="wrap"><h2>苦情・ご意見の窓口。</h2><p class="lead">サービスへのご意見・お困りごとは、お電話またはお問い合わせフォームで受け付けています。</p><ul class="lrows"><li><a href="tel:0922920005"><span class="n en">01</span><b>お電話</b><span class="v"><span class="en tel">092-292-0005</span></span><span class="ar" aria-hidden="true">→</span></a></li><li><a href="../contact/index.html"><span class="n en">02</span><b>お問い合わせフォーム</b><span class="v">お問い合わせのページへ</span><span class="ar" aria-hidden="true">→</span></a></li></ul><p class="wait">受付担当・第三者委員の有無</p></div></section></main>
 <footer class="ft sky"><div class="ft-tint"></div><svg class="wv wv-hang top flip" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true"><path class="c-sky2" d="M0,0 L1440,0 L1440,110 C1220,230 980,240 760,170 C540,100 300,130 0,220Z"/><path class="c-pale" d="M0,0 L1440,0 L1440,60 C1220,170 980,180 760,120 C540,60 300,80 0,170Z"/><path class="c-line" d="M1450,90 C1230,206 990,214 770,148 C580,92 400,96 220,130"/></svg><div class="wrap">
-  <div class="cols"><div><img class="logo" src="../assets/logo-white.png" alt="Hello new me inc." width="256" height="24">株式会社ハローニューミー<br>〒812-0013 福岡県福岡市博多区博多駅東2丁目9-25<br>アバンダント84 301号<br>TEL 092-292-0005／FAX 092-292-7003</div><div><b>サービス・ご相談</b><a href="../work/index.html">就労継続支援B型 アイミー</a><a href="../contact/index.html">お問い合わせ</a></div><div><b>法人・運営情報</b><a href="../about/index.html">ハローニューミーについて</a><a href="../information/index.html">情報公開</a><a href="../recruit/index.html">採用情報</a><a href="../privacy/index.html">個人情報</a><a href="../contact/index.html#C5">ご意見・苦情</a></div><div><b>関連サイト</b><a href="https://www.hellonewme-inc.com/" target="_blank" rel="noopener">アイミー博多（施設サイト）</a></div></div>
+  <div class="cols"><div><img class="logo" src="../assets/logo-white.png" alt="Hello new me inc." width="256" height="24">株式会社ハローニューミー<br>〒812-0013 福岡県福岡市博多区博多駅東2丁目9-25<br>アバンダント84 301号<br>TEL 092-292-0005／FAX 092-292-7003</div><div><b>サービス・ご相談</b><a href="../work/index.html">就労継続支援B型 アイミー</a><a href="../contact/index.html">お問い合わせ</a></div><div><b>法人・運営情報</b><a href="../about/index.html">ハローニューミーについて</a><a href="../information/index.html">情報公開</a><a href="../recruit/index.html">採用情報</a><a href="../privacy/index.html">個人情報</a><a href="../contact/index.html#C5">ご意見・苦情</a></div><div><b>関連サイト</b><a href="https://www.hellonewme-inc.com/" target="_blank" rel="noopener">アイミー（施設サイト）</a></div></div>
   <small>© Hello New Me Inc.</small>
 </div></footer>
 <script>/* 会社サイトの動き。定義の正本は ../設計書.md の9章。ライブラリは使わない。 */
